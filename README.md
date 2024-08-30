@@ -1,2 +1,2 @@
 # YellowBlueSkye-Portfolio
-Un portfolio pour commencer ;) 
+Un Portfolio pour bien commencer sa carrière de Web Digital Lover 🕸 💻 🌠
