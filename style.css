@@ -1,37 +1,43 @@
 body {
-    font-family: "Permanent Marker", cursive;
+    font-family: "monospace", monospace;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     text-align: center;
+    background-color: #c5b2be;
+}
+
+h1 {
+    font-size: 30px;
+    color:#c5b2be;
 }
 
 h2 {
-    font-size: 2em;
-    color: #4f649f;
+    font-size: 20px;
+    color: #5661f7;
 }
 
 header.header-bg {
     background-image: url('images/f38525205685107.Y3JvcCw0NDg0LDM1MDcsMjMzLDA.png');
     background-size: cover; /* L'image couvre tout le header */
     background-position: center; /* Centrer l'image */
-    height: 100vh; /* Le header occupe toute la hauteur de la fenêtre */
+    height: 600px; /* Le header occupe toute la hauteur de la fenêtre */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: rgb(202, 44, 44); /* Assurez-vous que le texte est lisible */
+    color: rgb(146, 95, 95); /* Assurez-vous que le texte est lisible */
 }
 
 header {
-    font-family: "Matemasie", sans-serif;
+    font-family: "Courier New", monospace;
     color: #4f649f;
     padding: 10px 20px;
 }
 
 .header-title {
-    flex: 8;
+    flex: 9;
     text-align: center;
 }
 
@@ -43,8 +49,8 @@ header {
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border-radius: 50%; /* Rend l'image circulaire */
-    border: 6px solid #9d9fb8; /* Bordure autour de l'image */
+    border-radius: 40%; /* Rend l'image circulaire */
+    border: 6px solid #c5b2be; /* Bordure autour de l'image */
 }
 
 img {
@@ -124,4 +130,13 @@ section {
 
 .project-item a:hover {
     background-color: #0056b3;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #c5b2be;
+    margin: auto;
 }
