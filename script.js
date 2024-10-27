@@ -28,7 +28,7 @@ function prevProject() {
 // Fonction pour démarrer le défilement automatique
 function startAutoScroll() {
     if (!intervalId) { // Ne pas démarrer si déjà en cours
-        intervalId = setInterval(nextProject, 8000); // Change de projet toutes les 3 secondes
+        intervalId = setInterval(nextProject, 8000); // Change de projet toutes les 8 secondes
     }
 }
 
