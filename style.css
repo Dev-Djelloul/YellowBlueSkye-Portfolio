@@ -1,185 +1,214 @@
 body {
-    font-family: "monospace", monospace;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    text-align: center;
-    background-color: #d0cbcf;
+  font-family: "Syne", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  text-align: center;
+  background-color: #c3bec3;
 }
 
 h1 {
-    font-size: 30px;
-    color: #c5b2be;
+  font-size: 30px;
+  color: #c3bec3;
 }
 
 h2 {
-    font-size: 20px;
-    color: #5661f7;
+  font-size: 20px;
+  color: #74a1d1;
+  margin: 50px;
 }
 
 header.header-bg {
-    background-image: url('images/f38525205685107.Y3JvcCw0NDg0LDM1MDcsMjMzLDA.png');
-    background-size: cover;
-    background-position: center;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: rgb(146, 95, 95);
+  background-image: url("images/f38525205685107.Y3JvcCw0NDg0LDM1MDcsMjMzLDA.png");
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(146, 95, 95);
 }
 
 .header-title {
-    flex: 9;
-    text-align: center;
+  flex: 9;
+  text-align: center;
 }
 
 .header-image {
-    flex: 10;
+  flex: 10;
 }
 
 .header-image img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 40%;
-    border: 6px solid #c5b2be;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 40%;
+  border: 6px solid #c5b2be;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    font-size: 200%;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  font-size: 135%;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 10px;
+  display: inline;
+  margin: 0 10px;
 }
 
 nav ul li a {
-    color: #9d9fb8;
-    text-decoration: none;
+  color: #9d9fb8;
+  text-decoration: none;
 }
 
 section {
-    padding: 20px;
-    margin: 20px;
+  padding: 20px;
+  margin: 20px;
 }
 
-#skills {
-    padding: 20px; /* Espacement autour de la section */
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.github {
+  margin: 10px;
 }
 
 .skills-container {
-    display: flex; /* Utiliser flexbox pour l'alignement horizontal */
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si l'espace est insuffisant */
-    justify-content: center; /* Centrer les compétences */
-    gap: 20px; /* Espace entre les compétences */
+  display: flex; /* Utiliser flexbox pour l'alignement horizontal */
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si l'espace est insuffisant */
+  justify-content: center; /* Centrer les compétences */
+  gap: 20px; /* Espace entre les compétences */
 }
 
 .skill {
-    display: flex;
-    flex-direction: column; /* Afficher l'image et le texte en colonne */
-    align-items: center; /* Centrer les éléments horizontalement */
-    text-align: center; /* Centrer le texte */
-    max-width: 100px; /* Limiter la largeur de chaque compétence */
+  display: flex;
+  flex-direction: column; /* Afficher l'image et le texte en colonne */
+  align-items: center; /* Centrer les éléments horizontalement */
+  text-align: center; /* Centrer le texte */
+  max-width: 100px; /* Limiter la largeur de chaque compétence */
 }
 
 .skill img {
-    width: 60px; /* Ajuste la taille de l'image des compétences */
-    height: auto; /* Maintenir les proportions de l'image */
+  width: 60px; /* Ajuste la taille de l'image des compétences */
+  height: auto; /* Maintenir les proportions de l'image */
 }
 
 .carousel-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .project-carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .project-item {
-    min-width: 100%;
-    box-sizing: border-box;
+  min-width: 100%;
+  box-sizing: border-box;
 }
 
 .project-item img {
-    width: 60%; /* Ajuste la largeur de l'image du projet à 60% */
-    height: auto;
+  width: 60%; /* Ajuste la largeur de l'image du projet à 60% */
+  height: auto;
 }
 
 .project-item h3 {
-    margin: 10px;
-    font-size: 1.5em;
-    color: #333;
+  margin: 10px;
+  font-size: 1.5em;
+  color: #333;
 }
 
 .project-item p {
-    margin: 10px;
-    color: #666;
+  margin: 10px;
+  color: #666;
 }
 
 .project-item a {
-    display: inline-block; /* Change to inline-block to allow centering */
-    margin: 25px auto; /* Add auto margins for centering */
-    padding: 7px;
-    background-color: #80a6cf;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 20px 5px 3px 20px;
-    text-align: center; /* Center text inside the link */
-    width: 115px;
+  display: inline-block; /* Change to inline-block to allow centering */
+  margin: 25px auto; /* Add auto margins for centering */
+  padding: 7px;
+  background-color: #74a1d1;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 20px 5px 3px 20px;
+  text-align: center; /* Center text inside the link */
+  width: 115px;
 }
 
 .project-item a:hover {
-    background-color: #0056b3;
+  background-color: #918591;
 }
 
 .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 2em;
-    padding: 0 0.5em;
-    z-index: 1;
-    opacity: 0; /* Masquer les boutons par défaut */
-    transition: opacity 0.3s ease; /* Transition pour l'effet de survol */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #d0cbcf;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  font-size: 2em;
+  padding: 0 0.5em;
+  z-index: 1;
+  opacity: 0; /* Masquer les boutons par défaut */
+  transition: opacity 0.3s ease; /* Transition pour l'effet de survol */
 }
 
 .carousel-container:hover .carousel-btn {
-    opacity: 1; /* Afficher les boutons au survol de la zone du carrousel */
+  opacity: 1; /* Afficher les boutons au survol de la zone du carrousel */
 }
 
 .prev {
-    left: 10px;
+  left: 10px;
 }
 
 .next {
-    right: 10px;
+  right: 10px;
 }
 
 .pause {
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.7;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em;
-    position: absolute; /* Assurez-vous qu'il est positionné correctement */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  position: absolute; /* Assurez-vous qu'il est positionné correctement */
+}
+
+/* Style pour le bouton de retour en haut */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #c3bec3;
+  color: #d0cbcf;
+  border: none;
+  cursor: pointer;
+  font-size: 2em;
+  padding: 0.5em;
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0; /* Masquer par défaut */
+  transition: opacity 0.3s ease; /* Transition pour le survol */
+}
+
+/* Affiche le bouton lorsque l'utilisateur a fait défiler vers le bas */
+.show-back-to-top {
+  opacity: 1; /* Affiche le bouton */
 }
