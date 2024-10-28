@@ -154,7 +154,7 @@ section {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #d0cbcf;
+  background-color: #c3bec3;
   color: rgba(0, 0, 0, 0.5);
   border: none;
   cursor: pointer;
@@ -163,6 +163,10 @@ section {
   z-index: 1;
   opacity: 0; /* Masquer les boutons par défaut */
   transition: opacity 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+.carousel-btn prev {
+    opacity: 0.2;
 }
 
 .carousel-container:hover .carousel-btn {
@@ -181,6 +185,7 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.7;
+  background-color: #c3bec3;
   border-radius: 50%;
   width: 50px;
   height: 50px;
