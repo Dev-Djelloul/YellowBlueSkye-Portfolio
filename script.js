@@ -28,8 +28,7 @@ function prevProject() {
 // Fonction pour démarrer le défilement automatique
 function startAutoScroll() {
   if (!intervalId) {
-    // Ne pas démarrer si déjà en cours
-    intervalId = setInterval(nextProject, 6000); // Change de projet toutes les 8 secondes
+    intervalId = setInterval(nextProject, 2500); // Change de projet toutes les 2,5 secondes
   }
 }
 
@@ -39,7 +38,7 @@ function pauseAutoScroll() {
   intervalId = null; // Réinitialiser intervalId
 }
 
-// Événements pour les boutons
+// Événements pour les boutons de navigation
 nextButton.addEventListener("click", nextProject);
 prevButton.addEventListener("click", prevProject);
 pauseButton.addEventListener("click", () => {
@@ -52,19 +51,31 @@ pauseButton.addEventListener("click", () => {
   }
 });
 
+// Écouteur d'événement sur chaque projet pour permettre de cliquer n'importe où
+projects.forEach(project => {
+  const projectWrapper = project.querySelector('.project-item-wrapper');
+  projectWrapper.addEventListener("click", () => {
+    if (intervalId) {
+      pauseAutoScroll();
+      pauseButton.innerHTML = "&#9654;"; // Mettre à jour le texte pour 'play'
+    } else {
+      startAutoScroll();
+      pauseButton.innerHTML = "&#10074;&#10074;"; // Mettre à jour le texte pour 'pause'
+    }
+  });
+});
+
 // Démarrer le défilement automatique au chargement
 startAutoScroll();
+showProject(currentIndex); // Afficher le premier projet
 
 // Écouteur d'événement pour les touches du clavier
 document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") {
-    // Flèche droite
     nextProject();
   } else if (event.key === "ArrowLeft") {
-    // Flèche gauche
     prevProject();
   } else if (event.key === " ") {
-    // Barre d'espace
     event.preventDefault(); // Empêcher le défilement de la page
     if (intervalId) {
       pauseAutoScroll();
@@ -79,7 +90,6 @@ document.addEventListener("keydown", (event) => {
 // Bouton de retour en haut
 const backToTopButton = document.getElementById("backToTop");
 
-// Affiche le bouton de retour en haut lorsque l'utilisateur défile
 window.addEventListener("scroll", function () {
   if (window.scrollY > 200) {
     backToTopButton.classList.add("show-back-to-top");
@@ -88,7 +98,6 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// Remonte la page lorsque l'utilisateur clique sur le bouton de retour en haut
 backToTopButton.addEventListener("click", function () {
   window.scrollTo({
     top: 0,

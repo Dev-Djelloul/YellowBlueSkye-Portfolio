@@ -4,7 +4,7 @@ body {
   padding: 0;
   line-height: 1.6;
   text-align: center;
-  background-color: #c3bec3;
+  background-color: #f0e4f0;
 }
 
 h1 {
@@ -16,6 +16,13 @@ h2 {
   font-size: 20px;
   color: #74a1d1;
   margin: 50px;
+}
+
+/* Style pour le header */
+header {
+  text-align: center; /* Centre le contenu du header */
+  padding: 20px; /* Ajoute un peu d'espace autour */
+  background-color: #c3bec3; /* Couleur de fond, ajustez si nécessaire */
 }
 
 header.header-bg {
@@ -58,6 +65,7 @@ nav ul {
 
 nav ul li {
   display: inline;
+  justify-content:  center;
   margin: 0 10px;
 }
 
@@ -115,6 +123,7 @@ section {
 .project-item {
   min-width: 100%;
   box-sizing: border-box;
+  cursor: pointer; /* Change le curseur en main lors du survol des éléments du carrousel */
 }
 
 .project-item img {
@@ -154,7 +163,7 @@ section {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #c3bec3;
+  background-color: #f0e4f0;
   color: rgba(0, 0, 0, 0.5);
   border: none;
   cursor: pointer;
