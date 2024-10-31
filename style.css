@@ -26,29 +26,31 @@ header {
 }
 
 header.header-bg {
-  background-image: url("images/f38525205685107.Y3JvcCw0NDg0LDM1MDcsMjMzLDA.png");
+  background-image: url("images/ufo-fantasy-5848285.jpg");
   background-size: cover;
   background-position: center;
   height: 600px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between; /* Espace entre les éléments */
+  align-items: center; /* Centrer verticalement les éléments */
   color: rgb(146, 95, 95);
+  padding: 0 20px; /* Ajouter un peu d'espace sur les côtés */
 }
 
+
 .header-title {
-  flex: 9;
-  text-align: center;
+  flex: 1; /* Permet à l'élément d'occuper de l'espace */
+  text-align: left; /* Alignement à gauche */
 }
 
 .header-image {
-  flex: 10;
+  flex: 0 0 auto; /* Ne pas permettre à cet élément de s'étendre */
+  margin-left: auto; /* Pousse l'image vers la droite */
 }
 
 .header-image img {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 40%;
   border: 6px solid #c5b2be;
@@ -65,7 +67,7 @@ nav ul {
 
 nav ul li {
   display: inline;
-  justify-content:  center;
+  justify-content: center;
   margin: 0 10px;
 }
 
@@ -175,7 +177,7 @@ section {
 }
 
 .carousel-btn prev {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 .carousel-container:hover .carousel-btn {
