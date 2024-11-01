@@ -4,7 +4,7 @@ body {
   padding: 0;
   line-height: 1.6;
   text-align: center;
-  background-color: #f0e4f0;
+  background-color: #b0bce2;
 }
 
 h1 {
@@ -15,14 +15,14 @@ h1 {
 h2 {
   font-size: 20px;
   color: #74a1d1;
-  margin: 50px;
+  margin: 30px;
 }
 
 /* Style pour le header */
 header {
-  text-align: center; /* Centre le contenu du header */
-  padding: 20px; /* Ajoute un peu d'espace autour */
-  background-color: #c3bec3; /* Couleur de fond, ajustez si nécessaire */
+  text-align: center;
+  padding: 20px;
+  background-color: #c3bec3;
 }
 
 header.header-bg {
@@ -31,21 +31,20 @@ header.header-bg {
   background-position: center;
   height: 600px;
   display: flex;
-  justify-content: space-between; /* Espace entre les éléments */
-  align-items: center; /* Centrer verticalement les éléments */
+  justify-content: space-between;
+  align-items: center;
   color: rgb(146, 95, 95);
-  padding: 0 20px; /* Ajouter un peu d'espace sur les côtés */
+  padding: 0 20px;
 }
 
-
 .header-title {
-  flex: 1; /* Permet à l'élément d'occuper de l'espace */
-  text-align: left; /* Alignement à gauche */
+  flex: 1;
+  text-align: left;
 }
 
 .header-image {
-  flex: 0 0 auto; /* Ne pas permettre à cet élément de s'étendre */
-  margin-left: auto; /* Pousse l'image vers la droite */
+  flex: 0 0 auto;
+  margin-left: auto;
 }
 
 .header-image img {
@@ -53,7 +52,7 @@ header.header-bg {
   height: 100px;
   object-fit: cover;
   border-radius: 40%;
-  border: 6px solid #c5b2be;
+  border: 2px solid #9d9fb8;
 }
 
 nav ul {
@@ -62,7 +61,7 @@ nav ul {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  font-size: 135%;
+  font-size: 95%;
 }
 
 nav ul li {
@@ -78,9 +77,9 @@ nav ul li a {
 
 section {
   padding: 20px;
-  margin: 20px;
-}
+  margin: 10px;
 
+/* Autres sections */
 .social-media {
   display: flex;
   justify-content: center;
@@ -92,23 +91,23 @@ section {
 }
 
 .skills-container {
-  display: flex; /* Utiliser flexbox pour l'alignement horizontal */
-  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si l'espace est insuffisant */
-  justify-content: center; /* Centrer les compétences */
-  gap: 20px; /* Espace entre les compétences */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .skill {
   display: flex;
-  flex-direction: column; /* Afficher l'image et le texte en colonne */
-  align-items: center; /* Centrer les éléments horizontalement */
-  text-align: center; /* Centrer le texte */
-  max-width: 100px; /* Limiter la largeur de chaque compétence */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 100px;
 }
 
 .skill img {
-  width: 60px; /* Ajuste la taille de l'image des compétences */
-  height: auto; /* Maintenir les proportions de l'image */
+  width: 60px;
+  height: auto;
 }
 
 .carousel-container {
@@ -125,11 +124,11 @@ section {
 .project-item {
   min-width: 100%;
   box-sizing: border-box;
-  cursor: pointer; /* Change le curseur en main lors du survol des éléments du carrousel */
+  cursor: pointer;
 }
 
 .project-item img {
-  width: 60%; /* Ajuste la largeur de l'image du projet à 60% */
+  width: 60%;
   height: auto;
 }
 
@@ -145,15 +144,15 @@ section {
 }
 
 .project-item a {
-  display: inline-block; /* Change to inline-block to allow centering */
-  margin: 25px auto; /* Add auto margins for centering */
+  display: inline-block;
+  margin: 25px auto;
   padding: 7px;
   background-color: #74a1d1;
   color: #fff;
   font-weight: bold;
   text-decoration: none;
   border-radius: 20px 5px 3px 20px;
-  text-align: center; /* Center text inside the link */
+  text-align: center;
   width: 115px;
 }
 
@@ -172,8 +171,8 @@ section {
   font-size: 2em;
   padding: 0 0.5em;
   z-index: 1;
-  opacity: 0; /* Masquer les boutons par défaut */
-  transition: opacity 0.3s ease; /* Transition pour l'effet de survol */
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .carousel-btn prev {
@@ -181,7 +180,7 @@ section {
 }
 
 .carousel-container:hover .carousel-btn {
-  opacity: 1; /* Afficher les boutons au survol de la zone du carrousel */
+  opacity: 1;
 }
 
 .prev {
@@ -204,27 +203,59 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 1.5em;
-  position: absolute; /* Assurez-vous qu'il est positionné correctement */
+  position: absolute;
+}
 }
 
-/* Style pour le bouton de retour en haut */
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #c3bec3;
-  color: #d0cbcf;
-  border: none;
-  cursor: pointer;
-  font-size: 2em;
-  padding: 0.5em;
-  border-radius: 50%;
-  z-index: 1;
-  opacity: 0; /* Masquer par défaut */
-  transition: opacity 0.3s ease; /* Transition pour le survol */
+/* Responsiveness */
+@media (max-width: 1050px) {
+  header.header-bg {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .header-title {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .header-image {
+    margin: 0;
+  }
+
+  .header-image img {
+    width: 80px;
+    height: 80px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    font-size: 20%;
+    gap: 10px;
+  }
 }
 
-/* Affiche le bouton lorsque l'utilisateur a fait défiler vers le bas */
-.show-back-to-top {
-  opacity: 1; /* Affiche le bouton */
+@media (max-width: 768px) {
+  header.header-bg {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-title h1{
+    font-size: 4px;
+    margin-top: -10px;
+    margin-bottom: 50px;
+  }
+
+  .header-image img {
+    width: 66px;
+    height: 66px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    font-size: 30%;
+  }
+}
 }
