@@ -225,13 +225,14 @@ section {
   }
 
   .header-image img {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
   }
 
   nav ul {
     flex-direction: row;
-    font-size: 95%;
+    font-size: 115%;
+    color: #9d9fb8;
     gap: 10px;
   }
 
@@ -257,12 +258,13 @@ section {
   }
 
   .header-image img {
-    width: 66px;
-    height: 66px;
+    width: 85px;
+    height: 85px;
   }
 
   nav ul {
     flex-direction: row;
-    font-size: 75%;
+    font-size: 95%;
+    color: #9d9fb8;
   }
 }
