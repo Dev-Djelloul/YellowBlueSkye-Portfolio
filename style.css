@@ -231,7 +231,7 @@ section {
 
   nav ul {
     flex-direction: row;
-    font-size: 20%;
+    font-size: 65%;
     gap: 10px;
   }
 }
@@ -243,9 +243,13 @@ section {
   }
 
   .header-title h1{
-    font-size: 4px;
+    font-size: 10px;
     margin-top: -10px;
     margin-bottom: 50px;
+  }
+
+  h2 {
+    font-size: 8px;
   }
 
   .header-image img {
@@ -255,7 +259,6 @@ section {
 
   nav ul {
     flex-direction: row;
-    font-size: 30%;
+    font-size: 75%;
   }
-}
 }
