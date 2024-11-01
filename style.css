@@ -231,8 +231,12 @@ section {
 
   nav ul {
     flex-direction: row;
-    font-size: 65%;
+    font-size: 95%;
     gap: 10px;
+  }
+
+  h2 {
+    font-size: 12px;
   }
 }
 
