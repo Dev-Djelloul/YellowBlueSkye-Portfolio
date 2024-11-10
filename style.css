@@ -1,10 +1,11 @@
+/* Google Fonts */
 body {
   font-family: "Syne", sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
   text-align: center;
-  background-color: #b0bce2;
+  background-color: #09386a;
 }
 
 h1 {
@@ -18,23 +19,25 @@ h2 {
   margin: 30px;
 }
 
+p {
+  color: #ecedf8;
+}
+
 /* Style pour le header */
 header {
   text-align: center;
-  padding: 20px;
-  background-color: #c3bec3;
+  padding: 6px;
+  background-color: #666;
 }
 
-header.header-bg {
+.header-bg {
   background-image: url("images/ufo-fantasy-5848285.jpg");
   background-size: cover;
   background-position: center;
-  height: 600px;
+  height: 666px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: rgb(146, 95, 95);
-  padding: 0 20px;
 }
 
 .header-title {
@@ -48,10 +51,10 @@ header.header-bg {
 }
 
 .header-image img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
-  border-radius: 40%;
+  border-radius: 30%;
   border: 2px solid #9d9fb8;
 }
 
@@ -61,7 +64,7 @@ nav ul {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  font-size: 95%;
+  font-size: 1.2em;
 }
 
 nav ul li {
@@ -71,15 +74,23 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #9d9fb8;
+  color: #ecedf8;
   text-decoration: none;
 }
 
 section {
   padding: 20px;
   margin: 10px;
+}
 
 /* Autres sections */
+
+#about p {
+  color: #666;
+  font-size: 1.2em;
+  margin: auto;
+}
+
 .social-media {
   display: flex;
   justify-content: center;
@@ -135,12 +146,12 @@ section {
 .project-item h3 {
   margin: 10px;
   font-size: 1.5em;
-  color: #333;
+  color: #ecedf8;
 }
 
 .project-item p {
   margin: 10px;
-  color: #666;
+  color: #ecedf8;
 }
 
 .project-item a {
@@ -157,14 +168,13 @@ section {
 }
 
 .project-item a:hover {
-  background-color: #918591;
+  background-color: #666;
 }
 
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #b0bce2;
   color: rgba(0, 0, 0, 0.5);
   border: none;
   cursor: pointer;
@@ -175,8 +185,16 @@ section {
   transition: opacity 0.3s ease;
 }
 
-.carousel-btn prev {
-  opacity: 0.2;
+.carousel-btn.prev {
+  left: 3;
+  opacity: 0.5;
+  background-color: #09386a;
+}
+
+.carousel-btn.next {
+  right: 3;
+  opacity: 0.5;
+  background-color: #09386a;
 }
 
 .carousel-container:hover .carousel-btn {
@@ -205,14 +223,70 @@ section {
   font-size: 1.5em;
   position: absolute;
 }
+
+#footer p {
+  color: #666;
 }
 
-/* Responsiveness */
-@media (max-width: 1050px) {
+/* Responsiveness mobile */
+
+@media (max-width: 768px) {
+  header {
+    padding: 6px;
+  }
+
   header.header-bg {
+    background-image: url("images/ufo-fantasy-5848285.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     flex-direction: column;
-    height: auto;
-    padding: 20px;
+    align-items: center;
+  }
+
+  .header-title h1 {
+    font-size: 10px;
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+
+  .header-image img {
+    width: 85px;
+    height: 85px;
+  }
+
+  nav ul li a {
+    flex-direction: row;
+    font-size: 77%;
+    color: #ecedf8;
+  }
+
+  #footer p {
+    font-size: small;
+  }
+}
+
+/* Responsiveness tab */
+
+@media (max-width: 1050px) {
+  header {
+    padding: 6px;
+  }
+
+  header.header-bg {
+    background-image: url("images/ufo-fantasy-5848285.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
   }
 
   .header-title {
@@ -231,40 +305,15 @@ section {
 
   nav ul {
     flex-direction: row;
-    font-size: 115%;
-    color: #9d9fb8;
-    gap: 10px;
+    font-size: 99%;
+    color: #ecedf8;
   }
 
   h2 {
     font-size: 18px;
   }
-}
 
-@media (max-width: 768px) {
-  header.header-bg {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .header-title h1{
-    font-size: 10px;
-    margin-top: -10px;
-    margin-bottom: 50px;
-  }
-
-  h2 {
-    font-size: 12px;
-  }
-
-  .header-image img {
-    width: 85px;
-    height: 85px;
-  }
-
-  nav ul {
-    flex-direction: row;
-    font-size: 95%;
-    color: #9d9fb8;
+  #footer p {
+    font-size: small;
   }
 }
