@@ -260,10 +260,21 @@ section {
     height: 85px;
   }
 
+  #about p {
+    color: #666;
+    font-size: 1em;
+    margin: auto;
+  }
+
   nav ul li a {
     flex-direction: row;
-    font-size: 77%;
+    font-size: 80%;
     color: #ecedf8;
+  }
+
+  .map {
+    width: 250px;
+    height: 250px;
   }
 
   #footer p {
