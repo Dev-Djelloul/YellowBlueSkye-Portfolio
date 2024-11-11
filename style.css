@@ -23,6 +23,16 @@ p {
   color: #ecedf8;
 }
 
+a {
+  color: #ecedf8; /* Remplacez #ff6347 par la couleur de votre choix */
+  text-decoration: none; /* Pour enlever la soulignure si nécessaire */
+}
+
+a:hover {
+  color: #74a1d1; /* Couleur au survol (optionnel) */
+}
+
+
 /* Style pour le header */
 header {
   text-align: center;
@@ -237,14 +247,18 @@ section {
 
   header.header-bg {
     background-image: url("images/ufo-fantasy-5848285.jpg");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
+    background-size: cover; /* Couvre toute la zone */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    width: 100%; /* Prend toute la largeur de la page */
+    height: 100vh; /* Couvre toute la hauteur de la fenêtre */
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    overflow: hidden; /* Empêche le débordement */
   }
+  
 
   .header-title h1 {
     font-size: 10px;
@@ -262,13 +276,22 @@ section {
 
   #about p {
     color: #666;
-    font-size: 1em;
+    font-size: 0.9975em;
     margin: auto;
   }
+  
 
+  nav {
+    display: flex;
+    justify-content: center; 
+  }
+  
+  nav ul li {
+    margin: 0 2px; /* Espace entre les items */
+  }
+  
   nav ul li a {
-    flex-direction: row;
-    font-size: 80%;
+    font-size: 100%;
     color: #ecedf8;
   }
 
@@ -310,8 +333,8 @@ section {
   }
 
   .header-image img {
-    width: 85px;
-    height: 85px;
+    width: 105px;
+    height: 105px;
   }
 
   nav ul {
