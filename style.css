@@ -1,4 +1,4 @@
-/* Google Fonts */
+/* Corps général et image de fond */
 body {
   font-family: "Syne", sans-serif;
   margin: 0;
@@ -8,46 +8,11 @@ body {
   background-color: #09386a;
 }
 
-h1 {
-  font-size: 30px;
-  color: #c3bec3;
-}
-
-h2 {
-  font-size: 20px;
-  color: #74a1d1;
-  margin: 30px;
-}
-
-p {
-  color: #ecedf8;
-}
-
-a {
-  color: #ecedf8; /* Remplacez #ff6347 par la couleur de votre choix */
-  text-decoration: none; /* Pour enlever la soulignure si nécessaire */
-}
-
-a:hover {
-  color: #74a1d1; /* Couleur au survol (optionnel) */
-}
-
-
-/* Style pour le header */
+/* Styles pour le header */
 header {
   text-align: center;
   padding: 6px;
   background-color: #666;
-}
-
-.header-bg {
-  background-image: url("images/ufo-fantasy-5848285.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 666px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .header-title {
@@ -88,29 +53,39 @@ nav ul li a {
   text-decoration: none;
 }
 
+a {
+  color: #ecedf8; /* Couleur par défaut */
+  text-decoration: none; 
+}
+
+a:hover {
+  color: #74a1d1; /* Couleur au survol */
+}
+
+/* Styles pour les titres et paragraphes */
+p {
+  color: #ecedf8;
+}
+
+h2 {
+  font-size: 20px;
+  color: #74a1d1;
+  margin: 30px;
+}
+
+/* Sections à propos */
 section {
   padding: 20px;
   margin: 10px;
 }
 
-/* Autres sections */
-
 #about p {
-  color: #666;
+  color: #74a1d1;
   font-size: 1.2em;
   margin: auto;
 }
 
-.social-media {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.github {
-  margin: 10px;
-}
-
+/* Section compétences */
 .skills-container {
   display: flex;
   flex-wrap: wrap;
@@ -234,12 +209,23 @@ section {
   position: absolute;
 }
 
+/* Section contact */
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.github {
+  margin: 10px;
+}
+
+/* Section footer */
 #footer p {
   color: #666;
 }
 
 /* Responsiveness mobile */
-
 @media (max-width: 768px) {
   header {
     padding: 6px;
@@ -306,7 +292,6 @@ section {
 }
 
 /* Responsiveness tab */
-
 @media (max-width: 1050px) {
   header {
     padding: 6px;
