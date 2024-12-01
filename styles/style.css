@@ -5,7 +5,7 @@ body {
   padding: 0;
   line-height: 1.6;
   text-align: center;
-  background: #112942 url("/images/ufo-fantasy-5848285.jpg") no-repeat fixed center;
+  background: #112942 url("images/ufo-fantasy-5848285.jpg") no-repeat fixed center;
   background-size: cover;
   box-shadow: 0 0 66px 1px #666;
 }
