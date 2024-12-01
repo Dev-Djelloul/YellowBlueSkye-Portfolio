@@ -1,0 +1,363 @@
+/* Corps général et image de fond */
+body {
+  font-family: "Syne", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  text-align: center;
+  background: #112942 url("/images/ufo-fantasy-5848285.jpg") no-repeat fixed center;
+  background-size: cover;
+  box-shadow: 0 0 66px 1px #666;
+}
+
+/* Styles pour le header */
+header {
+  background-color: transparent;
+  text-align: center;
+  align-items: center;
+  padding: 6px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-bg {
+  margin-top: 270px;
+}
+
+.header-title {
+  flex: 1;
+  text-align: left;
+}
+
+.header-image img {
+  margin: -75px 0px 160px 1100px;
+  width: 85px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 30%;
+  border: 2px solid #9d9fb8;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 40px;
+  font-size: 20px;
+}
+
+nav ul li a {
+  color: #823f9f; /* Couleur de base si le navigateur ne supporte pas les gradients */
+  text-decoration: none;
+  font-weight: lighter;
+  background: linear-gradient(90deg, rgb(72, 103, 205), #823f9f); /* Dégradé horizontal */
+  -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
+  -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
+}
+
+a {
+  color: #ecedf8;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #823f9f;
+}
+
+/* Titres et paragraphes */
+
+h1 {
+  margin: 30px;
+  font-size: 30px;
+  font-weight: bold; /* Optionnel, pour un titre plus marqué */
+  background: linear-gradient(90deg, #c3bec3, #666, #74a1d1); /* Dégradé personnalisé */
+  -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
+  -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
+}
+
+h2 {
+  margin: 30px;
+  font-size: 10px;
+  color: #74a1d1;
+}
+
+p {
+  color: #f2ecf8;
+  margin: 10px;
+}
+
+#about p {
+  color: #74a1d1;
+  font-size: 1.2em;
+  margin: 120px;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+  margin: 10px;
+}
+
+/* Compétences */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.skill img {
+  width: 60px;
+  height: auto;
+}
+
+/* Carrousel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.project-carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.project-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.project-item img {
+  width: 60%;
+  height: auto;
+}
+
+.project-item h3, .project-item p {
+  margin: 10px;
+  color: #ecedf8;
+}
+
+.project-item a {
+  display: inline-block;
+  margin: 25px auto;
+  padding: 7px;
+  background-color: #74a1d1;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 20px 5px 3px 20px;
+  text-align: center;
+  width: 115px;
+}
+
+.project-item a:hover {
+  background-color: #666;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  background-color: #eaf3fc;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.carousel-btn.prev {
+  left: 3;
+  opacity: 0.5;
+  background-color: transparent;
+}
+
+.carousel-btn.next {
+  right: 3;
+  opacity: 0.5;
+  background-color: transparent;
+}
+
+.carousel-container:hover .carousel-btn {
+  opacity: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Pause bouton */
+.pause {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+  background-color: #c3bec3;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+/* Contact */
+.map {
+  width: 100%;
+  max-width: 600px;
+  height: 250px;
+  border: 10px solid #666;
+  border-radius: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+form label {
+  font-size: 15px;
+  font-weight: lighter;
+  color: #823f9f;
+}
+
+form input,
+form textarea,
+form button {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  padding: 10px;
+  border: 2px solid #c3bec3;
+  border-radius: 15px;
+  outline: none;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #823f9f;
+  box-shadow: 0 0 5px #823f9f;
+}
+
+form button {
+  background-color: #823f9f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #a065b3;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Footer */
+#footer p {
+  color: #666;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+
+  section {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 10px;
+    margin: 80px;
+  }
+
+  h2 {
+    font-size: 10px;
+  }
+
+  .header-image img {
+    margin: 0px 100px 160px;
+    width: 105px;
+    height: 105px;
+  }
+
+  p {
+    font-size: 10px;
+    margin: 85px;
+  }
+
+  .map {
+    width: 200px;
+  }
+
+  #footer p {
+    font-size: small;
+  }
+}
+
+@media (max-width: 1000px) {
+
+  section {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  header {
+    flex-direction: column;
+  }
+
+  .header-bg {  
+    margin-top: 95px;
+  }
+  
+
+  h1 {
+    font-size: 10px;
+    margin: 80px;
+  }
+
+  h2 {
+    font-size: 10px;
+  }
+
+  form {
+    max-width: 300px;
+  }
+
+  p {
+    font-size: 15px;
+    margin: 85px;
+  }
+
+  .header-image img {
+    margin: 210px 0px 30px;
+    width: 90px;
+    height: 90px;
+  }
+
+  nav ul {
+    font-size: 0.9em;
+  }
+
+  #about p {
+    margin: 60px;
+  }
+}
