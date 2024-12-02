@@ -7,7 +7,6 @@ body {
   text-align: center;
   background: #112942 url("../images/ufo-fantasy-5848285.jpg") no-repeat fixed center;
   background-size: cover;
-  box-shadow: 0 0 66px 1px #666;
 }
 
 /* Styles pour le header */
@@ -69,7 +68,7 @@ a:hover {
 
 h1 {
   margin: 30px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold; /* Optionnel, pour un titre plus marqué */
   background: linear-gradient(90deg, #c3bec3, #666, #74a1d1); /* Dégradé personnalisé */
   -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
@@ -78,19 +77,19 @@ h1 {
 
 h2 {
   margin: 30px;
-  font-size: 10px;
+  font-size: 15px;
   color: #74a1d1;
 }
 
 p {
-  color: #f2ecf8;
+  color: #faf7fb;
   margin: 10px;
 }
 
 #about p {
   color: #74a1d1;
-  font-size: 1.2em;
-  margin: 120px;
+  font-size: 20px;
+  margin: 85px;
 }
 
 /* Sections */
@@ -137,24 +136,24 @@ section {
 
 .project-item h3, .project-item p {
   margin: 10px;
-  color: #ecedf8;
+  color: #faf7fb;
 }
 
 .project-item a {
   display: inline-block;
   margin: 25px auto;
   padding: 7px;
-  background-color: #74a1d1;
-  color: #fff;
+  background-color: #112942;
+  color: #f5eef9;
   font-weight: bold;
   text-decoration: none;
-  border-radius: 20px 5px 3px 20px;
+  border-radius: 10px 20px 10px 20px;
   text-align: center;
   width: 115px;
 }
 
 .project-item a:hover {
-  background-color: #666;
+
 }
 
 .carousel-btn {
@@ -273,24 +272,28 @@ form button:hover {
 
 /* Footer */
 #footer p {
-  color: #666;
+  color: #ecedf8;
 }
 
 /* Responsiveness */
 @media (max-width: 768px) {
 
-  section {
-    padding: 20px;
-    margin: 10px;
-  }
+ .header-bg {
+    margin-top: 215px;
+  } 
 
   h1 {
-    font-size: 10px;
+    font-size: 15px;
     margin: 80px;
   }
 
   h2 {
     font-size: 10px;
+    margin: 60px;
+  }
+
+  nav ul li a {
+    font-size: 15px;
   }
 
   .header-image img {
@@ -299,13 +302,18 @@ form button:hover {
     height: 105px;
   }
 
+  #about p {
+    margin: 0px;
+    font-size: 15px;
+  }
+
   p {
     font-size: 10px;
     margin: 85px;
   }
 
   .map {
-    width: 200px;
+    width: 275px;
   }
 
   #footer p {
@@ -330,12 +338,12 @@ form button:hover {
   
 
   h1 {
-    font-size: 10px;
     margin: 80px;
   }
 
   h2 {
-    font-size: 10px;
+    font-size: 15px;
+    margin: 60px;
   }
 
   form {
@@ -344,20 +352,21 @@ form button:hover {
 
   p {
     font-size: 15px;
-    margin: 85px;
+    margin: 5px;
   }
 
   .header-image img {
-    margin: 210px 0px 30px;
+    margin: 168px 0px 30px;
     width: 90px;
     height: 90px;
   }
 
   nav ul {
-    font-size: 0.9em;
+    font-size: 18px;
   }
 
   #about p {
-    margin: 60px;
+    margin: 0px;
+    font-size: 15px;
   }
 }
