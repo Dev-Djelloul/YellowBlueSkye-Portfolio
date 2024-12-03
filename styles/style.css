@@ -42,14 +42,14 @@ nav ul {
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 40px;
+  gap: 35px;
   font-size: 20px;
 }
 
 nav ul li a {
   color: #823f9f; /* Couleur de base si le navigateur ne supporte pas les gradients */
   text-decoration: none;
-  font-weight: lighter;
+  font-weight: bold;
   background: linear-gradient(90deg, rgb(72, 103, 205), #823f9f); /* Dégradé horizontal */
   -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
   -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
@@ -77,7 +77,7 @@ h1 {
 
 h2 {
   margin: 30px;
-  font-size: 15px;
+  font-size: 20px;
   color: #74a1d1;
 }
 
@@ -107,7 +107,7 @@ section {
 }
 
 .skill img {
-  width: 60px;
+  width: 40px;
   height: auto;
 }
 
@@ -132,6 +132,7 @@ section {
 .project-item img {
   width: 60%;
   height: auto;
+  border-radius: 20px;
 }
 
 .project-item h3, .project-item p {
@@ -356,8 +357,8 @@ form button:hover {
   }
 
   .header-image img {
-    margin: 168px 0px 30px;
-    width: 90px;
+    margin: -75px 0px 275px 666px;
+    width: 80px;
     height: 90px;
   }
 
