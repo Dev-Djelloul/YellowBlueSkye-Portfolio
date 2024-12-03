@@ -20,7 +20,7 @@ header {
 }
 
 .header-bg {
-  margin-top: 270px;
+  margin-top: 375px;
 }
 
 .header-title {
@@ -29,11 +29,11 @@ header {
 }
 
 .header-image img {
-  margin: -75px 0px 160px 1100px;
-  width: 85px;
-  height: 100px;
+  margin: 0px 0px 160px 1100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  border-radius: 30%;
+  border-radius: 50%;
   border: 2px solid #9d9fb8;
 }
 
@@ -89,12 +89,17 @@ p {
 #about p {
   color: #74a1d1;
   font-size: 20px;
-  margin: 85px;
+  margin: 130px;
 }
 
 /* Sections */
-section {
-  padding: 20px;
+section#skills {
+  padding: 10px;
+  margin: 300px;
+}
+
+section#contact {
+  padding: 300px;
   margin: 10px;
 }
 
@@ -151,10 +156,6 @@ section {
   border-radius: 10px 20px 10px 20px;
   text-align: center;
   width: 115px;
-}
-
-.project-item a:hover {
-
 }
 
 .carousel-btn {
