@@ -13,15 +13,15 @@
     <header>
       <nav>
         <ul>
-          <li><a href="index.html">ACCUEIL</a></li>
-          <li><a href="aboutme.html">À PROPOS</a></li>
-          <li><a href="projects.html">PROJETS</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="index-en.html">HOME</a></li>
+          <li><a href="aboutme-en.html">ABOUT ME</a></li>
+          <li><a href="projects-en.html">PROJECTS</a></li>
+          <li><a href="contact-en.html">CONTACT</a></li>
           <li class="language-switch">
-            <a href="contact-en.html" id="switch-to-en">
+            <a href="#" id="switch-to-en" style="display: none;">
               <img src="images/icons/icons8-french-flag-48.png" alt="Français" />
             </a>
-            <a href="#" id="switch-to-fr" style="display: none;">
+            <a href="contact.html" id="switch-to-fr">
               <img src="images/icons/icons8-uk-flag-48.png" alt="English" />
             </a>
           </li>
@@ -30,7 +30,7 @@
     </header>
 
     <section id="contact">
-      <h2>MA LOCALISATION 🪐</h2>
+      <h2>MY LOCATION 🪐</h2>
       <iframe
         class="map"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5249.667043389906!2d2.3726324945096957!3d48.86138487622553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66dfbc5102947%3A0xe821db0f15238452!2s4%20Rue%20de%20la%20Folie%20M%C3%A9ricourt%2C%2075011%20Paris!5e0!3m2!1sfr!2sfr!4v1730708220925!5m2!1sfr!2sfr"
@@ -43,22 +43,22 @@
         title="Google Maps location of 4 Rue de la Folie-Méricourt, 75011 Paris, France"
       ></iframe>
     
-      <h2>VOTRE MESSAGE ICI</h2>
-        <form id="contact-form" onsubmit="sendEmail(event)">
-            <label for="user_name">Nom :</label>
-            <input type="text" id="user_name" name="user_name"  placeholder="Nom..." required />
+      <h2>LEAVE YOUR MESSAGE HERE</h2>
+      <form id="contact-form" onsubmit="sendEmail(event)">
+          <label for="user_name">Name:</label>
+          <input type="text" id="user_name" name="user_name"  placeholder="Name..." required />
 
-            <label for="user_email">Email :</label>
-            <input type="email" id="user_email" name="user_email" placeholder="Email..." required />
+          <label for="user_email">Email:</label>
+          <input type="email" id="user_email" name="user_email" placeholder="Email..." required />
 
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" rows="4" placeholder="Message..." required></textarea>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" placeholder="Message..." required></textarea>
 
-            <button type="submit">Envoyer</button>
-        </form>
+          <button type="submit">Send</button>
+      </form>
 
       <p style="margin: 50px;">
-        Vous pouvez également m'envoyer un email à
+        You can also email me at
         <a
           href="https://mail.google.com/mail/?view=cm&fs=1&to=djelloulabid75@gmail.com"
           target="_blank"
@@ -81,26 +81,26 @@
     </section>
     
     <footer id="footer">
-      <p>&copy; 2024 YellowBlueSkye. Tous droits réservés.</p>
+      <p>&copy; 2024 YellowBlueSkye. All rights reserved.</p>
     </footer>
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        // Initialisation d'EmailJS
+        // EmailJS initialization
         emailjs.init("kkd1HUlIJ8R5UKrAj");
 
         function sendEmail(event) {
-            event.preventDefault(); // Empêche le rechargement de la page
+            event.preventDefault(); // Prevent page reload
 
             const form = document.getElementById("contact-form");
 
-            // Envoie de l'email via EmailJS
+            // Send email via EmailJS
             emailjs.sendForm('service_54378py', 'template_ureghde', form)
                 .then(function(response) {
-                    alert("Votre message a été envoyé avec succès !");
-                    form.reset(); // Réinitialiser le formulaire après l'envoi
+                    alert("Your message has been sent successfully!");
+                    form.reset(); // Reset the form after submission
                 }, function(error) {
-                    alert("Erreur lors de l'envoi de votre message. Veuillez réessayer.");
+                    alert("Error sending your message. Please try again.");
                 });
         }
     </script>

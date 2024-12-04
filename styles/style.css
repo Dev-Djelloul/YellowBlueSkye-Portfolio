@@ -1,6 +1,7 @@
 /* Corps général et image de fond */
 body {
-  font-family: "Syne", sans-serif;
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -11,12 +12,11 @@ body {
 
 /* Styles pour le header */
 header {
-  background-color: transparent;
   text-align: center;
   align-items: center;
-  padding: 6px;
+  padding: 12px;
   display: flex;
-  justify-content: space-around;
+  justify-content:space-around;
 }
 
 .header-bg {
@@ -29,12 +29,12 @@ header {
 }
 
 .header-image img {
-  margin: 0px 0px 160px 1100px;
+  margin: 0px 0px 160px 1075px;
   width: 120px;
   height: 120px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid #9d9fb8;
+  border: 5px solid #9d9fb8;
 }
 
 /* Navigation */
@@ -42,7 +42,7 @@ nav ul {
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 35px;
+  gap: 25px;
   font-size: 20px;
 }
 
@@ -56,12 +56,16 @@ nav ul li a {
 }
 
 a {
-  color: #ecedf8;
+  color: #848489;
   text-decoration: none;
 }
 
-a:hover {
-  color: #823f9f;
+/* Icône de la langue */
+.language-switch img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 /* Titres et paragraphes */
@@ -86,21 +90,38 @@ p {
   margin: 10px;
 }
 
-#about p {
-  color: #74a1d1;
-  font-size: 20px;
-  margin: 130px;
+/* Liens des formations */
+.link-schools-openclassrooms{
+  color: rgb(116, 81, 235);
 }
 
-/* Sections */
+.link-schools-studi {
+  color: #FFB527;
+}
+
+.link-schools-.link-schools-openclassrooms {
+  color: rgb(116, 81, 235);
+}
+
+.link-schools-studi {
+  color: #FFB527;
+}
+
+/* Sections des pages projets et contact */
 section#skills {
-  padding: 10px;
-  margin: 300px;
+  padding: 0px;
+  margin: 250px;
 }
 
 section#contact {
-  padding: 300px;
+  padding: 265px;
   margin: 10px;
+}
+
+#about p {
+  color: #74a1d1;
+  font-size: 20px;
+  margin: 60px;
 }
 
 /* Compétences */
@@ -151,11 +172,11 @@ section#contact {
   padding: 7px;
   background-color: #112942;
   color: #f5eef9;
-  font-weight: bold;
+  font-weight: lighter;
   text-decoration: none;
   border-radius: 10px 20px 10px 20px;
   text-align: center;
-  width: 115px;
+  width: 120px;
 }
 
 .carousel-btn {
@@ -233,7 +254,7 @@ form {
 
 form label {
   font-size: 15px;
-  font-weight: lighter;
+  font-weight: bold;
   color: #823f9f;
 }
 
@@ -278,64 +299,14 @@ form button:hover {
 }
 
 /* Responsiveness */
-@media (max-width: 768px) {
-
- .header-bg {
-    margin-top: 215px;
-  } 
-
-  h1 {
-    font-size: 15px;
-    margin: 80px;
-  }
-
-  h2 {
-    font-size: 10px;
-    margin: 60px;
-  }
-
-  nav ul li a {
-    font-size: 15px;
-  }
-
-  .header-image img {
-    margin: 0px 100px 160px;
-    width: 105px;
-    height: 105px;
-  }
-
-  #about p {
-    margin: 0px;
-    font-size: 15px;
-  }
-
-  p {
-    font-size: 10px;
-    margin: 85px;
-  }
-
-  .map {
-    width: 275px;
-  }
-
-  #footer p {
-    font-size: small;
-  }
-}
 
 @media (max-width: 1000px) {
-
-  section {
-    padding: 20px;
-    margin: 10px;
-  }
-  
   header {
     flex-direction: column;
   }
 
   .header-bg {  
-    margin-top: 95px;
+    margin-top: 205px;
   }
   
 
@@ -345,7 +316,7 @@ form button:hover {
 
   h2 {
     font-size: 15px;
-    margin: 60px;
+    margin: 10px;
   }
 
   form {
@@ -364,11 +335,94 @@ form button:hover {
   }
 
   nav ul {
-    font-size: 18px;
+    font-size: 15px;
+    gap: 15px;
+  }
+
+  .language-switch img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    margin: 0px 0px 0px 0px;
+  }
+
+  #about p {
+    margin: 25px;
+    font-size: 15px;
+  }
+
+
+  section#contact {
+    padding: 50px;
+    margin: 10px;
+  }
+
+@media (max-width: 768px) {
+
+ .header-bg {
+    margin-top: 215px;
+  } 
+
+  h1 {
+    font-size: 15px;
+    margin: 80px;
+  }
+
+  h2 {
+    font-size: 15px;
+    font-weight: lighter;
+    margin: 10px;
+  }
+
+  nav ul {
+    font-size: 12px;
+    gap: 10px;
+  }
+
+  nav ul li a {
+    font-weight: lighter;
+  }
+
+  form label {
+    font-size: 15px;
+    font-weight: lighter;
+    color: #823f9f;
+
+  }
+  .language-switch img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: -2px 0px 0px 0px;
+  }
+
+  .header-image img {
+    margin: 250px 0 20px;
+    width: 105px;
+    height: 105px;
   }
 
   #about p {
     margin: 0px;
     font-size: 15px;
   }
+
+  p {
+    font-size: 15px;
+    margin: 5px;
+  }
+
+  .map {
+    width: 275px;
+  }
+
+  #footer p {
+    font-size: small;
+  }
+
+  section#skills {
+    padding: 10px;
+    margin: 80px;
+  }
+}
 }

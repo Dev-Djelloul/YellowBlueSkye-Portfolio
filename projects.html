@@ -4,28 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projets</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
     <header>
       <nav>
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="aboutme.html">A propos</a></li>
-          <li><a href="projects.html">Projets</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">ACCUEIL</a></li>
+          <li><a href="aboutme.html">À PROPOS</a></li>
+          <li><a href="projects.html">PROJETS</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+          <li class="language-switch">
+            <a href="projects-en.html" id="switch-to-en">
+              <img src="images/icons/icons8-french-flag-48.png" alt="Français" />
+            </a>
+            <a href="#" id="switch-to-fr" style="display: none;">
+              <img src="images/icons/icons8-uk-flag-48.png" alt="English" />
+            </a>
+          </li>     
         </ul>
       </nav>
     </header>
 
     <section id="skills">
-      <h2>Compétences en progrès 🤓</h2>
       <div class="skills-container">
         <div class="skill">
           <img src="images/icons/icons8-html5-50.png" alt="HTML5" />
@@ -86,7 +90,7 @@
     </section>
 
     <section id="projects">
-      <h2>Voici tous mes projets réalisés jusqu'à présent</h2>
+      <h2>MES PROJETS</h2>
       <div class="carousel-container">
         <div class="project-carousel">
           <div class="project-item">
@@ -274,3 +278,6 @@
     <script src="scripts/script.js"></script>
   </body>
 </html>
+
+
+
