@@ -6,7 +6,8 @@ body {
   padding: 0;
   line-height: 1.6;
   text-align: center;
-  background: #112942 url("../images/ufo-fantasy-5848285.jpg") no-repeat fixed center;
+  background: #112942 url("../images/ufo-fantasy-5848285.jpg") no-repeat fixed
+    center;
   background-size: cover;
 }
 
@@ -16,7 +17,7 @@ header {
   align-items: center;
   padding: 12px;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
 .header-bg {
@@ -29,7 +30,7 @@ header {
 }
 
 .header-image img {
-  margin: 0px 0px 160px 1075px;
+  margin: -70px 0px 230px 1075px;
   width: 120px;
   height: 120px;
   object-fit: cover;
@@ -50,7 +51,11 @@ nav ul li a {
   color: #823f9f; /* Couleur de base si le navigateur ne supporte pas les gradients */
   text-decoration: none;
   font-weight: bold;
-  background: linear-gradient(90deg, rgb(72, 103, 205), #823f9f); /* Dégradé horizontal */
+  background: linear-gradient(
+    90deg,
+    rgb(72, 103, 205),
+    #823f9f
+  ); /* Dégradé horizontal */
   -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
   -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
 }
@@ -74,7 +79,12 @@ h1 {
   margin: 30px;
   font-size: 25px;
   font-weight: bold; /* Optionnel, pour un titre plus marqué */
-  background: linear-gradient(90deg, #c3bec3, #666, #74a1d1); /* Dégradé personnalisé */
+  background: linear-gradient(
+    90deg,
+    #c3bec3,
+    #666,
+    #74a1d1
+  ); /* Dégradé personnalisé */
   -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
   -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
 }
@@ -91,12 +101,12 @@ p {
 }
 
 /* Liens des formations */
-.link-schools-openclassrooms{
+.link-schools-openclassrooms {
   color: rgb(116, 81, 235);
 }
 
 .link-schools-studi {
-  color: #FFB527;
+  color: #ffb527;
 }
 
 .link-schools-.link-schools-openclassrooms {
@@ -104,7 +114,7 @@ p {
 }
 
 .link-schools-studi {
-  color: #FFB527;
+  color: #ffb527;
 }
 
 /* Sections des pages projets et contact */
@@ -161,7 +171,8 @@ section#contact {
   border-radius: 20px;
 }
 
-.project-item h3, .project-item p {
+.project-item h3,
+.project-item p {
   margin: 10px;
   color: #faf7fb;
 }
@@ -171,12 +182,17 @@ section#contact {
   margin: 25px auto;
   padding: 7px;
   background-color: #112942;
-  color: #f5eef9;
-  font-weight: lighter;
+  color: #d1bfde;
+  background: linear-gradient(
+    90deg,
+    rgb(72, 103, 205),
+    #823f9f
+  ); /* Dégradé horizontal */
+  font-weight: bolder;
   text-decoration: none;
   border-radius: 10px 20px 10px 20px;
   text-align: center;
-  width: 120px;
+  width: 155px;
 }
 
 .carousel-btn {
@@ -261,7 +277,7 @@ form label {
 form input,
 form textarea,
 form button {
-  font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
   font-size: 15px;
   padding: 10px;
   border: 2px solid #c3bec3;
@@ -305,13 +321,20 @@ form button:hover {
     flex-direction: column;
   }
 
-  .header-bg {  
+  .header-bg {
     margin-top: 205px;
   }
-  
 
   h1 {
     margin: 80px;
+    background: linear-gradient(
+      90deg,
+      #251e25,
+      #666,
+      #74a1d1
+    ); /* Dégradé personnalisé */
+    -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
+    -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
   }
 
   h2 {
@@ -329,7 +352,7 @@ form button:hover {
   }
 
   .header-image img {
-    margin: -75px 0px 275px 755px;
+    margin: -60px 0px 275px 720px;
     width: 80px;
     height: 90px;
   }
@@ -351,78 +374,83 @@ form button:hover {
     font-size: 15px;
   }
 
-
   section#contact {
     padding: 50px;
     margin: 10px;
   }
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
+    .header-bg {
+      margin-top: 215px;
+    }
 
- .header-bg {
-    margin-top: 215px;
-  } 
+    h1 {
+      font-size: 15px;
+      margin: 80px;
+      background: linear-gradient(
+        90deg,
+        #251e25,
+        #666,
+        #74a1d1
+      ); /* Dégradé personnalisé */
+      -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
+      -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
+    }
 
-  h1 {
-    font-size: 15px;
-    margin: 80px;
+    h2 {
+      font-size: 15px;
+      font-weight: bolder;
+      margin: 10px;
+    }
+
+    nav ul {
+      font-size: 15px;
+      gap: 10px;
+    }
+
+    nav ul li a {
+      font-weight: bolder;
+    }
+
+    form label {
+      font-size: 15px;
+      font-weight: bolder;
+      color: #823f9f;
+    }
+    .language-switch img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      margin: 2px 0px 0px 0px;
+    }
+
+    .header-image img {
+      margin: 250px 0 20px;
+      width: 105px;
+      height: 105px;
+    }
+
+    #about p {
+      margin: 0px;
+      font-size: 15px;
+    }
+
+    p {
+      font-size: 15px;
+      margin: 5px;
+    }
+
+    .map {
+      width: 275px;
+    }
+
+    #footer p {
+      font-size: small;
+    }
+
+    section#skills {
+      padding: 10px;
+      margin: 80px;
+    }
   }
-
-  h2 {
-    font-size: 15px;
-    font-weight: lighter;
-    margin: 10px;
-  }
-
-  nav ul {
-    font-size: 12px;
-    gap: 10px;
-  }
-
-  nav ul li a {
-    font-weight: lighter;
-  }
-
-  form label {
-    font-size: 15px;
-    font-weight: lighter;
-    color: #823f9f;
-
-  }
-  .language-switch img {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    margin: -2px 0px 0px 0px;
-  }
-
-  .header-image img {
-    margin: 250px 0 20px;
-    width: 105px;
-    height: 105px;
-  }
-
-  #about p {
-    margin: 0px;
-    font-size: 15px;
-  }
-
-  p {
-    font-size: 15px;
-    margin: 5px;
-  }
-
-  .map {
-    width: 275px;
-  }
-
-  #footer p {
-    font-size: small;
-  }
-
-  section#skills {
-    padding: 10px;
-    margin: 80px;
-  }
-}
 }
