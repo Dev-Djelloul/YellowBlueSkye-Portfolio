@@ -191,7 +191,7 @@ section#contact {
 .project-item h3,
 .project-item p {
   margin: 10px;
-  color: #faf7fb;
+  color: #231f20;
 }
 
 .project-item a {
@@ -416,11 +416,11 @@ form button:hover {
     h2 {
       font-size: 15px;
       font-weight: bolder;
-      margin: 5px;
+      margin: 20px;
     }
 
     nav ul {
-      font-size: 13px;
+      font-size: 15px;
       gap: 10px;
     }
 
@@ -440,9 +440,9 @@ form button:hover {
     }
 
     .header-image img {
-      margin: 10px 0 20px;
-      width: 105px;
-      height: 105px;
+      margin: 20px 0 40px;
+      width: 100px;
+      height: 100px;
     }
 
     #about p {
