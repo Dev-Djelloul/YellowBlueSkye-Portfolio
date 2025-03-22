@@ -18,6 +18,15 @@ body {
   gap: 10px; /* Espace entre les drapeaux */
 }
 
+.language-switch img {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.language-switch img:hover {
+  box-shadow: 0 0 15px rgba(76, 186, 220, 0.8); /* Ajoute un effet lumineux */
+  border-radius: 5px; /* Arrondi les bords */
+}
+
 
 /* Styles pour le header */
 header {
@@ -38,12 +47,12 @@ header {
 }
 
 .header-image img {
-  margin: 0px;
+  margin: 20px;
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid #000000;
+  border-radius: 2%;
+  box-shadow: 0 0 50px #74a1d1;
 }
 
 /* Navigation */
@@ -138,8 +147,8 @@ section#contact {
 
 #about p {
   color: #231f20;
-  font-size: 20px;
-  margin: 60px;
+  font-size: 16px;
+  margin: 30px;
 }
 
 /* Compétences */
