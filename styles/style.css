@@ -47,7 +47,8 @@ header {
 }
 
 .header-image img {
-  margin: 35px;
+  margin: 30px;
+  padding: 35px;
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -108,6 +109,7 @@ h1 {
 
 h2 {
   margin: 30px;
+  padding: 30px;
   font-size: 20px;
   color: #74a1d1;
 }
@@ -136,7 +138,7 @@ p {
 
 /* Sections des pages projets et contact */
 section#skills {
-  padding: 0px;
+  padding: 65px;
   margin: 50px;
 }
 
@@ -190,13 +192,13 @@ section#contact {
 
 .project-item h3,
 .project-item p {
-  margin: 10px;
+  margin: 40px;
   color: #231f20;
 }
 
 .project-item a {
   display: inline-block;
-  margin: 25px auto;
+  margin: 20px auto;
   padding: 7px;
   background-color: #112942;
   color: #d1bfde;
@@ -214,7 +216,7 @@ section#contact {
 
 .carousel-btn {
   position: absolute;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
   font-size: 2em;
   background-color: #eaf3fc;
@@ -254,7 +256,7 @@ section#contact {
 /* Pause bouton */
 .pause {
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;
@@ -387,6 +389,7 @@ form button:hover {
 
   #about p {
     margin: 25px;
+    padding: 20px;
     font-size: 15px;
   }
 
@@ -446,7 +449,8 @@ form button:hover {
     }
 
     #about p {
-      margin: 25px;
+      margin: 20px;
+      padding: 20px;
       font-size: 14px;
     }
 
