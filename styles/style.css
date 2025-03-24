@@ -74,7 +74,7 @@ header {
 .header-bg {
   margin-top: 400px;
   background-color: #000000; /* Couleur de fond */
-  padding: 20px;
+  padding: 30px;
 }
 
 .header-title {
@@ -83,10 +83,10 @@ header {
 }
 
 .header-image img {
-  margin: 66px;
+  margin: 0px;
   padding: 35px;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 2%;
   box-shadow: 0 0 50px #74a1d1;
@@ -159,7 +159,7 @@ h3 {
 
 h4 {
   margin: 20px;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
 }
 
@@ -195,7 +195,7 @@ p {
 
 /* Sections des pages projets et contact */
 section#skills {
-  padding: 66px;
+  padding: 100px;
   margin: 0px;
 }
 
@@ -205,14 +205,15 @@ section#contact {
 }
 
 section#projects {
-  padding: 20px;
+  padding: 0px 150px 150px 150px;
   margin: 0px;
 } 
 
 #about p {
   color: #231f20;
   font-size: 16px;
-  margin: 30px;
+  margin: 60px;
+  padding: 60px;
 }
 
 /* Compétences */
@@ -434,9 +435,9 @@ form button:hover {
   }
 
   .header-image img {
-    margin: 30px;
-    width: 175px;
-    height: 175px;
+    margin: 0px;
+    width: 135px;
+    height: 135px;
   }
 
   nav ul {
@@ -452,8 +453,8 @@ form button:hover {
 
   #about p {
     margin: 25px;
-    padding: 20px;
-    font-size: 15px;
+    padding: 50px;
+    font-size: 14px;
   }
 
   section#contact {
