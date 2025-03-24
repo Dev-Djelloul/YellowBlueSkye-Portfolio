@@ -74,7 +74,7 @@ header {
 .header-bg {
   margin-top: 400px;
   background-color: #000000; /* Couleur de fond */
-  padding: 0px;
+  padding: 20px;
 }
 
 .header-title {
