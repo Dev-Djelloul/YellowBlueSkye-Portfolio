@@ -411,13 +411,13 @@ form button:hover {
   h1 {
     margin: 80px;
     background: linear-gradient(
-      90deg,
-      #251e25,
-      #666,
-      #74a1d1
-    ); /* Dégradé personnalisé */
-    -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
-    -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
+    90deg,
+    #c3bec3,
+    #666,
+    #74a1d1
+  ); /* Dégradé personnalisé */
+  -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
+  -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
   }
 
   h2 {
@@ -472,7 +472,7 @@ form button:hover {
       margin: 5px;
       background: linear-gradient(
         90deg,
-        #251e25,
+        #c3bec3,
         #666,
         #74a1d1
       ); /* Dégradé personnalisé */
