@@ -457,6 +457,18 @@ form button:hover {
     font-size: 14px;
   }
 
+
+  section#skills {
+    padding: 50px;
+    margin: 0px;  
+  }
+  
+
+  section#projects {
+    padding: 0px 30px 30px 30px;
+    margin: 0px;
+  }
+
   section#contact {
     padding: 30px 0;
     margin: 150px 50px 0px 50px;
@@ -540,6 +552,11 @@ form button:hover {
       padding: 0px;
       margin: 40px;
     }
-  
+
+    section#projects {
+      padding: 0px 50px 50px 50px;
+      margin: 0px;
+      }
+    }
   }
 }
