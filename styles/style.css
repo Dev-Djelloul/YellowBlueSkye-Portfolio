@@ -256,7 +256,7 @@ section#projects {
 }
 
 .project-item img {
-  width: 50%;
+  width: 66%;
   height: auto;
   border-radius: 20px;
 }
@@ -270,7 +270,7 @@ section#projects {
 .project-item a {
   display: inline-block;
   margin: 20px auto;
-  padding: 7px;
+  padding: 5px;
   color: #ffffff;
   background: linear-gradient(
     90deg,
@@ -282,7 +282,7 @@ section#projects {
   text-decoration: none;
   border-radius: 10px 20px 10px 20px;
   text-align: center;
-  width: 155px;
+  width: 150px;
 }
 
 .carousel-btn {
@@ -448,7 +448,7 @@ form button:hover {
   }
 
   nav ul {
-    font-size: 13px;
+    font-size: 14px;
     gap: 15px;
   }
 
