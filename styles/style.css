@@ -160,7 +160,14 @@ h3 {
 h4 {
   margin: 20px;
   font-size: 14px;
-  color: white;
+  background: linear-gradient(
+    90deg,
+    #c3bec3,
+    #666,
+    #74a1d1
+  ); /* Dégradé personnalisé */
+  -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
+  -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
 }
 
 /* Bande de titre */
