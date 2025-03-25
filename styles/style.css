@@ -44,7 +44,7 @@ body {
 .black-arrow-contact {
   position: absolute; /* Ou absolute si tu veux qu'elle ne bouge pas avec le scroll */
   right: 35px; /* Distance depuis le bord droit */
-  top: 25%; /* Centre verticalement */
+  top: 30%; /* Centre verticalement */
   transform: translateY(-50%); /* Ajuste le centrage */
   width: 40px; /* Ajuste la taille selon besoin */
   height: auto; 
@@ -79,7 +79,7 @@ header {
 
 .header-title {
   flex: 1;
-  text-align: left;
+  text-align: center;
 }
 
 .header-image img {
@@ -95,7 +95,7 @@ header {
 /* Navigation */
 nav ul {
   list-style: none;
-  padding: 0;
+  padding: 20px;
   display: flex;
   gap: 25px;
   font-size: 20px;
@@ -145,15 +145,15 @@ h1 {
 }
 
 h2 {
-  margin: 0px 0px 100px 0px;
+  margin: 0px 0px 50px 0px;
   padding: 30px ;
-  font-size: 20px;
+  font-size: 15px;
   color: white;
 }
 
 h3 {
-  margin: 20px 0;
-  font-size: 18px;
+  margin: 25px 0;
+  font-size: 15px;
   color: white;
 }
 
@@ -462,7 +462,7 @@ form button:hover {
     padding: 50px;
     margin: 0px;  
   }
-  
+
 
   section#projects {
     padding: 0px 30px 30px 30px;
