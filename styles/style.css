@@ -79,7 +79,7 @@ header {
 
 .header-title {
   flex: 1;
-  text-align: center;
+  text-align: left;
 }
 
 .header-image img {
@@ -95,7 +95,7 @@ header {
 /* Navigation */
 nav ul {
   list-style: none;
-  padding: 20px;
+  padding: 10px 0;
   display: flex;
   gap: 25px;
   font-size: 20px;
@@ -441,7 +441,7 @@ form button:hover {
   }
 
   nav ul {
-    font-size: 15px;
+    font-size: 13px;
     gap: 15px;
   }
 
