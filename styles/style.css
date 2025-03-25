@@ -23,8 +23,8 @@ body {
 }
 
 .language-switch img:hover {
-  box-shadow: 0 0 15px rgba(76, 186, 220, 0.8); /* Ajoute un effet lumineux */
-  border-radius: 5px; /* Arrondi les bords */
+  box-shadow: 0 0 25px rgb(246, 245, 244); /* Ajoute un effet lumineux */
+  border-radius: 0px; /* Arrondi les bords */
 }
 
 
