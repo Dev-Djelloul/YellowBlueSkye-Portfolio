@@ -246,7 +246,7 @@ section#projects {
 
 .project-carousel {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 1,5s ease-in-out;
 }
 
 .project-item {
@@ -256,7 +256,7 @@ section#projects {
 }
 
 .project-item img {
-  width: 66%;
+  width: 33%;
   height: auto;
   border-radius: 20px;
 }
@@ -481,6 +481,13 @@ form button:hover {
     margin: 150px 50px 0px 50px;
   }
 
+  .project-item img {
+    width: 50%;
+    height: auto;
+    border-radius: 20px;
+    }
+    
+
   @media (max-width: 768px) {
     .header-bg {
       margin-top: 215px;
@@ -564,6 +571,8 @@ form button:hover {
       padding: 0px 50px 50px 50px;
       margin: 0px;
       }
+
+      
     }
   }
 }
