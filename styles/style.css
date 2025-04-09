@@ -6,10 +6,26 @@ body {
   padding: 0;
   line-height: 1.6;
   text-align: center;
-  background: #ebe1d5
-    center;
-  background-size: cover;
+  background: #ebe1d5;
+  position: relative;
+  z-index: 1;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/emily-bernal-v9vII5gV8Lw-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; /* Ajuste ici la transparence */
+  z-index: -1;
+}
+
 
 /* Drapeaux de langue */
 .language-switch {
@@ -44,7 +60,7 @@ body {
 .black-arrow-contact {
   position: absolute; /* Ou absolute si tu veux qu'elle ne bouge pas avec le scroll */
   right: 35px; /* Distance depuis le bord droit */
-  top: 30%; /* Centre verticalement */
+  top: 11%; /* Centre verticalement */
   transform: translateY(-50%); /* Ajuste le centrage */
   width: 40px; /* Ajuste la taille selon besoin */
   height: auto; 
@@ -55,7 +71,8 @@ body {
 header {
   text-align: center;
   align-items: center;
-  background-color: #000000; /* Couleur de fond */
+  background-color: #5a3636; /* Couleur de fond */
+  border-radius: 25px 25px 0px 0px ; /* Arrondi les bords */
   padding: 0px;
   display: flex;
   justify-content: space-around;
@@ -64,7 +81,8 @@ header {
 .header-bar {
   width: 100%;
   height: 35px; /* Hauteur de la bande */
-  background-color: black; /* Couleur de fond noire */
+  background-color: #5a3636; 
+  border-radius: 25px 25px 0px 0px ; /* Arrondi les bords */
   position: fixed; /* Fixé en haut */
   top: 0px; /* Collé en haut de la page */
   left: 0;
@@ -72,9 +90,10 @@ header {
 }
 
 .header-bg {
-  margin-top: 400px;
-  background-color: #000000; /* Couleur de fond */
-  padding: 30px;
+  margin-top: 585px;
+  background-color: #5a3636; /* Couleur de fond */
+  border-radius: 0px 0px 25px 25px ; /* Arrondi les bords */
+  padding: 0px;
 }
 
 .header-title {
@@ -116,7 +135,8 @@ nav ul li a {
 }
 
 a {
-  color: #848489;
+  color: #231f20;
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -173,14 +193,16 @@ h4 {
 /* Bande de titre */
 
 .title-banner {
-  background-color: #000000; /* Couleur de la bande */
+  background-color: #5a3636; /* Couleur de la bande */
+  border-radius: 25px 25px 25px 25px ; /* Arrondi les bords */
   padding: 10px; /* Ajuste l'épaisseur de la bande */
 }
 
 
 p {
-  color: #333c46;
+  color: #ffffff;
   margin: 10px;
+  font-weight: bold;
 }
 
 /* Liens des formations */
@@ -217,8 +239,9 @@ section#projects {
 } 
 
 #about p {
-  color: #231f20;
+  color: #ffffff;
   font-size: 16px;
+  font-weight: bold;
   margin: 60px;
   padding: 60px;
 }
@@ -264,7 +287,8 @@ section#projects {
 .project-item h3,
 .project-item p {
   margin: 40px;
-  color: #231f20;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .project-item a {
@@ -412,7 +436,8 @@ form button:hover {
   }
 
   .header-bg {
-    margin-top: 200px;
+    margin-top: 315px;
+    padding: 0px;
   }
 
   h1 {
@@ -449,7 +474,7 @@ form button:hover {
 
   nav ul {
     font-size: 14px;
-    gap: 15px;
+    gap: 10px;
   }
 
   .language-switch img {
@@ -490,12 +515,12 @@ form button:hover {
 
   @media (max-width: 768px) {
     .header-bg {
-      margin-top: 215px;
+      margin-top: 440px;
     }
 
     h1 {
       font-size: 20px;
-      margin: 5px;
+      margin: 20px;
       background: linear-gradient(
         90deg,
         #c3bec3,
