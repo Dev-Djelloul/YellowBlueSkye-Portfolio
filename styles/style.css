@@ -243,8 +243,8 @@ section#skills {
 }
 
 section#contact {
-  padding: 50px;
-  margin: 100px;
+  padding: 75px;
+  margin: 85px;
 }
 
 section#projects {
@@ -258,7 +258,7 @@ section#projects {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   max-width: 900px;
   margin: 50px auto;
-  padding: 40px;
+  padding: 20px;
   text-align: left;
 }
 
@@ -313,7 +313,7 @@ section#projects {
 }
 
 .project-item img {
-  width: 33%;
+  width: 45%;
   height: auto;
   border-radius: 20px;
 }
@@ -476,12 +476,11 @@ form button:hover {
   }
 
   .header-bg {
-    margin-top: 626px;
-    padding: 0px;
+    padding: 20px;
   }
 
   h1 {
-    margin: 50px;
+    margin: 30px;
     background: linear-gradient(
       90deg,
       #c3bec3,
@@ -508,12 +507,12 @@ form button:hover {
 
   .header-image img {
     margin: 0px;
-    width: 135px;
-    height: 135px;
+    width: 150px;
+    height: 150px;
   }
 
   nav ul {
-    font-size: 14px;
+    font-size: 15px;
     gap: 10px;
   }
 
@@ -523,10 +522,21 @@ form button:hover {
     margin: 0px 0px 0px 0px;
   }
 
+
+  .about-text-box {
+    background-color: #5a3636e2; /* blanc avec un peu de transparence */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: 30px 20px auto;
+    padding: 0px;
+    text-align: left;
+  }
+  
   #about p {
-    margin: 25px;
-    padding: 50px;
-    font-size: 14px;
+    margin: 0px;
+    padding: 10px;
+    font-size: 15px;
   }
 
   section#skills {
@@ -551,12 +561,9 @@ form button:hover {
   }
 
   @media (max-width: 768px) {
-    .header-bg {
-      margin-top: 694px;
-    }
 
     h1 {
-      font-size: 20px;
+      font-size: 25px;
       margin: 20px;
       background: linear-gradient(
         90deg,
@@ -605,6 +612,16 @@ form button:hover {
         height: 130px;
       }
 
+      .about-text-box {
+        background-color: #5a3636e2; /* blanc avec un peu de transparence */
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: 30px auto;
+        padding: 0px;
+        text-align: left;
+      }
+
       #about p {
         margin: 20px;
         padding: 20px;
@@ -614,6 +631,12 @@ form button:hover {
       p {
         font-size: 13px;
         margin: 5px;
+      }
+
+      .project-item img {
+        width: 60%;
+        height: auto;
+        border-radius: 20px;
       }
 
       .map {
