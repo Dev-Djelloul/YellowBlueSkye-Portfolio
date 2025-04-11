@@ -1,12 +1,12 @@
 /* Corps général et image de fond */
 body {
-  font-family: "Doto", sans-serif;
+  font-family: "Barrio", system-ui;
   font-optical-sizing: auto;
   margin: 0;
   padding: 0;
   line-height: 1.6;
   text-align: center;
-  background: #ebe1d5;
+  background: #ffffff;
   position: relative;
   z-index: 1;
 }
@@ -22,8 +22,28 @@ body::before {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 0.5; /* Ajuste ici la transparence */
+  opacity: 0.7; /* Ajuste ici la transparence */
   z-index: -1;
+}
+
+body.home::before {
+  background-image: none; /* Retirer l'image de fond */
+}
+
+/* Image principale */
+.main-image-container {
+  margin: 20px auto 0px auto; /* espace haut (depuis header) et bas (avant nav) */
+  display: flex;
+  justify-content: center;
+}
+
+.main-image {
+  width: 100%; /* Responsive */
+  height: 100vh; /* Utilisation de 40% de la hauteur de la fenêtre pour l'image */
+  border-radius: 25px 25px 0px 0px; /* Arrondi les bords */
+  object-fit: cover; /* Cette propriété garantit que l'image couvre la zone sans déformation */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  opacity: 0.7; /* Ajuste l'opacité ici selon le besoin */
 }
 
 
@@ -43,7 +63,6 @@ body::before {
   border-radius: 0px; /* Arrondi les bords */
 }
 
-
 /* Styles pour le header */
 
 .black-arrow {
@@ -53,7 +72,7 @@ body::before {
   transform: translateY(-50%); /* Ajuste le centrage */
   background: #ebe1d5; /* Applique la couleur de fond */
   width: 50px; /* Ajuste la taille selon besoin */
-  height: auto; 
+  height: auto;
   z-index: 100; /* S'assure qu'elle reste au-dessus des autres éléments */
 }
 
@@ -63,16 +82,15 @@ body::before {
   top: 11%; /* Centre verticalement */
   transform: translateY(-50%); /* Ajuste le centrage */
   width: 40px; /* Ajuste la taille selon besoin */
-  height: auto; 
+  height: auto;
   z-index: 100; /* S'assure qu'elle reste au-dessus des autres éléments */
 }
-
 
 header {
   text-align: center;
   align-items: center;
   background-color: #5a3636; /* Couleur de fond */
-  border-radius: 25px 25px 0px 0px ; /* Arrondi les bords */
+  border-radius: 25px 25px 0px 0px; /* Arrondi les bords */
   padding: 0px;
   display: flex;
   justify-content: space-around;
@@ -81,8 +99,8 @@ header {
 .header-bar {
   width: 100%;
   height: 45px; /* Hauteur de la bande */
-  background-color: #5a3636; 
-  border-radius: 25px 25px 0px 0px ; /* Arrondi les bords */
+  background-color: #5a3636;
+  border-radius: 25px 25px 0px 0px; /* Arrondi les bords */
   position: fixed; /* Fixé en haut */
   top: 0px; /* Collé en haut de la page */
   left: 0;
@@ -90,9 +108,8 @@ header {
 }
 
 .header-bg {
-  margin-top: 838px;
   background-color: #5a3636; /* Couleur de fond */
-  border-radius: 0px 0px 25px 25px ; /* Arrondi les bords */
+  border-radius: 0px 0px 25px 25px; /* Arrondi les bords */
   padding: 0px;
 }
 
@@ -114,14 +131,13 @@ header {
 /* Navigation */
 nav ul {
   list-style: none;
-  padding: 10px 0;
+  padding: 5px 0;
   display: flex;
   gap: 25px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 nav ul li a {
-  color: #ffffff; /* Couleur de base si le navigateur ne supporte pas les gradients */
   text-decoration: none;
   font-weight: bold;
   background: linear-gradient(
@@ -135,7 +151,7 @@ nav ul li a {
 }
 
 a {
-  color: #231f20;
+  color: #823f9f;
   font-weight: bold;
   text-decoration: none;
 }
@@ -149,9 +165,8 @@ a {
 }
 
 /* Titres et paragraphes */
-
 h1 {
-  margin: 30px;
+  margin: 25px;
   font-size: 25px;
   font-weight: bold; /* Optionnel, pour un titre plus marqué */
   background: linear-gradient(
@@ -166,15 +181,15 @@ h1 {
 
 h2 {
   margin: 0px 0px 50px 0px;
-  padding: 30px ;
-  font-size: 15px;
-  color: white;
+  padding: 30px;
+  font-size: 20px;
+  color: rgb(139, 100, 202);
 }
 
 h3 {
   margin: 25px 0;
-  font-size: 15px;
-  color: white;
+  font-size: 20px;
+  color: rgb(5, 172, 158);
 }
 
 h4 {
@@ -194,13 +209,12 @@ h4 {
 
 .title-banner {
   background-color: #5a3636; /* Couleur de la bande */
-  border-radius: 25px 25px 25px 25px ; /* Arrondi les bords */
+  border-radius: 25px 25px 25px 25px; /* Arrondi les bords */
   padding: 10px; /* Ajuste l'épaisseur de la bande */
 }
 
-
 p {
-  color: #ffffff;
+  color: rgb(0, 168, 224);
   margin: 10px;
   font-weight: bold;
 }
@@ -236,14 +250,24 @@ section#contact {
 section#projects {
   padding: 0px 150px 150px 150px;
   margin: 0px;
-} 
+}
+
+.about-text-box {
+  background-color: #5a3636e2; /* blanc avec un peu de transparence */
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px;
+  text-align: left;
+}
 
 #about p {
-  color: #ffffff;
-  font-size: 16px;
+  color: #fdaeae;
+  font-size: 20px;
   font-weight: bold;
-  margin: 60px;
-  padding: 60px;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* Compétences */
@@ -260,6 +284,17 @@ section#projects {
 }
 
 /* Carrousel */
+
+.about-text-projects {
+  background-color: #5a3636e2;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 15px;
+  text-align: center;
+}
+
 .carousel-container {
   position: relative;
   width: 100%;
@@ -269,13 +304,12 @@ section#projects {
 
 .project-carousel {
   display: flex;
-  transition: transform 1,5s ease-in-out;
+  transition: transform 1, 5s ease-in-out;
 }
 
 .project-item {
   min-width: 100%;
   box-sizing: border-box;
-  text-align: center;
 }
 
 .project-item img {
@@ -284,11 +318,17 @@ section#projects {
   border-radius: 20px;
 }
 
-.project-item h3,
+.project-item h3 {
+  margin: 20px;
+  color: rgb(0, 168, 224);
+  font-weight: bold;
+  font-size: 25px;
+}
 .project-item p {
   margin: 40px;
-  color: #ffffff;
+  color: rgb(225, 115, 190);
   font-weight: bold;
+  font-size: 20px;
 }
 
 .project-item a {
@@ -369,7 +409,7 @@ section#projects {
 .map {
   width: 100%;
   max-width: 600px;
-  height: 250px;
+  height: 350px;
   border: 10px solid #666;
   border-radius: 10px;
 }
@@ -391,7 +431,7 @@ form label {
 form input,
 form textarea,
 form button {
-  font-family: "Syne", sans-serif;
+  font-family: "Barrio", system-ui;
   font-size: 15px;
   padding: 10px;
   border: 4px solid #c3bec3;
@@ -406,7 +446,7 @@ form textarea:focus {
 }
 
 form button {
-  background-color: #823f9f;
+  background-color: rgb(104, 57, 157);
   color: white;
   border: none;
   cursor: pointer;
@@ -425,7 +465,7 @@ form button:hover {
 
 /* Footer */
 #footer p {
-  color: #231f20;
+  color: rgb(122, 120, 118);
 }
 
 /* Responsiveness */
@@ -443,13 +483,13 @@ form button:hover {
   h1 {
     margin: 50px;
     background: linear-gradient(
-    90deg,
-    #c3bec3,
-    #666,
-    #74a1d1
-  ); /* Dégradé personnalisé */
-  -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
-  -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
+      90deg,
+      #c3bec3,
+      #666,
+      #74a1d1
+    ); /* Dégradé personnalisé */
+    -webkit-background-clip: text; /* Affiche le dégradé à travers le texte */
+    -webkit-text-fill-color: transparent; /* Rend l'intérieur des lettres transparent */
   }
 
   h2 {
@@ -489,12 +529,10 @@ form button:hover {
     font-size: 14px;
   }
 
-
   section#skills {
     padding: 50px;
-    margin: 0px;  
+    margin: 0px;
   }
-
 
   section#projects {
     padding: 0px 30px 30px 30px;
@@ -510,8 +548,7 @@ form button:hover {
     width: 50%;
     height: auto;
     border-radius: 20px;
-    }
-    
+  }
 
   @media (max-width: 768px) {
     .header-bg {
@@ -542,62 +579,60 @@ form button:hover {
       font-size: 12px;
       color: white;
 
-    nav ul {
-      font-size: 15px;
-      gap: 10px;
-    }
-
-    nav ul li a {
-      font-weight: bolder;
-    }
-
-    form label {
-      font-size: 15px;
-      font-weight: bolder;
-      color: #823f9f;
-    }
-    .language-switch img {
-      width: 20px;
-      height: 20px;
-      margin: 0px;
-    }
-
-    .header-image img {
-      margin: 30px;
-      width: 130px;
-      height: 130px;
-    }
-
-    #about p {
-      margin: 20px;
-      padding: 20px;
-      font-size: 14px;
-    }
-
-    p {
-      font-size: 13px;
-      margin: 5px;
-    }
-
-    .map {
-      width: 200px;
-    }
-
-    #footer p {
-      font-size: small;
-    }
-
-    section#skills {
-      padding: 0px;
-      margin: 40px;
-    }
-
-    section#projects {
-      padding: 0px 50px 50px 50px;
-      margin: 0px;
+      nav ul {
+        font-size: 15px;
+        gap: 10px;
       }
 
-      
+      nav ul li a {
+        font-weight: bolder;
+      }
+
+      form label {
+        font-size: 15px;
+        font-weight: bolder;
+        color: #823f9f;
+      }
+      .language-switch img {
+        width: 20px;
+        height: 20px;
+        margin: 0px;
+      }
+
+      .header-image img {
+        margin: 30px;
+        width: 130px;
+        height: 130px;
+      }
+
+      #about p {
+        margin: 20px;
+        padding: 20px;
+        font-size: 14px;
+      }
+
+      p {
+        font-size: 13px;
+        margin: 5px;
+      }
+
+      .map {
+        width: 200px;
+      }
+
+      #footer p {
+        font-size: small;
+      }
+
+      section#skills {
+        padding: 0px;
+        margin: 40px;
+      }
+
+      section#projects {
+        padding: 0px 50px 50px 50px;
+        margin: 0px;
+      }
     }
   }
 }
