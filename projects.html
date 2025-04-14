@@ -1,304 +1,428 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barrio&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles/style.css" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">ACCUEIL</a></li>
-          <li><a href="aboutme.html">À PROPOS</a></li>
-          <li><a href="projects.html">PROJETS</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-          <li class="language-switch">
-            <a href="projects-en.html" id="switch-to-en"  title="Switch to English">
-              <img src="images/icons/icons8-uk-flag-48.png" alt="English" />
-            </a>
-            <a href="#" id="switch-to-fr" style="display: none;">
-              <img src="images/icons/icons8-french-flag-48.png" alt="Français" />
-            </a>
-          </li>     
-        </ul>
-      </nav>
-    </header>
-
-    <section id="skills">
-      <div class="skills-container">
-        <div class="skill">
-          <img src="images/icons/icons8-html5-50.png" alt="HTML5" />
-          <p>HTML5</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-css3-50.png" alt="CSS3" />
-          <p>CSS3</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-bootstrap-48.png" alt="Bootstrap" />
-          <p>Bootstrap</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-figma-48.png" alt="Figma" />
-          <p>Figma</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-canva-48.png" alt="Canva" />
-          <p>Canva</p>
-        </div>
-        <div class="skill">
-          <img
-            src="images/icons/icons8-creative-cloud-64.png"
-            alt="Creative Cloud"
-          />
-          <p>Creative C</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-javascript-48.png" alt="Javascript" />
-          <p>Javascript</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-node-js-48.png" alt="Node.js" />
-          <p>Node.js</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-npm-32.png" alt="NPM" />
-          <p>NPM</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-php-48.png" alt="PHP" />
-          <p>PHP</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-composer-50.png" alt="Composer" />
-          <p>Composer</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-mysql-48.png" alt="MySQL" />
-          <p>MySQL</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-mongodb-48.png" alt="MongoDB" />
-          <p>MongoDB</p>
-        </div>
-        <div class="skill">
-          <img src="images/icons/icons8-heroku-48.png" alt="Heroku" />
-          <p>Heroku</p>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mes Projets & Compétences - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="contact-page">
+  <header>
+    <div>
+      <h1>Tous mes projets & compétences</h1>
+    </div>
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html" class="btn-back-home" title="Retour à l'accueil">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"></path>
+          </svg>
+        </a>
+      </div>
+      
+      
+      <div class="nav-right">
+        <div class="language-switch">
+          <a href="projects-en.html" id="switch-to-en" title="Switch to English">
+            <img src="images/icons/icons8-uk-flag-48.png" alt="English" />
+          </a>
+          <a href="#" id="switch-to-fr" style="display: none">
+            <img src="images/icons/icons8-french-flag-48.png" alt="Français" />
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </header>
 
-    <section id="projects">
-      <h2 class="title-banner">MES PROJETS</h2>
-      <div class="carousel-container">
-        <div class="project-carousel">
-          <div class="project-item">
-            <div class="project-item-wrapper">
-              <img src="images/header.png" alt="Projet-Riding-Cities" />
-              <div class="about-text-projects">
-              <h3>Riding Cities</h3>
-              <p>
-                Riding Cities est le tout premier projet de site web utilisant
-                les languages de bases HTML et CSS et publié sur
-                Github-pages.<br />Il a été conçu lors de mon apprentissage des
-                languages de bases avec l'école Openclassrooms.
-              </p>
-              <a
-                href="https://dev-djelloul.github.io/Riding-Cities/"
-                target="_blank"
-                >Voir le projet</a
-              >
+  <!-- Section Compétences -->
+  <section id="skills" class="skills-section">
+    <h3 class="title-banner" data-aos="fade-up">Mes compétences techniques</h3>
+    
+    <div class="skills-categories">
+      <!-- Front-end -->
+      <div class="skills-category" data-aos="fade-up">
+        <h3 class="category-title">Front-end</h3>
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-html5-50.png" alt="HTML5" />
             </div>
-            </div>
+            <p>HTML5</p>
           </div>
-
-          <div class="project-item">
-            <div class="project-item-wrapper">
-              <img
-                src="images/aw-creative-VGs8z60yT2c-unsplash.jpg"
-                alt="Projet-Booki"
-              />
-              <div class="about-text-projects">
-              <h3>Booki</h3>
-              <p>
-                Booki projet est un site web responsive utilisant les languages
-                HTML et CSS et publié sur Github-pages.<br />Il a été conçu lors
-                de mon apprentissage des languages de bases avec l'école
-                Openclassrooms.
-              </p>
-              <a href="https://dev-djelloul.github.io/Booki" target="_blank"
-                >Voir le projet</a
-              >
-              </div>
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-css3-50.png" alt="CSS3" />
             </div>
+            <p>CSS3</p>
           </div>
-          <div class="project-item">
-            <div class="project-item-wrapper">
-              <img
-                src="images/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
-                alt="Projet-ohmyfood"
-              />
-              <div class="about-text-projects">
-              <h3>Ohmyfood</h3>
-              <p>
-                Ohmyfood est un site web responsive utilisant les languages HTML
-                et CSS et publié sur Github-pages.<br />Il a été conçu lors de
-                mon apprentissage des languages de bases avec l'école
-                Openclassrooms.
-              </p>
-              <a href="https://dev-djelloul.github.io/Ohmyfood" target="_blank"
-                >Voir le projet</a
-              >
-              </div>
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-javascript-48.png" alt="Javascript" />
             </div>
+            <p>JavaScript</p>
           </div>
-          <div class="project-item">
-            <div class="project-item-wrapper">
-              <img src="images/yellow-book.jpeg" alt="Project-Print-it" />
-              <div class="about-text-projects">
-              <h3>Print it</h3>
-              <p>
-                Print it est un site web utilisant les languages HTML, CSS ainsi
-                que les bases de Javascript, publié sur Github-pages.<br />Il a
-                été conçu lors de mon apprentissage des languages de bases avec
-                l'école Openclassrooms.
-              </p>
-              <a href="https://dev-djelloul.github.io/Print-it/" target="_blank"
-                >Voir le projet</a
-              >
-              </div>
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-bootstrap-48.png" alt="Bootstrap" />
             </div>
+            <p>Bootstrap</p>
           </div>
-          <div class="project-item">
-            <div class="project-item-wrapper">
-              <img src="images/sophie-bluel.png" alt="Projet-ohmyfood" />
-              <div class="about-text-projects">
-              <h3
-                style="
-                  display: flex;
-                  flex-direction: column;
-                  font-family: 'Syne', sans-serif;
-                  font-size: 40px;
-                  font-weight: bold;
-                  color: #b1663c;
-                "
-              >
-                Sophie Bluel
-                <span
-                  style="
-                    font-family: 'Work Sans', sans-serif;
-                    font-size: 15px;
-                    letter-spacing: 0.1em;
-                    color: #b1663c;
-                  "
-                  >Architecte d'intérieur</span
-                >
-              </h3>
-              <p>
-                Le Portfolio de Sophie Bluel est un site web responsive
-                utilisant les languages HTML, CSS et Javascript et la gestion de
-                dépendances avec Node Package Manager publié sur Github-pages.
-                Pour le lancer, il faut donc installer les dépendances pour
-                pouvoir accéder au projet entier. Les projets photos sont
-                présents en base de données.<br />
-                Il a été conçu lors de mon apprentissage des languages de bases
-                avec l'école Openclassrooms.
-              </p>
-              <a
-                href="https://dev-djelloul.github.io/sophie-bluel-architect"
-                target="_blank"
-                >Voir le projet</a
-              >
-              </div>
-            </div>
-          </div>
-          <div class="project-item">
-            <div class="project-item-wrapper">
-              <img src="images/jeu_de_memory.jpg" alt="Projet-Memory-Game" />
-              <div class="about-text-projects">
-              <h3>Memory Game</h3>
-              <p>
-                Memory game est un jeu de mémoire utilisant les languages HTML,
-                CSS et Javascript, publié sur Github-pages.<br />Il a été conçu
-                lors de mon apprentissage des languages de bases avec l'école
-                Studi.
-              </p>
-              <a
-                href="https://dev-djelloul.github.io/Memory_Game"
-                target="_blank"
-                >Voir le projet</a
-              >
-              </div>
-            </div>
-          </div>
-          <div class="project-item">
-            <div class="project-item-wrapper">
-              <img src="images/logo-arcadia.jpeg" alt="Projet-Zoo" />
-              <div class="about-text-projects">
-              <h3>Arcadia Zoo</h3>
-              <p>
-                Arcadia Zoo est une application web complète développée avec
-                HTML, CSS, Bootstrap et Javascript pour le front-end et PHP et
-                son gestionnaire de dépendances Composer, Mysql, Node.js et
-                MongoDB pour la partie back-end ainsi que Heroku pour le
-                déploiement en ligne. Ce site web responsive a été codé dans le
-                cadre d'une évaluation avec l'école Studi. <br>
-                Voici les identifiants pour tester l'application:<br>
-                <strong>Administrateur •</strong> admin@arcadiazoo.com <br> 
-                <strong>Vétérinaire •</strong> veterinaire@arcadiazoo.com > <br>
-                <strong>Employé •</strong> employe@arcadiazoo.com <br>
-                <strong> Mot de passe </strong>: arcadia <br>
-                N'hésitez pas à tester l'application et à me faire part de vos retours.
-              </p>
-              <a
-                href="https://arcadia-zoo-75-32a6cd6d481b.herokuapp.com/"
-                target="_blank"
-                >Voir le projet</a
-              >
-              </div>
-            </div>
-          </div>
-          <div class="project-item">
-            <div class="project-item-wrapper">
-              <img src="images/blue-1761175.jpg" alt="Projet-Budget-Buddy" />
-              <div class="about-text-projects">
-              <h3>Budget Buddy</h3>
-              <p>
-                Budget est une application de suivi de dépenses personnelles utilisant les languages HTML,
-                CSS, Javascript et le framework React.js, publié sur Github-pages.<br />Il a été conçu
-                lors de mon apprentissage des languages de bases avec l'école
-                Studi.
-              </p>
-              <a
-                href="https://dev-djelloul.github.io/budget-buddy"
-                target="_blank"
-                >Voir le projet</a
-              >
-              </div>
-            </div>
-          </div>
-
         </div>
-        <button class="carousel-btn prev">❮</button>
-        <button class="carousel-btn next">❯</button>
-        <button class="carousel-btn pause" style="opacity: 0.2">||</button>
       </div>
-    </section>
+      
+      <!-- Back-end -->
+      <div class="skills-category" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="category-title">Back-end</h3>
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-php-48.png" alt="PHP" />
+            </div>
+            <p>PHP</p>
+          </div>
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-node-js-48.png" alt="Node.js" />
+            </div>
+            <p>Node.js</p>
+          </div>
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-npm-32.png" alt="NPM" />
+            </div>
+            <p>NPM</p>
+          </div>
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-composer-50.png" alt="Composer" />
+            </div>
+            <p>Composer</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Base de données -->
+      <div class="skills-category" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="category-title">Base de données</h3>
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-mysql-48.png" alt="MySQL" />
+            </div>
+            <p>MySQL</p>
+          </div>
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-mongodb-48.png" alt="MongoDB" />
+            </div>
+            <p>MongoDB</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Design & Outils -->
+      <div class="skills-category" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="category-title">Design & Outils</h3>
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-figma-48.png" alt="Figma" />
+            </div>
+            <p>Figma</p>
+          </div>
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-canva-48.png" alt="Canva" />
+            </div>
+            <p>Canva</p>
+          </div>
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-creative-cloud-64.png" alt="Creative Cloud" />
+            </div>
+            <p>Creative C</p>
+          </div>
+          <div class="skill">
+            <div class="skill-icon">
+              <img src="images/icons/icons8-heroku-48.png" alt="Heroku" />
+            </div>
+            <p>Heroku</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer id="footer">
-      <p>&copy; 2024 YellowBlueSkye. Tous droits réservés.</p>
-    </footer>
+  <!-- Section Projets détaillés -->
+  <section id="projects">
+    <h3 class="title-banner">Tous mes projets réalisés</h3>
+    
+    <div class="projects-grid">
+      <!-- Projet 1 -->
+      <div class="project-card" data-aos="fade-up" id="project-1">
+        <img src="images/header.png" alt="Projet-Riding-Cities" />
+        <div class="project-info">
+          <div>
+            <h3>Riding Cities</h3>
+            <p>
+              Riding Cities est le tout premier projet de site web utilisant
+              les languages de bases HTML et CSS et publié sur
+              Github-pages. Il a été conçu lors de mon apprentissage des
+              languages de bases avec l'école Openclassrooms.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span>
+              <span>CSS3</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://dev-djelloul.github.io/Riding-Cities/" target="_blank">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Riding-Cities" target="_blank" class="github-link">GitHub</a>
+          </div>
+        </div>
+      </div>
 
-    <script src="scripts/script.js"></script>
-  </body>
+      <!-- Projet 2 - Booki -->
+      <div class="project-card" data-aos="fade-up" id="project-2">
+        <img src="images/aw-creative-VGs8z60yT2c-unsplash.jpg" alt="Projet-Booki" />
+        <div class="project-info">
+          <div>
+            <h3>Booki</h3>
+            <p>
+              Booki est un site web responsive créé avec HTML et CSS et publié sur GitHub Pages.<br />
+              Il a été conçu lors de mon apprentissage des langages de base avec l'école Openclassrooms.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Responsive</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://dev-djelloul.github.io/Booki" target="_blank">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Booki" target="_blank" class="github-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 3 - Ohmyfood -->
+      <div class="project-card" data-aos="fade-up" id="project-3">
+        <img src="images/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="Projet-ohmyfood" />
+        <div class="project-info">
+          <div>
+            <h3>Ohmyfood</h3>
+            <p>
+              Ohmyfood est un site web responsive créé avec HTML et CSS et publié sur GitHub Pages.<br />
+              Il a été conçu lors de mon apprentissage des langages de base avec l'école Openclassrooms.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Animations</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://dev-djelloul.github.io/Ohmyfood" target="_blank">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Ohmyfood" target="_blank" class="github-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 4 - Print it -->
+      <div class="project-card" data-aos="fade-up" id="project-4">
+        <img src="images/yellow-book.jpeg" alt="Project-Print-it" />
+        <div class="project-info">
+          <div>
+            <h3>Print it</h3>
+            <p>
+              Print it est un site web développé avec HTML, CSS et les bases de JavaScript, 
+              publié sur GitHub Pages.<br />Il a été conçu lors de mon apprentissage 
+              des langages de base avec l'école Openclassrooms.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://dev-djelloul.github.io/Print-it/" target="_blank">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Print-it" target="_blank" class="github-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 5 - Sophie Bluel -->
+      <div class="project-card" data-aos="fade-up" id="project-5">
+        <img src="images/sophie-bluel.png" alt="Projet-Sophie-Bluel" />
+        <div class="project-info">
+          <div>
+            <h3 style="color: #b1663c;">Sophie Bluel</h3>
+            <p>
+              Le portfolio de Sophie Bluel est un site web responsive construit avec HTML, CSS, JavaScript, 
+              et la gestion des dépendances via Node Package Manager, et publié sur GitHub Pages.<br />
+              Pour lancer le projet complet, des dépendances doivent être installées. Les projets photo sont 
+              stockés dans une base de données.<br />Ce projet a été réalisé dans le cadre de ma formation 
+              avec Openclassrooms pour maîtriser les fondamentaux du web.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>NPM</span>
+              <span>API</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://dev-djelloul.github.io/sophie-bluel-architect" target="_blank">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/sophie-bluel-architect" target="_blank" class="github-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 6 - Memory Game -->
+      <div class="project-card" data-aos="fade-up" id="project-6">
+        <img src="images/jeu_de_memory.jpg" alt="Projet-Memory-Game" />
+        <div class="project-info">
+          <div>
+            <h3>Memory Game</h3>
+            <p>
+              Memory Game est un jeu de mémoire créé avec HTML, CSS et JavaScript, 
+              et publié sur GitHub Pages.<br />Il a été conçu dans le cadre de ma formation 
+              avec Studi pour maîtriser les fondamentaux du web.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://dev-djelloul.github.io/Memory_Game" target="_blank">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Memory_Game" target="_blank" class="github-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 7 - Arcadia Zoo -->
+      <div class="project-card" data-aos="fade-up" id="project-7">
+        <img src="images/logo-arcadia.jpeg" alt="Projet-Arcadia-Zoo" />
+        <div class="project-info">
+          <div>
+            <h3>Arcadia Zoo</h3>
+            <p>
+              Arcadia Zoo est une application web full-stack développée avec HTML, CSS, Bootstrap, 
+              et JavaScript pour le front-end, et PHP avec son gestionnaire de dépendances Composer, 
+              MySQL, Node.js et MongoDB pour le back-end. Elle utilise également Heroku pour le déploiement 
+              en ligne.<br />Ce site web responsive a été créé dans le cadre d'une évaluation avec Studi.<br />
+              <strong>Login Admin:</strong> admin@arcadiazoo.com <br />
+              <strong>Login Vétérinaire:</strong> veterinaire@arcadiazoo.com <br />
+              <strong>Login Employé:</strong> employe@arcadiazoo.com <br />
+              <strong>Mot de passe:</strong> arcadia <br />
+              N'hésitez pas à tester l'application et à partager vos retours !
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Bootstrap</span>
+              <span>JavaScript</span>
+              <span>PHP</span>
+              <span>MySQL</span>
+              <span>MongoDB</span>
+              <span>Heroku</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://arcadia-zoo-75-32a6cd6d481b.herokuapp.com/" target="_blank">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Arcadia-Zoo" target="_blank" class="github-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 8 - Budget Buddy -->
+      <div class="project-card" data-aos="fade-up" id="project-8">
+        <img src="images/blue-1761175.jpg" alt="Projet-Budget-Buddy" />
+        <div class="project-info">
+          <div>
+            <h3>Budget Buddy</h3>
+            <p>
+              Budget Buddy est une application de suivi des dépenses personnelles construite avec HTML, 
+              CSS, JavaScript, et le framework React.js, et publiée sur GitHub Pages.<br />
+              Elle a été conçue dans le cadre de mon apprentissage avec Studi pour maîtriser 
+              les outils modernes de développement web.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>React.js</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://dev-djelloul.github.io/budget-buddy" target="_blank">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/budget-buddy" target="_blank" class="github-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bouton retour à l'accueil -->
+  <div class="back-home">
+    <a href="index.html" class="btn-back-home">
+      <svg width="20" height="20" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"></path>
+      </svg>
+      Retour à l'accueil
+    </a>
+  </div>
+  
+  <!-- Bouton flèche pour remonter en haut de page -->
+  <button id="scroll-to-top" class="scroll-to-top" title="Retour en haut">
+    <svg width="20" height="20" viewBox="0 0 24 24">
+      <path d="M12 4l-8 8h5v8h6v-8h5z" fill="currentColor"></path>
+    </svg>
+  </button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Fonction pour gérer le bouton de retour en haut
+    document.addEventListener('DOMContentLoaded', function() {
+      var scrollToTopBtn = document.getElementById("scroll-to-top");
+      
+      window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+          scrollToTopBtn.style.display = "flex";
+          scrollToTopBtn.style.opacity = "1";
+        } else {
+          scrollToTopBtn.style.opacity = "0";
+          setTimeout(() => {
+            if (document.body.scrollTop <= 300 && document.documentElement.scrollTop <= 300) {
+              scrollToTopBtn.style.display = "none";
+            }
+          }, 300);
+        }
+      };
+      
+      scrollToTopBtn.addEventListener("click", function() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
+</body>
 </html>
 
 
