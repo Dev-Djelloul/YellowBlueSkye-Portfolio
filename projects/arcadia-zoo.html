@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arcadia Zoo - Portfolio YellowBlueSkye</title>
+  <title data-i18n="projectDetails.arcadiaZoo.title">Arcadia Zoo - Portfolio YellowBlueSkye</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -12,35 +12,39 @@
 </head>
 <body class="project-page">
   <header>
-    <h2 class="title-banner">PROJET ARCADIA ZOO</h2>
+    <div>
+    </div>
+    <h2 class="title-banner" data-i18n="projectDetails.arcadiaZoo.headerTitle">PROJET ARCADIA ZOO</h2>
     <nav>
       <ul>
-        <li><a href="../index.html">Revenir à l'accueil</a></li>
-        <li><a href="../projects.html">Tous les projets</a></li>
+        <li><a href="../index.html" data-i18n="projectDetails.backToHome">Revenir à l'accueil</a></li>
+        <li><a href="../projects.html" data-i18n="projects.allTitle">Tous les projets</a></li>
       </ul>
     </nav>
     <div class="language-switch">
-      <a href="arcadia-zoo-en.html" id="switch-to-en" title="Switch to English">
+      <a href="javascript:void(0)" id="switch-to-en" title="Switch to English">
         <img src="../images/icons/icons8-uk-flag-48.png" alt="English" />
       </a>
-      <a href="#" id="switch-to-fr" style="display: none">
+      <a href="javascript:void(0)" id="switch-to-fr" style="display: none">
         <img src="../images/icons/icons8-french-flag-48.png" alt="Français" />
       </a>
     </div>
   </header>
 
+  <!-- Section Projet Détaillé -->
   <section class="project-detail">
     <div class="project-hero" data-aos="fade-up">
       <img src="../images/logo-arcadia.jpeg" alt="Projet Arcadia Zoo" />
     </div>
 
     <div class="project-content" data-aos="fade-up">
-      <h2 class="title-banner">ARCADIA ZOO</h2>
+      <h2 class="title-banner" data-i18n="projectNames.arcadiaZoo">ARCADIA ZOO</h2>
       
-      <p>
-        Arcadia Zoo est une application web full-stack complète développée pour la gestion d'un zoo. 
-        Le projet utilise une architecture moderne avec un front-end responsive et un back-end robuste
-        connecté à plusieurs bases de données.
+      <p data-i18n="projectDescriptions.arcadiaZoo.full">
+        Arcadia Zoo est une application web full-stack développée avec HTML, CSS, Bootstrap, 
+        et JavaScript pour le front-end, et PHP avec son gestionnaire de dépendances Composer, 
+        MySQL, Node.js et MongoDB pour le back-end. Elle utilise également Heroku pour le 
+        déploiement en ligne. Ce site responsive a été créé dans le cadre d'une évaluation avec Studi.
       </p>
       
       <div class="project-tech">
@@ -51,11 +55,12 @@
         <span>PHP</span>
         <span>MySQL</span>
         <span>MongoDB</span>
+        <span>Node.js</span>
         <span>Heroku</span>
       </div>
       
       <div class="project-links">
-        <a href="https://arcadia-zoo-75-32a6cd6d481b.herokuapp.com/" target="_blank" class="btn-view-project">
+        <a href="https://arcadia-zoo.herokuapp.com/" target="_blank" class="btn-view-project" data-i18n="projectDetails.viewLive">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
             <polyline points="15 3 21 3 21 9"></polyline>
@@ -63,7 +68,7 @@
           </svg>
           Voir le projet en ligne
         </a>
-        <a href="https://github.com/Dev-Djelloul/Arcadia-Zoo" target="_blank" class="btn-view-code">
+        <a href="https://github.com/Dev-Djelloul/Arcadia-Zoo" target="_blank" class="btn-view-code" data-i18n="projectDetails.viewCode">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
           </svg>
@@ -73,67 +78,63 @@
     </div>
     
     <div class="project-content" data-aos="fade-up">
-      <h3 class="title-banner section-title">DÉTAILS DU PROJET</h3>
+      <h3 class="title-banner section-title" data-i18n="projectDetails.details">DÉTAILS DU PROJET</h3>
       
-      <h4>Objectif</h4>
-      <p>
-        L'objectif était de créer une application complète pour la gestion d'un zoo, incluant
-        la gestion des animaux, des enclos, des employés et des visiteurs. Le système devait offrir
-        différents niveaux d'accès selon le rôle de l'utilisateur (admin, vétérinaire, employé).
+      <h4 data-i18n="projectDetails.objective">Objectif</h4>
+      <p data-i18n="projectDetails.arcadiaZoo.objective">
+        L'objectif de ce projet était de créer une application complète de gestion de zoo, 
+        permettant aux visiteurs de consulter les informations sur les animaux et les événements, 
+        et aux administrateurs de gérer l'ensemble des données (animaux, enclos, employés, événements).
+        Ce projet devait démontrer mes compétences en développement full-stack avec des technologies 
+        variées.
       </p>
       
-      <h4>Technologies utilisées</h4>
-      <p>
-        Pour le front-end, j'ai utilisé HTML5, CSS3 avec Bootstrap pour l'interface responsive, et JavaScript
-        pour l'interactivité. Le back-end a été développé avec PHP, utilisant Composer pour la gestion des 
-        dépendances. J'ai mis en place une base de données relationnelle MySQL pour les données structurées
-        et MongoDB pour le stockage de documents. L'application est déployée sur Heroku.
+      <h4 data-i18n="projectDetails.technologies">Technologies utilisées</h4>
+      <p data-i18n="projectDetails.arcadiaZoo.technologiesDetail">
+        Pour le front-end, j'ai utilisé HTML5, CSS3, Bootstrap pour le design responsive, et JavaScript
+        pour les interactions. Côté back-end, j'ai travaillé avec PHP et son gestionnaire de dépendances 
+        Composer pour la logique serveur principale, MySQL pour la base de données relationnelle,
+        Node.js et MongoDB pour certaines fonctionnalités spécifiques. L'ensemble a été déployé sur
+        Heroku pour faciliter l'accès en ligne.
       </p>
       
-      <h4>Défis et solutions</h4>
-      <p>
-        Le principal défi était de créer un système multiutilisateur avec différents niveaux d'accès
-        et une gestion complexe des données entre plusieurs tables. J'ai implémenté une architecture MVC
-        (Modèle-Vue-Contrôleur) pour séparer les préoccupations et faciliter la maintenance. 
-        J'ai également utilisé des requêtes AJAX pour créer une expérience utilisateur plus fluide
-        sans rechargement de page.
-      </p>
-      
-      <h4>Informations de connexion</h4>
-      <p>
-        Pour tester l'application, vous pouvez utiliser les identifiants suivants:<br>
-        <strong>Login Admin:</strong> admin@arcadiazoo.com<br>
-        <strong>Login Vétérinaire:</strong> veterinaire@arcadiazoo.com<br>
-        <strong>Login Employé:</strong> employe@arcadiazoo.com<br>
-        <strong>Mot de passe:</strong> arcadia
+      <h4 data-i18n="projectDetails.challengesAndSolutions">Défis et solutions</h4>
+      <p data-i18n="projectDetails.arcadiaZoo.challengesSolutions">
+        Le principal défi était d'intégrer plusieurs technologies de base de données (MySQL et MongoDB) 
+        au sein d'une même application. J'ai résolu ce problème en créant une architecture claire qui 
+        délimite les responsabilités de chaque technologie : MySQL pour les données structurées 
+        (animaux, employés) et MongoDB pour les données plus flexibles (événements, commentaires).
+        L'autre défi était la mise en place d'un système d'authentification sécurisé avec différents 
+        niveaux d'accès, que j'ai implémenté en utilisant PHP avec des sessions et des tokens JWT.
       </p>
     </div>
 
     <div class="project-gallery" data-aos="fade-up">
-      <h3 class="title-banner">GALERIE</h3>
+      <h3 class="title-banner" data-i18n="projectDetails.gallery">GALERIE</h3>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="../images/logo-arcadia.jpeg" alt="Logo Arcadia Zoo">
+          <img src="../images/arcadia-zoo-screenshots/homepage.jpg" alt="Page d'accueil Arcadia Zoo" />
         </div>
         <div class="gallery-item">
-          <img src="../images/arcadia-dashboard.jpg" alt="Dashboard admin">
+          <img src="../images/arcadia-zoo-screenshots/animals.jpg" alt="Liste des animaux" />
         </div>
         <div class="gallery-item">
-          <img src="../images/arcadia-animals.jpg" alt="Gestion des animaux">
+          <img src="../images/arcadia-zoo-screenshots/admin.jpg" alt="Interface administrateur" />
         </div>
       </div>
     </div>
 
+    <!-- Navigation entre projets -->
     <div class="project-navigation">
       <a href="memory-game.html" class="project-nav-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
-        Projet précédent : Memory Game
+        <span data-i18n="projectDetails.previousProjectMemoryGame">Projet précédent : Memory Game</span>
       </a>
       <a href="budget-buddy.html" class="project-nav-btn">
-        Projet suivant : Budget Buddy
+        <span data-i18n="projectDetails.nextProjectBudgetBuddy">Projet suivant : Budget Buddy</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
@@ -143,13 +144,13 @@
   </section>
 
   <footer id="footer">
-    <p>&copy; 2024 YellowBlueSkye. Tous droits réservés.</p>
+    <p data-i18n="footer.copyright">&copy; 2024 YellowBlueSkye. Tous droits réservés.</p>
   </footer>
 
   <!-- Bouton retour en haut -->
-  <button id="scroll-to-top" class="scroll-to-top" title="Retour en haut">
+  <button id="scroll-to-top" class="scroll-to-top" data-i18n-title="ui.backToTop" title="Retour en haut">
     <svg width="20" height="20" viewBox="0 0 24 24">
-      <path d="M12 4l-8 8h5v8h6v-8h5z" fill="currentColor"></path>
+      <path d="M7 14l5-5 5 5z" fill="currentColor"></path>
     </svg>
   </button>
 
@@ -161,7 +162,6 @@
       once: true
     });
 
-    // Script pour le bouton de retour en haut
     document.addEventListener('DOMContentLoaded', function() {
       var scrollToTopBtn = document.getElementById("scroll-to-top");
       
@@ -187,5 +187,6 @@
       });
     });
   </script>
+  <script src="../scripts/translator.js"></script>
 </body>
 </html>

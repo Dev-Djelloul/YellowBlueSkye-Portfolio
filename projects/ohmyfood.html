@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ohmyfood - Portfolio YellowBlueSkye</title>
+  <title data-i18n="projectDetails.ohmyfood.title">Ohmyfood - Portfolio YellowBlueSkye</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -13,47 +13,46 @@
 <body class="project-page">
   <header>
     <div>
-     </div>
-    <h2 class="title-banner">PROJET OHMYFOOD</h2>
+    </div>
+    <h2 class="title-banner" data-i18n="projectDetails.ohmyfood.headerTitle">PROJET OHMYFOOD</h2>
     <nav>
-        <ul>
-          <li><a href="../index.html">Revenir à l'accueil</a></li>
-          <li><a href="../projects.html">Tous les projets</a></li>
-        </ul>
-      </nav>
-     <div class="language-switch">
-      <a href="ohmyfood-en.html" id="switch-to-en" title="Switch to English">
+      <ul>
+        <li><a href="../index.html" data-i18n="projectDetails.backToHome">Revenir à l'accueil</a></li>
+        <li><a href="../projects.html" data-i18n="projects.allTitle">Tous les projets</a></li>
+      </ul>
+    </nav>
+    <div class="language-switch">
+      <a href="javascript:void(0)" id="switch-to-en" title="Switch to English">
         <img src="../images/icons/icons8-uk-flag-48.png" alt="English" />
       </a>
-      <a href="#" id="switch-to-fr" style="display: none">
+      <a href="javascript:void(0)" id="switch-to-fr" style="display: none">
         <img src="../images/icons/icons8-french-flag-48.png" alt="Français" />
       </a>
     </div>
   </header>
 
+  <!-- Section Projet Détaillé -->
   <section class="project-detail">
     <div class="project-hero" data-aos="fade-up">
       <img src="../images/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="Projet Ohmyfood" />
     </div>
 
     <div class="project-content" data-aos="fade-up">
-      <h2 class="title-banner">OHMYFOOD</h2>
+      <h2 class="title-banner" data-i18n="projectNames.ohmyfood">OHMYFOOD</h2>
       
-      <p>
-        Ohmyfood est un site web mobile-first avec des animations CSS avancées. 
-        Ce projet a été développé dans le cadre de ma formation avec Openclassrooms pour 
-        apprendre à créer des animations CSS modernes et attrayantes.
+      <p data-i18n="projectDescriptions.ohmyfood.full">
+        Ohmyfood est un site web responsive créé avec HTML et CSS et publié sur GitHub Pages.
+        Il a été conçu lors de mon apprentissage des langages de base avec l'école Openclassrooms.
       </p>
       
       <div class="project-tech">
         <span>HTML5</span>
         <span>CSS3</span>
         <span>Animations</span>
-        <span>SASS</span>
       </div>
       
       <div class="project-links">
-        <a href="https://dev-djelloul.github.io/Ohmyfood" target="_blank" class="btn-view-project">
+        <a href="https://dev-djelloul.github.io/Ohmyfood" target="_blank" class="btn-view-project" data-i18n="projectDetails.viewLive">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
             <polyline points="15 3 21 3 21 9"></polyline>
@@ -61,7 +60,7 @@
           </svg>
           Voir le projet en ligne
         </a>
-        <a href="https://github.com/Dev-Djelloul/Ohmyfood" target="_blank" class="btn-view-code">
+        <a href="https://github.com/Dev-Djelloul/Ohmyfood" target="_blank" class="btn-view-code" data-i18n="projectDetails.viewCode">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
           </svg>
@@ -71,56 +70,57 @@
     </div>
     
     <div class="project-content" data-aos="fade-up">
-      <h3 class="title-banner section-title">DÉTAILS DU PROJET</h3>
+      <h3 class="title-banner section-title" data-i18n="projectDetails.details">DÉTAILS DU PROJET</h3>
       
-      <h4>Objectif</h4>
-      <p>
-        L'objectif était de développer un site "mobile first" qui répertorie les menus de restaurants gastronomiques 
-        et permet aux utilisateurs de composer leur menu pour réduire leur temps d'attente au restaurant. 
-        Le site devait inclure des animations sophistiquées en CSS.
+      <h4 data-i18n="projectDetails.objective">Objectif</h4>
+      <p data-i18n="projectDetails.ohmyfood.objective">
+        L'objectif de ce projet était de développer un site "mobile first" qui répertorie les menus de restaurants gastronomiques.
+        Le site devait permettre la réservation en ligne et la composition de menus personnalisés, avec une expérience utilisateur
+        fluide et des animations CSS soignées.
       </p>
       
-      <h4>Technologies utilisées</h4>
-      <p>
-        Pour ce projet, j'ai utilisé HTML5 et CSS3 avec le préprocesseur SASS pour organiser mon code. 
-        J'ai créé des animations complexes comme des loaders, des effets de survol et des transitions 
-        entre les pages en utilisant uniquement du CSS.
+      <h4 data-i18n="projectDetails.technologies">Technologies utilisées</h4>
+      <p data-i18n="projectDetails.ohmyfood.technologiesDetail">
+        J'ai utilisé HTML5 pour structurer le contenu et CSS3 avec Sass pour le style et les animations.
+        L'approche "mobile first" a guidé tout le développement, avec une adaptation progressive pour les écrans plus grands.
+        Le préprocesseur Sass m'a permis d'organiser mon code CSS en modules réutilisables et de simplifier la création d'animations complexes.
       </p>
       
-      <h4>Défis et solutions</h4>
-      <p>
-        Le principal défi était de créer des animations fluides et élégantes qui fonctionnent sur tous les navigateurs.
-        J'ai implémenté des keyframes CSS pour des animations personnalisées, et j'ai utilisé des variables CSS pour
-        maintenir une cohérence visuelle. Une attention particulière a été portée à l'optimisation des performances
-        pour assurer une expérience utilisateur fluide.
+      <h4 data-i18n="projectDetails.challengesAndSolutions">Défis et solutions</h4>
+      <p data-i18n="projectDetails.ohmyfood.challengesSolutions">
+        Le principal défi était de créer des animations fluides et attrayantes pour améliorer l'expérience utilisateur.
+        J'ai implémenté des transitions sur les cartes de restaurants, des animations de chargement, et des effets
+        de survol sur les boutons. Un autre défi était d'assurer la compatibilité sur différents navigateurs et appareils.
+        Pour résoudre ces problèmes, j'ai utilisé des propriétés CSS modernes avec préfixes de fournisseurs et des tests approfondis.
       </p>
     </div>
 
     <div class="project-gallery" data-aos="fade-up">
-      <h3 class="title-banner">GALERIE</h3>
+      <h3 class="title-banner" data-i18n="projectDetails.gallery">GALERIE</h3>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="../images/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="Restaurant Ohmyfood">
+          <img src="../images/ohmyfood-screenshots/homepage.png" alt="Page d'accueil Ohmyfood" />
         </div>
         <div class="gallery-item">
-          <img src="../images/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="Menu Ohmyfood">
+          <img src="../images/ohmyfood-screenshots/menu.png" alt="Menu restaurant" />
         </div>
         <div class="gallery-item">
-          <img src="../images/stil-u2Lp8tXIcjw-unsplash.jpg" alt="Présentation Ohmyfood">
+          <img src="../images/ohmyfood-screenshots/animation.gif" alt="Animation des plats" />
         </div>
       </div>
     </div>
 
+    <!-- Navigation entre projets -->
     <div class="project-navigation">
       <a href="booki.html" class="project-nav-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
-        Projet précédent : Booki
+        <span data-i18n="projectDetails.previousProjectBooki">Projet précédent : Booki</span>
       </a>
       <a href="print-it.html" class="project-nav-btn">
-        Projet suivant : Print It
+        <span data-i18n="projectDetails.nextProjectPrintIt">Projet suivant : Print It</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
@@ -130,13 +130,13 @@
   </section>
 
   <footer id="footer">
-    <p>&copy; 2024 YellowBlueSkye. Tous droits réservés.</p>
+    <p data-i18n="footer.copyright">&copy; 2024 YellowBlueSkye. Tous droits réservés.</p>
   </footer>
 
   <!-- Bouton retour en haut -->
-  <button id="scroll-to-top" class="scroll-to-top" title="Retour en haut">
+  <button id="scroll-to-top" class="scroll-to-top" data-i18n-title="ui.backToTop" title="Retour en haut">
     <svg width="20" height="20" viewBox="0 0 24 24">
-      <path d="M12 4l-8 8h5v8h6v-8h5z" fill="currentColor"></path>
+      <path d="M7 14l5-5 5 5z" fill="currentColor"></path>
     </svg>
   </button>
 
@@ -148,7 +148,6 @@
       once: true
     });
 
-    // Script pour le bouton de retour en haut
     document.addEventListener('DOMContentLoaded', function() {
       var scrollToTopBtn = document.getElementById("scroll-to-top");
       
@@ -174,5 +173,6 @@
       });
     });
   </script>
+  <script src="../scripts/translator.js"></script>
 </body>
 </html>

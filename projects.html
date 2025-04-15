@@ -3,34 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mes Projets & Compétences - Portfolio</title>
+  <title data-i18n="meta.projectsTitle">Mes Projets & Compétences - Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="contact-page">
   <header>
     <div>
-      <h1>Tous mes projets & compétences</h1>
+      <h1 data-i18n="projects.headerTitle">MES PROJETS</h1>
     </div>
     <div class="nav-container">
       <div class="nav-left">
-        <a href="index.html" class="btn-back-home" title="Retour à l'accueil">
+        <a href="index.html" class="btn-back-home" data-i18n-title="ui.backToHome" title="Retour à l'accueil">
           <svg width="20" height="20" viewBox="0 0 24 24">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"></path>
           </svg>
         </a>
       </div>
       
-      
       <div class="nav-right">
         <div class="language-switch">
-          <a href="projects-en.html" id="switch-to-en" title="Switch to English">
+          <a href="javascript:void(0)" id="switch-to-en" title="Switch to English">
             <img src="images/icons/icons8-uk-flag-48.png" alt="English" />
           </a>
-          <a href="#" id="switch-to-fr" style="display: none">
+          <a href="javascript:void(0)" id="switch-to-fr" style="display: none">
             <img src="images/icons/icons8-french-flag-48.png" alt="Français" />
           </a>
         </div>
@@ -40,12 +39,13 @@
 
   <!-- Section Compétences -->
   <section id="skills" class="skills-section">
-    <h3 class="title-banner" data-aos="fade-up">Mes compétences techniques</h3>
+    <!-- Ne se traduit pas -->
+    <h3 id="skills-title" class="title-banner" data-i18n="skills.title" data-aos="fade-up">Mes compétences techniques</h3>
     
     <div class="skills-categories">
       <!-- Front-end -->
       <div class="skills-category" data-aos="fade-up">
-        <h3 class="category-title">Front-end</h3>
+        <h3 class="category-title" data-i18n="skills.frontend">Front-end</h3>
         <div class="skills-grid">
           <div class="skill">
             <div class="skill-icon">
@@ -76,7 +76,7 @@
       
       <!-- Back-end -->
       <div class="skills-category" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="category-title">Back-end</h3>
+        <h3 class="category-title" data-i18n="skills.backend">Back-end</h3>
         <div class="skills-grid">
           <div class="skill">
             <div class="skill-icon">
@@ -107,7 +107,7 @@
       
       <!-- Base de données -->
       <div class="skills-category" data-aos="fade-up" data-aos-delay="200">
-        <h3 class="category-title">Base de données</h3>
+        <h3 class="category-title" data-i18n="skills.database">Base de données</h3>
         <div class="skills-grid">
           <div class="skill">
             <div class="skill-icon">
@@ -126,7 +126,7 @@
       
       <!-- Design & Outils -->
       <div class="skills-category" data-aos="fade-up" data-aos-delay="300">
-        <h3 class="category-title">Design & Outils</h3>
+        <h3 class="category-title" data-i18n="skills.design">Design & Outils</h3>
         <div class="skills-grid">
           <div class="skill">
             <div class="skill-icon">
@@ -159,7 +159,8 @@
 
   <!-- Section Projets détaillés -->
   <section id="projects">
-    <h3 class="title-banner">Tous mes projets réalisés</h3>
+    <!-- Se traduit -->
+    <h3 class="title-banner" data-i18n="projects.allTitle" data-aos="fade-up">Tous mes projets réalisés</h3>
     
     <div class="projects-grid">
       <!-- Projet 1 -->
@@ -167,8 +168,8 @@
         <img src="images/header.png" alt="Projet-Riding-Cities" />
         <div class="project-info">
           <div>
-            <h3>Riding Cities</h3>
-            <p>
+            <h3 data-i18n="projectNames.ridingCities">Riding Cities</h3>
+            <p data-i18n="projectDescriptions.ridingCities.full">
               Riding Cities est le tout premier projet de site web utilisant
               les languages de bases HTML et CSS et publié sur
               Github-pages. Il a été conçu lors de mon apprentissage des
@@ -180,8 +181,8 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://dev-djelloul.github.io/Riding-Cities/" target="_blank">Voir le projet</a>
-            <a href="https://github.com/Dev-Djelloul/Riding-Cities" target="_blank" class="github-link">GitHub</a>
+            <a href="https://dev-djelloul.github.io/Riding-Cities/" target="_blank" data-i18n="projects.viewLive">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Riding-Cities" target="_blank" class="github-link" data-i18n="projects.viewCode">GitHub</a>
           </div>
         </div>
       </div>
@@ -191,8 +192,8 @@
         <img src="images/aw-creative-VGs8z60yT2c-unsplash.jpg" alt="Projet-Booki" />
         <div class="project-info">
           <div>
-            <h3>Booki</h3>
-            <p>
+            <h3 data-i18n="projectNames.booki">Booki</h3>
+            <p data-i18n="projectDescriptions.booki.full">
               Booki est un site web responsive créé avec HTML et CSS et publié sur GitHub Pages.<br />
               Il a été conçu lors de mon apprentissage des langages de base avec l'école Openclassrooms.
             </p>
@@ -203,8 +204,8 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://dev-djelloul.github.io/Booki" target="_blank">Voir le projet</a>
-            <a href="https://github.com/Dev-Djelloul/Booki" target="_blank" class="github-link">GitHub</a>
+            <a href="https://dev-djelloul.github.io/Booki" target="_blank" data-i18n="projects.viewLive">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Booki" target="_blank" class="github-link" data-i18n="projects.viewCode">GitHub</a>
           </div>
         </div>
       </div>
@@ -214,8 +215,8 @@
         <img src="images/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="Projet-ohmyfood" />
         <div class="project-info">
           <div>
-            <h3>Ohmyfood</h3>
-            <p>
+            <h3 data-i18n="projectNames.ohmyfood">Ohmyfood</h3>
+            <p data-i18n="projectDescriptions.ohmyfood.full">
               Ohmyfood est un site web responsive créé avec HTML et CSS et publié sur GitHub Pages.<br />
               Il a été conçu lors de mon apprentissage des langages de base avec l'école Openclassrooms.
             </p>
@@ -226,8 +227,8 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://dev-djelloul.github.io/Ohmyfood" target="_blank">Voir le projet</a>
-            <a href="https://github.com/Dev-Djelloul/Ohmyfood" target="_blank" class="github-link">GitHub</a>
+            <a href="https://dev-djelloul.github.io/Ohmyfood" target="_blank" data-i18n="projects.viewLive">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Ohmyfood" target="_blank" class="github-link" data-i18n="projects.viewCode">GitHub</a>
           </div>
         </div>
       </div>
@@ -237,8 +238,8 @@
         <img src="images/yellow-book.jpeg" alt="Project-Print-it" />
         <div class="project-info">
           <div>
-            <h3>Print it</h3>
-            <p>
+            <h3 data-i18n="projectNames.printIt">Print it</h3>
+            <p data-i18n="projectDescriptions.printIt.full">
               Print it est un site web développé avec HTML, CSS et les bases de JavaScript, 
               publié sur GitHub Pages.<br />Il a été conçu lors de mon apprentissage 
               des langages de base avec l'école Openclassrooms.
@@ -250,8 +251,8 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://dev-djelloul.github.io/Print-it/" target="_blank">Voir le projet</a>
-            <a href="https://github.com/Dev-Djelloul/Print-it" target="_blank" class="github-link">GitHub</a>
+            <a href="https://dev-djelloul.github.io/Print-it/" target="_blank" data-i18n="projects.viewLive">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Print-it" target="_blank" class="github-link" data-i18n="projects.viewCode">GitHub</a>
           </div>
         </div>
       </div>
@@ -261,8 +262,8 @@
         <img src="images/sophie-bluel.png" alt="Projet-Sophie-Bluel" />
         <div class="project-info">
           <div>
-            <h3 style="color: #b1663c;">Sophie Bluel</h3>
-            <p>
+            <h3 style="color: #b1663c;" data-i18n="projectNames.sophieBluel">Sophie Bluel</h3>
+            <p data-i18n="projectDescriptions.sophieBluel.full">
               Le portfolio de Sophie Bluel est un site web responsive construit avec HTML, CSS, JavaScript, 
               et la gestion des dépendances via Node Package Manager, et publié sur GitHub Pages.<br />
               Pour lancer le projet complet, des dépendances doivent être installées. Les projets photo sont 
@@ -278,8 +279,8 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://dev-djelloul.github.io/sophie-bluel-architect" target="_blank">Voir le projet</a>
-            <a href="https://github.com/Dev-Djelloul/sophie-bluel-architect" target="_blank" class="github-link">GitHub</a>
+            <a href="https://dev-djelloul.github.io/sophie-bluel-architect" target="_blank" data-i18n="projects.viewLive">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/sophie-bluel-architect" target="_blank" class="github-link" data-i18n="projects.viewCode">GitHub</a>
           </div>
         </div>
       </div>
@@ -289,8 +290,8 @@
         <img src="images/jeu_de_memory.jpg" alt="Projet-Memory-Game" />
         <div class="project-info">
           <div>
-            <h3>Memory Game</h3>
-            <p>
+            <h3 data-i18n="projectNames.memoryGame">Memory Game</h3>
+            <p data-i18n="projectDescriptions.memoryGame.full">
               Memory Game est un jeu de mémoire créé avec HTML, CSS et JavaScript, 
               et publié sur GitHub Pages.<br />Il a été conçu dans le cadre de ma formation 
               avec Studi pour maîtriser les fondamentaux du web.
@@ -302,8 +303,8 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://dev-djelloul.github.io/Memory_Game" target="_blank">Voir le projet</a>
-            <a href="https://github.com/Dev-Djelloul/Memory_Game" target="_blank" class="github-link">GitHub</a>
+            <a href="https://dev-djelloul.github.io/Memory_Game" target="_blank" data-i18n="projects.viewLive">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Memory_Game" target="_blank" class="github-link" data-i18n="projects.viewCode">GitHub</a>
           </div>
         </div>
       </div>
@@ -313,8 +314,8 @@
         <img src="images/logo-arcadia.jpeg" alt="Projet-Arcadia-Zoo" />
         <div class="project-info">
           <div>
-            <h3>Arcadia Zoo</h3>
-            <p>
+            <h3 data-i18n="projectNames.arcadiaZoo">Arcadia Zoo</h3>
+            <p data-i18n="projectDescriptions.arcadiaZoo.full">
               Arcadia Zoo est une application web full-stack développée avec HTML, CSS, Bootstrap, 
               et JavaScript pour le front-end, et PHP avec son gestionnaire de dépendances Composer, 
               MySQL, Node.js et MongoDB pour le back-end. Elle utilise également Heroku pour le déploiement 
@@ -337,8 +338,8 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://arcadia-zoo-75-32a6cd6d481b.herokuapp.com/" target="_blank">Voir le projet</a>
-            <a href="https://github.com/Dev-Djelloul/Arcadia-Zoo" target="_blank" class="github-link">GitHub</a>
+            <a href="https://arcadia-zoo-75-32a6cd6d481b.herokuapp.com/" target="_blank" data-i18n="projects.viewLive">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/Arcadia-Zoo" target="_blank" class="github-link" data-i18n="projects.viewCode">GitHub</a>
           </div>
         </div>
       </div>
@@ -348,8 +349,8 @@
         <img src="images/blue-1761175.jpg" alt="Projet-Budget-Buddy" />
         <div class="project-info">
           <div>
-            <h3>Budget Buddy</h3>
-            <p>
+            <h3 data-i18n="projectNames.budgetBuddy">Budget Buddy</h3>
+            <p data-i18n="projectDescriptions.budgetBuddy.full">
               Budget Buddy est une application de suivi des dépenses personnelles construite avec HTML, 
               CSS, JavaScript, et le framework React.js, et publiée sur GitHub Pages.<br />
               Elle a été conçue dans le cadre de mon apprentissage avec Studi pour maîtriser 
@@ -363,8 +364,8 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://dev-djelloul.github.io/budget-buddy" target="_blank">Voir le projet</a>
-            <a href="https://github.com/Dev-Djelloul/budget-buddy" target="_blank" class="github-link">GitHub</a>
+            <a href="https://dev-djelloul.github.io/budget-buddy" target="_blank" data-i18n="projects.viewLive">Voir le projet</a>
+            <a href="https://github.com/Dev-Djelloul/budget-buddy" target="_blank" class="github-link" data-i18n="projects.viewCode">GitHub</a>
           </div>
         </div>
       </div>
@@ -373,7 +374,7 @@
 
   <!-- Bouton retour à l'accueil -->
   <div class="back-home">
-    <a href="index.html" class="btn-back-home">
+    <a href="index.html" class="btn-back-home" data-i18n="ui.backToHome">
       <svg width="20" height="20" viewBox="0 0 24 24">
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"></path>
       </svg>
@@ -382,12 +383,12 @@
   </div>
   
   <!-- Bouton flèche pour remonter en haut de page -->
-  <button id="scroll-to-top" class="scroll-to-top" title="Retour en haut">
+  <button id="scroll-to-top" class="scroll-to-top" data-i18n-title="ui.backToTop" title="Retour en haut">
     <svg width="20" height="20" viewBox="0 0 24 24">
-      <path d="M12 4l-8 8h5v8h6v-8h5z" fill="currentColor"></path>
+      <path d="M7 14l5-5 5 5z" fill="currentColor"></path>
     </svg>
   </button>
-
+  
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
@@ -422,6 +423,7 @@
       });
     });
   </script>
+  <script src="scripts/translator.js"></script>
 </body>
 </html>
 

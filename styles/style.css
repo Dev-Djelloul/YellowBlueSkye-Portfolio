@@ -48,7 +48,7 @@ header h1 {
   margin: 25px auto;
   font-size: 28px;
   font-weight: bold;
-  color: #ffffff;
+  color: #5d5dff;
   text-shadow: 0 0 10px rgba(93, 93, 255, 0.5);
   background: none;
   -webkit-background-clip: initial;
@@ -98,9 +98,27 @@ header .language-switch {
   right: 20px;
 }
 
+/* Style pour les boutons de langue */
+.lang-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.lang-button:hover {
+  transform: scale(1.1);
+}
+
+.lang-button img {
+  width: 30px;
+  height: 30px;
+}
+
 /* Titres et textes communs */
 h2.title-banner {
-  color: #ffffff;
+  color: #5d5dff;
   background-color: rgba(35, 36, 54, 0.7);
   position: relative;
   margin: 30px auto;
@@ -153,6 +171,34 @@ h3.title-banner:after {
   line-height: 1.7;
   font-size: 16px;
   margin-bottom: 15px;
+}
+
+.link-schools-openclassrooms {
+  color: #5d5dff;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px dotted #5d5dff;
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+.link-schools-openclassrooms:hover {
+  color: #7b7bff;
+  border-bottom: 2px solid #7b7bff;
+}
+
+.link-schools-studi {
+  color: #5d5dff;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px dotted #5d5dff;
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+.link-schools-studi:hover {
+  color: #7b7bff;
+  border-bottom: 2px solid #7b7bff;
 }
 
 /* Bouton commun à toutes les pages */
@@ -211,13 +257,13 @@ h3.title-banner:after {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   background: #343654;
   color: #5d5dff;
   border: 2px solid #5d5dff;
   border-radius: 50%;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -225,6 +271,7 @@ h3.title-banner:after {
   transition: all 0.3s ease;
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 0;
 }
 
 .scroll-to-top:hover {
@@ -232,6 +279,11 @@ h3.title-banner:after {
   color: white;
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(93, 93, 255, 0.4);
+}
+
+.scroll-to-top svg {
+  width: 30px;
+  height: 30px;
 }
 
 /* Footer commun */
@@ -351,7 +403,7 @@ footer {
 /* Style pour la grille de prévisualisation des projets 2x2 */
 .project-preview-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 30px;
   max-width: 1200px;
@@ -972,7 +1024,7 @@ footer {
   background: none;
   -webkit-background-clip: initial;
   -webkit-text-fill-color: initial;
-  color: #ffffff;
+  color: #5d5dff;
 }
 
 /* Adaptation pour les tablettes et mobiles */

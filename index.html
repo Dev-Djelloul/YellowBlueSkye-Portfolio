@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YellowBlueSkye - Développeur Web</title>
+    <title data-i18n="meta.title">YellowBlueSkye - Développeur Web</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -13,73 +13,83 @@
   <body>
     <header>
       <div>
-        <h1>Intégrateur Web & Designer Web</h1>
+        <h1 data-i18n="header.title">Intégrateur Web & Designer Web</h1>
       </div>
       <nav>
         <ul>
-          <li><a href="#about">À PROPOS</a></li>
-          <li><a href="#featured-projects">PROJETS</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="#about" data-i18n="header.about">À PROPOS</a></li>
+          <li><a href="#projects" data-i18n="header.projects">PROJETS</a></li>
+          <li><a href="contact.html" data-i18n="header.contact">CONTACT</a></li>
         </ul>
       </nav>
       <div class="language-switch">
-        <a href="index-en.html" id="switch-to-en" title="Switch to English">
+        <a href="javascript:void(0)" id="switch-to-en" title="Switch to English">
           <img src="images/icons/icons8-uk-flag-48.png" alt="English" />
         </a>
-        <a href="#" id="switch-to-fr" style="display: none">
+        <a href="javascript:void(0)" id="switch-to-fr" style="display: none">
           <img src="images/icons/icons8-french-flag-48.png" alt="Français" />
         </a>
       </div>
+      <!-- reste du header -->
     </header>
 
     <!-- Section À propos -->
     <section id="about" class="about-section">
-      <h2 class="title-banner" data-aos="fade-up">Bienvenue sur mon site web</h2>
-      <div class="about-content">
-        <div class="profile-photo-container" data-aos="fade-up">
-          <img src="images/1659371150199.jpg" alt="YellowBlueSkye - Développeur Web" class="profile-photo" />
-        </div>
-        
-        <div class="about-text-box" data-aos="fade-up">
-          <p>
+      <h2 class="title-banner" data-i18n="about.title" data-aos="fade-up">Bienvenue sur mon portfolio</h2>
+
+      <div class="profile-photo-container" data-aos="fade-up">
+        <img src="images/1659370989523.jpg" alt="YellowBlueSkye - Développeur Web" class="profile-photo" />
+      </div>
+
+      <div class="about-text-box" data-aos="fade-up">
+        <p>
+          <span data-i18n="about.intro">
             Hey ! Je m'appelle Djelloul, je suis un parisien passionné par l'art, les
-            civilisations anciennes, les voyages autour du globe 🌎 et les longues randonnées à vélo 🚲!<br />
+            civilisations anciennes, les voyages autour du globe 🌎 et les longues randonnées à vélo 🚲!
+          </span><br />
+          <span data-i18n="about.background">
             Issu d'une formation universitaire classique, cela fait maintenant quelques années que
             je me suis, littéralement, pris de passion 🌈 pour l'univers du web 🕸 sous
             toutes ses formes, langues, languages et personnes 😊
-            <br />
-            Depuis ce jour, je suis devenu un digital learner assidu et enjoué !<br />
-            Je présente ici mes premiers projets réalisés lors de mes formations
-            chez
-            <a
-              class="link-schools-openclassrooms"
-              style="font-weight: bold"
-              href="https://openclassrooms.com/fr/business/uplift?talentsPage=0&refinementList%5Blocations%5D%5B0%5D=FR%7CFrance"
-              target="_blank"
-            >
-              Openclassrooms
-            </a>
-            et
-    
-            <a
-              class="link-schools-studi"
-              style="font-weight: bold"
-              href="https://www.studi.com/fr/cfa-studi"
-              target="_blank"
-            >
-              Studi</a
-            ><br />
+          </span>
+          <br />
+          <span data-i18n="about.journey">
+            Depuis ce jour, je suis devenu un digital learner assidu et enjoué !
+          </span><br />
+          <span data-i18n="about.education">
+            Je présente ici mes premiers projets réalisés lors de mes formations chez
+          </span>
+          <a
+            class="link-schools-openclassrooms"
+            style="font-weight: bold"
+            href="https://openclassrooms.com/fr/business/uplift?talentsPage=0&refinementList%5Blocations%5D%5B0%5D=FR%7CFrance"
+            target="_blank"
+          >
+            Openclassrooms
+          </a>
+          <span data-i18n="about.and"> et </span>
+          <a
+            class="link-schools-studi"
+            style="font-weight: bold"
+            href="https://www.studi.com/fr/cfa-studi"
+            target="_blank"
+          >
+            Studi
+          </a><br />
+          <span data-i18n="about.future">
             J'espère en apprendre davantage et continuer à me perfectionner dans ce
-            domaine qui me passionne tant désormais.<br>
-            Explorez mon portfolio pour découvrir mes projets et n'hésitez pas à me contacter pour discuter de vos idées !
-          </p>
-        </div>  
-      </div>
+            domaine qui me passionne tant désormais.
+          </span><br>
+          <span data-i18n="about.invitation">
+            Explorez mon portfolio pour découvrir mes projets et n'hésitez pas à me contacter afin de travailler ensemble sur de nouveaux !
+          </span>
+        </p>
+      </div>  
     </section>
 
     <!-- Section Projets en vedette -->
-    <section id="featured-projects" class="featured-projects">
-      <h2 class="title-banner" data-aos="fade-up">Mes projets réalisés</h2>
+    <section id="projects" class="featured-projects">
+      <h2 class="title-banner" data-i18n="projects.title" data-aos="fade-up"> Un bref aperçu de mes projets réalisés</h2>
       
       <div class="project-preview-grid">
         <!-- Ligne 1 -->
@@ -87,8 +97,8 @@
         <div class="project-preview" data-aos="fade-up">
           <img src="images/header.png" alt="Riding Cities" />
           <div class="project-preview-overlay">
-            <h3>Riding Cities</h3>
-            <a href="projects/riding-cities.html" class="btn-view-project">Voir le projet</a>
+            <h3 data-i18n="projectNames.ridingCities">Riding Cities</h3>
+            <a href="projects/riding-cities.html" class="btn-view-project" data-i18n="projects.viewProject">Voir la fiche du projet</a>
           </div>
         </div>
         
@@ -96,8 +106,8 @@
         <div class="project-preview" data-aos="fade-up">
           <img src="images/aw-creative-VGs8z60yT2c-unsplash.jpg" alt="Booki" />
           <div class="project-preview-overlay">
-            <h3>Booki</h3>
-            <a href="projects/booki.html" class="btn-view-project">Voir le projet</a>
+            <h3 data-i18n="projectNames.booki">Booki</h3>
+            <a href="projects/booki.html" class="btn-view-project" data-i18n="projects.viewProject">Voir la fiche du projet</a>
           </div>
         </div>
         
@@ -105,8 +115,8 @@
         <div class="project-preview" data-aos="fade-up">
           <img src="images/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="Ohmyfood" />
           <div class="project-preview-overlay">
-            <h3>Ohmyfood</h3>
-            <a href="projects/ohmyfood.html" class="btn-view-project">Voir le projet</a>
+            <h3 data-i18n="projectNames.ohmyfood">Ohmyfood</h3>
+            <a href="projects/ohmyfood.html" class="btn-view-project" data-i18n="projects.viewProject">Voir la fiche du projet</a>
           </div>
         </div>
         
@@ -114,8 +124,8 @@
         <div class="project-preview" data-aos="fade-up">
           <img src="images/yellow-book.jpeg" alt="Print It" />
           <div class="project-preview-overlay">
-            <h3>Print It</h3>
-            <a href="projects/print-it.html" class="btn-view-project">Voir le projet</a>
+            <h3 data-i18n="projectNames.printIt">Print It</h3>
+            <a href="projects/print-it.html" class="btn-view-project" data-i18n="projects.viewProject">Voir la fiche du projet</a>
           </div>
         </div>
 
@@ -124,8 +134,8 @@
         <div class="project-preview" data-aos="fade-up">
           <img src="images/sophie-bluel.png" alt="Sophie Bluel" />
           <div class="project-preview-overlay">
-            <h3>Sophie Bluel</h3>
-            <a href="projects/sophie-bluel.html" class="btn-view-project">Voir le projet</a>
+            <h3 data-i18n="projectNames.sophieBluel">Sophie Bluel</h3>
+            <a href="projects/sophie-bluel.html" class="btn-view-project" data-i18n="projects.viewProject">Voir la fiche du projet</a>
           </div>
         </div>
         
@@ -133,8 +143,8 @@
         <div class="project-preview" data-aos="fade-up">
           <img src="images/jeu_de_memory.jpg" alt="Memory Game" />
           <div class="project-preview-overlay">
-            <h3>Memory Game</h3>
-            <a href="projects/memory-game.html" class="btn-view-project">Voir le projet</a>
+            <h3 data-i18n="projectNames.memoryGame">Memory Game</h3>
+            <a href="projects/memory-game.html" class="btn-view-project" data-i18n="projects.viewProject">Voir la fiche du projet</a>
           </div>
         </div>
         
@@ -142,8 +152,8 @@
         <div class="project-preview" data-aos="fade-up">
           <img src="images/logo-arcadia.jpeg" alt="Arcadia Zoo" />
           <div class="project-preview-overlay">
-            <h3>Arcadia Zoo</h3>
-            <a href="projects/arcadia-zoo.html" class="btn-view-project">Voir le projet</a>
+            <h3 data-i18n="projectNames.arcadiaZoo">Arcadia Zoo</h3>
+            <a href="projects/arcadia-zoo.html" class="btn-view-project" data-i18n="projects.viewProject">Voir la fiche du projet</a>
           </div>
         </div>
         
@@ -151,26 +161,26 @@
         <div class="project-preview" data-aos="fade-up">
           <img src="images/blue-1761175.jpg" alt="Budget Buddy" />
           <div class="project-preview-overlay">
-            <h3>Budget Buddy</h3>
-            <a href="projects/budget-buddy.html" class="btn-view-project">Voir le projet</a>
+            <h3 data-i18n="projectNames.budgetBuddy">Budget Buddy</h3>
+            <a href="projects/budget-buddy.html" class="btn-view-project" data-i18n="projects.viewProject">Voir la fiche du projet</a>
           </div>
         </div>
       </div>
       
       <!-- Bouton pour voir tous les projets -->
       <div class="view-all-projects" data-aos="fade-up">
-        <a href="projects.html" class="btn">Voir tous mes projets et compétences</a>
+        <a href="projects.html" class="btn" data-i18n="projects.viewAllProjects">Voir tous mes projets et compétences</a>
       </div>
     </section>
 
     <footer id="footer">
-      <p>&copy; 2024 YellowBlueSkye. Tous droits réservés.</p>
+      <p data-i18n="footer.copyright">&copy; 2024 YellowBlueSkye. Tous droits réservés.</p>
     </footer>
 
     <!-- Bouton retour en haut -->
-    <button id="scroll-to-top" class="scroll-to-top" title="Retour en haut">
+    <button id="scroll-to-top" class="scroll-to-top" data-i18n-title="ui.backToTop" title="Retour en haut">
       <svg width="20" height="20" viewBox="0 0 24 24">
-        <path d="M12 4l-8 8h5v8h6v-8h5z" fill="currentColor"></path>
+        <path d="M7 14l5-5 5 5z" fill="currentColor"></path>
       </svg>
     </button>
 
@@ -208,5 +218,6 @@
         });
       });
     </script>
+    <script src="scripts/translator.js"></script>
   </body>
 </html>
