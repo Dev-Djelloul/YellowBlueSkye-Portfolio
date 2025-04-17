@@ -20,10 +20,10 @@
     "invitation": " Explorez mon portfolio pour découvrir mes projets et n'hésitez pas à me contacter afin de travailler ensemble sur de nouveaux projets !"
   },
   "projects": {
-    "title": "Un bref aperçu de mes projets réalisés",
+    "title": "Un bref aperçu de mes projets",
     "pageTitle": "Projets - Portfolio YellowBlueSkye",
     "subtitle": "MES PROJETS & COMPÉTENCES",
-    "allTitle": "Tous mes Projets réalisés",
+    "allTitle": "Mes projets réalisés",
     "viewProject": "Voir la fiche du projet",
     "viewAllProjects": "Voir tous mes projets et compétences",
     "viewLive": "Voir le projet",
@@ -38,7 +38,6 @@
     "design": "Design & Outils"
   },
   "contact": {
-    "title": "Me contacter",
     "name": "Nom",
     "email": "Email",
     "message": "Message",
@@ -48,7 +47,7 @@
     "success": "Message envoyé avec succès !",
     "error": "Une erreur est survenue. Veuillez réessayer.",
     "pageTitle": "Contact - Portfolio YellowBlueSkye",
-    "title": "CONTACTEZ-MOI",
+    "title": "YELLOWBLUESKYE CONTACT",
     "locationTitle": "MA LOCALISATION 🪐",
     "formTitle": "LAISSEZ VOTRE MESSAGE ICI",
     "enterName": "Entrez votre nom...",
@@ -58,7 +57,7 @@
     "alternateContact": "Vous pouvez également m'envoyer un email à",
     "successMessage": "Votre message a été envoyé avec succès!",
     "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
-    "headerTitle": "YellowBlueSkye Contact"
+    "headerTitle": "YELLOWBLUESKYE CONTACT"
   },
   "footer": {
     "copyright": "© 2024 YellowBlueSkye. Tous droits réservés."
@@ -105,15 +104,19 @@
     "budgetBuddy": {
       "short": "Application de suivi des dépenses",
       "full": "Budget Buddy est une application de suivi des dépenses personnelles construite avec HTML, CSS, JavaScript, et le framework React.js, et publiée sur GitHub Pages. Elle a été conçue dans le cadre de mon apprentissage avec Studi pour maîtriser les outils modernes de développement web."
+    },
+    "tetrisWindsurf": {
+      "short": "Jeu de Tetris sur le thème du windsurf",
+      "full": "Tetris Windsurf est un jeu vidéo amusant et captivant développé avec HTML, CSS, JavaScript et WebGL. Il a été conçu pour être accessible sur différents appareils, avec une interface réactive et des commandes intuitives. Ce projet a été réalisé dans le cadre de ma formation avec Studi pour maîtriser les outils modernes de développement web."
     }
   },
   "projectDetails": {
     "overview": "Aperçu",
     "technologies": "Technologies utilisées",
     "challenges": "Défis",
-    "details": "PROJECT DETAILS",
+    "details": "DÉTAILS DU PROJET",
     "objective": "Objectif",
-    "backToHome": "Revenir à l'Accueil",
+    "backToHome": "Accueil",
     "viewLive": "Voir le projet",
     "viewCode": "Voir le code Git Hub",
     "previous": "Projet précédent",
@@ -175,11 +178,19 @@
       "technologiesDetail": "J'ai développé cette application en utilisant React.js pour la structure de composants et la gestion de l'interface utilisateur. J'ai implémenté le state management à l'aide des React Hooks (useState, useEffect, useContext) pour gérer efficacement les données de l'application. Pour la persistance des données, j'ai utilisé localStorage afin que les utilisateurs puissent conserver leurs informations entre les sessions. J'ai également créé des visualisations de données interactives pour représenter graphiquement les dépenses.",
       "challengesSolutions": "Le principal défi était de concevoir une architecture de composants efficace et de gérer correctement l'état de l'application à mesure qu'elle se complexifiait. J'ai résolu ce problème en utilisant le Context API de React pour centraliser la gestion de l'état et éviter le \"prop drilling\". Un autre défi était d'assurer une expérience utilisateur fluide avec des transitions et des animations appropriées tout en maintenant de bonnes performances. J'ai optimisé les renders avec des techniques comme la mémorisation de composants et l'utilisation judicieuse de l'hook useCallback."
     },
-    "previousProjectSophieBluel": "Projet précédent : Sophie Bluel",
-    "nextProjectArcadiaZoo": "Projet suivant : Arcadia Zoo",
-    "previousProjectArcadiaZoo": "Projet précédent : Arcadia Zoo"
+    "tetrisWindsurf": {
+      "title": "Tetris Windsurf - Portfolio YellowBlueSkye",
+      "headerTitle": "PROJET TETRIS WINDSURF",
+      "objective": "L'objectif de ce projet était de créer un jeu vidéo amusant et captivant qui combine la logique du célèbre jeu Tetris avec une thématique de sports nautiques. Ce jeu a été conçu pour être accessible sur différents appareils, avec une interface réactive et des commandes intuitives pour tous les types d'utilisateurs.",
+      "technologiesDetail": "Ce projet a été développé en utilisant JavaScript vanilla pour la logique du jeu et les interactions, HTML5 Canvas pour le rendu graphique des éléments de jeu, et CSS3 pour le style de l'interface utilisateur. J'ai également implémenté WebGL pour certains effets visuels avancés comme les particules d'eau et les reflets de lumière. Le design responsive permet une expérience optimale sur tous les appareils, des smartphones aux écrans larges.",
+      "challengesSolutions": "Le principal défi était d'adapter les mécaniques de jeu classiques du Tetris à une thématique de windsurf tout en gardant une jouabilité fluide et intuitive. J'ai résolu ce problème en concevant des pièces de Tetris personnalisées qui rappellent des éléments de planche à voile et en ajoutant des effets visuels comme des vagues et des éclaboussures d'eau pour renforcer l'ambiance nautique. Un autre défi était d'optimiser les performances pour les appareils mobiles, ce que j'ai résolu en implémentant des techniques de rendu efficaces et en adaptant la complexité graphique en fonction des capacités du dispositif."
+    }
   },
   "ui": {
     "backToTop": "Retour en haut"
+  },
+  "navigation": {
+    "previousProject": "Projet précédent",
+    "nextProject": "Projet suivant"
   }
 }

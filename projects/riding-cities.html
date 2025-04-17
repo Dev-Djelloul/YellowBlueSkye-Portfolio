@@ -11,23 +11,27 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="project-page">
-  <header>
-    <div>
-    </div>
-    <h2 class="title-banner" data-i18n="projectDetails.ridingCities.headerTitle">PROJET RIDING CITIES</h2>
-    <nav>
-      <ul>
-        <li><a href="../index.html" data-i18n="projectDetails.backToHome">Revenir à l'accueil</a></li>
-        <li><a href="../projects.html" data-i18n="projects.allTitle">Tous les projets</a></li>
-      </ul>
-    </nav>
-    <div class="language-switch">
-      <a href="javascript:void(0)" id="switch-to-en" title="Switch to English">
-        <img src="../images/icons/icons8-uk-flag-48.png" alt="English" />
-      </a>
-      <a href="javascript:void(0)" id="switch-to-fr" style="display: none">
-        <img src="../images/icons/icons8-french-flag-48.png" alt="Français" />
-      </a>
+  <header class="compact-header">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="../index.html" class="btn-back-home" data-i18n-title="ui.backToHome" title="Retour à l'accueil">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"></path>
+          </svg>
+        </a>
+        <h1 class="page-title" data-i18n="projectDetails.ridingCities.headerTitle">PROJET RIDING CITIES</h1>
+      </div>
+      
+      <div class="header-right">
+        <div class="language-switch">
+          <a href="javascript:void(0)" id="switch-to-en" title="Switch to English">
+            <img src="../images/icons/icons8-uk-flag-48.png" alt="English" />
+          </a>
+          <a href="javascript:void(0)" id="switch-to-fr" style="display: none">
+            <img src="../images/icons/icons8-french-flag-48.png" alt="Français" />
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -53,9 +57,9 @@
       </div>
       
       <div class="project-links">
-        <a href="https://dev-djelloul.github.io/Riding-Cities/" target="_blank" class="btn-view-project" data-i18n="projectDetails.viewLive">
+        <a href="https://dev-djelloul.github.io/Riding-Cities/" target="_blank"  data-i18n="projectDetails.viewLive">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1-2-2h6"></path>
             <polyline points="15 3 21 3 21 9"></polyline>
             <line x1="10" y1="14" x2="21" y2="3"></line>
           </svg>
@@ -98,25 +102,25 @@
       <h3 class="title-banner" data-i18n="projectDetails.gallery">GALERIE</h3>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="../images/billaud-william-T-0EW-SEbsE-unsplash.jpg" alt="Image Project 1">
+          <img src="../images/imagesRidingCities/marc.png" alt="Marc">
         </div>
         <div class="gallery-item">
-          <img src="../images/header.png" alt="Image Project 2">
+          <img src="../images/imagesRidingCities/pedro.png" alt="Pedro">
         </div>
         <div class="gallery-item">
-          <img src="../images/madison-oren-fWGo8Uo1SuM-unsplash.jpg" alt="Image Project 3">
+          <img src="../images/imagesRidingCities/soraya.png" alt="Soraya">
         </div>
       </div>
     </div>
 
     <!-- Navigation entre projets -->
     <div class="project-navigation">
-      <a href="budget-buddy.html" class="project-nav-btn">
+      <a href="tetris-windsurf.html" class="project-nav-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
-        <span data-i18n="projectDetails.previousProject">Projet précédent : Budget Buddy</span>
+        <span data-i18n="projectDetails.previousProject">Projet précédent : Tetris Windsurf</span>
       </a>
       <a href="booki.html" class="project-nav-btn">
         <span data-i18n="projectDetails.nextProject">Projet suivant : Booki</span>
@@ -174,5 +178,6 @@
     });
   </script>
   <script src="../scripts/translator.js"></script>
+  <script src="../scripts/navbar.js"></script>
 </body>
 </html>

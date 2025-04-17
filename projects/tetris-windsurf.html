@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="projectDetails.tetrisWindsurf.title">Tetris Windsurf - Portfolio YellowBlueSkye</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    header.nav-hidden {
+      transform: translateY(-100%);
+    }
+
+    header.nav-scrolled {
+      background-color: rgba(35, 36, 54, 0.95);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body class="project-page">
+  <header class="compact-header">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="../index.html" class="btn-back-home" data-i18n-title="ui.backToHome" title="Retour à l'accueil">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"></path>
+          </svg>
+        </a>
+        <h1 class="page-title" data-i18n="projectDetails.tetrisWindsurf.headerTitle">PROJET TETRIS WINDSURF</h1>
+      </div>
+      
+      <div class="header-right">
+        <div class="language-switch">
+          <a href="javascript:void(0)" id="switch-to-en" title="Switch to English">
+            <img src="../images/icons/icons8-uk-flag-48.png" alt="English" />
+          </a>
+          <a href="javascript:void(0)" id="switch-to-fr" style="display: none">
+            <img src="../images/icons/icons8-french-flag-48.png" alt="Français" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section Projet Détaillé -->
+  <section class="project-detail">
+    <div class="project-hero" data-aos="fade-up">
+      <img src="../images/imagesTetrisWindsurf/Tetris-cover-page.jpg" alt="Tetris Windsurf" />
+    </div>
+
+    <div class="project-content" data-aos="fade-up">
+      <h2 class="title-banner" data-i18n="projectNames.tetrisWindsurf">TETRIS WINDSURF</h2>
+      
+      <p data-i18n="projectDescriptions.tetrisWindsurf.full">
+        Tetris Windsurf est un jeu vidéo amusant et captivant développé avec HTML, CSS, JavaScript et WebGL. Il a été conçu pour être accessible sur différents appareils, avec une interface réactive et des commandes intuitives. Ce projet a été réalisé dans le cadre de ma formation avec Studi pour maîtriser les outils modernes de développement web
+      </p>
+      
+      <div class="project-tech">
+        <span>JavaScript</span>
+        <span>HTML5 Canvas</span>
+        <span>CSS3</span>
+        <span>WebGL</span>
+        <span>Responsive Design</span>
+      </div>
+      
+      <div class="project-links">
+        <a href="https://dev-djelloul.github.io/tetris-windsurf/" target="_blank"  data-i18n="projectDetails.viewLive">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1-2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          Voir le projet en ligne
+        </a>
+        <a href="https://github.com/Dev-Djelloul/tetris-windsurf" target="_blank" class="btn-view-code" data-i18n="projectDetails.viewCode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          Voir sur GitHub
+        </a>
+      </div>
+    </div>
+    
+    <div class="project-content" data-aos="fade-up">
+      <h3 class="title-banner section-title" data-i18n="projectDetails.details">DÉTAILS DU PROJET</h3>
+      
+      <h4 data-i18n="projectDetails.objective">Objectif</h4>
+      <p data-i18n="projectDetails.tetrisWindsurf.objective">
+        L'objectif de ce projet était de créer un jeu vidéo amusant et captivant qui combine la logique du célèbre jeu Tetris avec une thématique de sports nautiques. Ce jeu a été conçu pour être accessible sur différents appareils, avec une interface réactive et des commandes intuitives pour tous les types d'utilisateurs.
+      </p>
+      
+      <h4 data-i18n="projectDetails.technologies">Technologies utilisées</h4>
+      <p data-i18n="projectDetails.tetrisWindsurf.technologiesDetail">
+        Ce projet a été développé en utilisant JavaScript vanilla pour la logique du jeu et les interactions, HTML5 Canvas pour le rendu graphique des éléments de jeu, et CSS3 pour le style de l'interface utilisateur. J'ai également implémenté WebGL pour certains effets visuels avancés comme les particules d'eau et les reflets de lumière. Le design responsive permet une expérience optimale sur tous les appareils, des smartphones aux écrans larges.
+      </p>
+      
+      <h4 data-i18n="projectDetails.challengesAndSolutions">Défis et solutions</h4>
+      <p data-i18n="projectDetails.tetrisWindsurf.challengesSolutions">
+        Le principal défi était d'adapter les mécaniques de jeu classiques du Tetris à une thématique de windsurf tout en gardant une jouabilité fluide et intuitive. J'ai résolu ce problème en concevant des pièces de Tetris personnalisées qui rappellent des éléments de planche à voile et en ajoutant des effets visuels comme des vagues et des éclaboussures d'eau pour renforcer l'ambiance nautique. Un autre défi était d'optimiser les performances pour les appareils mobiles, ce que j'ai résolu en implémentant des techniques de rendu efficaces et en adaptant la complexité graphique en fonction des capacités du dispositif.
+      </p>
+    </div>
+
+    <div class="project-gallery" data-aos="fade-up">
+      <h3 class="title-banner" data-i18n="projectDetails.gallery">GALERIE</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="../images/tetris-windsurf-1.jpg" alt="Écran de jeu Tetris Windsurf">
+        </div>
+        <div class="gallery-item">
+          <img src="../images/tetris-windsurf-2.jpg" alt="Menu du jeu">
+        </div>
+        <div class="gallery-item">
+          <img src="../images/tetris-windsurf-3.jpg" alt="Écran de niveau avancé">
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation entre projets -->
+    <div class="project-navigation">
+      <a href="budget-buddy.html" class="project-nav-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+        <span data-i18n="navigation.previousProject">Projet précédent</span>
+        <span class="project-name">Budget Buddy</span>
+      </a>
+      <a href="riding-cities.html" class="project-nav-btn">
+        <span data-i18n="navigation.nextProject">Projet suivant</span>
+        <span class="project-name">Riding Cities</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <p data-i18n="footer.copyright">&copy; 2024 YellowBlueSkye. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Bouton retour en haut -->
+  <button id="scroll-to-top" class="scroll-to-top" data-i18n-title="ui.backToTop" title="Retour en haut">
+    <svg width="20" height="20" viewBox="0 0 24 24">
+      <path d="M7 14l5-5 5 5z" fill="currentColor"></path>
+    </svg>
+  </button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var scrollToTopBtn = document.getElementById("scroll-to-top");
+      
+      window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+          scrollToTopBtn.style.display = "flex";
+          scrollToTopBtn.style.opacity = "1";
+        } else {
+          scrollToTopBtn.style.opacity = "0";
+          setTimeout(() => {
+            if (document.body.scrollTop <= 300 && document.documentElement.scrollTop <= 300) {
+              scrollToTopBtn.style.display = "none";
+            }
+          }, 300);
+        }
+      };
+      
+      scrollToTopBtn.addEventListener("click", function() {
+        // Position actuelle du défilement
+        const startPosition = window.pageYOffset;
+        // Durée de l'animation en ms (réduire pour augmenter la vitesse)
+        const duration = 500; 
+        const startTime = performance.now();
+        
+        function scroll() {
+          const currentTime = performance.now();
+          const timeElapsed = currentTime - startTime;
+          
+          // Formule d'easing pour un défilement fluide mais plus rapide
+          const run = Math.min(timeElapsed / duration, 1);
+          const ease = easeInOutQuad(run);
+          
+          window.scrollTo(0, startPosition * (1 - ease));
+          
+          if (timeElapsed < duration) {
+            requestAnimationFrame(scroll);
+          }
+        }
+        
+        // Fonction d'easing quadratique
+        function easeInOutQuad(t) {
+          return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        }
+        
+        requestAnimationFrame(scroll);
+      });
+    });
+  </script>
+  <script src="../scripts/translator.js"></script>
+  <script src="../scripts/navbar.js"></script>
+</body>
+</html>

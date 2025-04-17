@@ -21,16 +21,15 @@
     "invitation": "Explore my portfolio to discover my projects and don't hesitate to contact me to work together on new projects!"
   },
   "projects": {
-    "title": "A brief overview of my completed projects",
+    "title": "A brief overview of my projects",
     "pageTitle": "Projects - YellowBlueSkye Portfolio",
     "headerTitle": "MY PROJECTS",
     "subtitle": "MY PROJECTS & SKILLS",
-    "allTitle": "All my Projects",
+    "allTitle": "All my projects",
     "viewProject": "View project",
     "viewAllProjects": "View all my projects and skills",
     "viewLive": "View project",
     "viewCode": "GitHub"
-    
   },
   "skills": {
     "title": "My hard skills",
@@ -40,7 +39,6 @@
     "design": "Design & Tools"
   },
   "contact": {
-    "title": "Contact me",
     "name": "Name",
     "email": "Email",
     "message": "Message",
@@ -50,7 +48,7 @@
     "success": "Message sent successfully!",
     "error": "An error occurred. Please try again.",
     "pageTitle": "Contact - YellowBlueSkye Portfolio",
-    "headerTitle": "YellowBlueSkye Contact",
+    "headerTitle": "YELLOWBLUESKYE CONTACT",
     "title": "CONTACT ME",
     "locationTitle": "MY LOCATION 🪐",
     "formTitle": "LEAVE YOUR MESSAGE HERE",
@@ -107,18 +105,22 @@
     "budgetBuddy": {
       "short": "Expense tracking application",
       "full": "Budget Buddy is a personal expense tracking application built with HTML, CSS, JavaScript, and the React.js framework, and published on GitHub Pages. It was designed as part of my learning with Studi to master modern web development tools."
+    },
+    "tetrisWindsurf": {
+      "short": "Tetris-inspired windsurfing game",
+      "full": "Tetris Windsurf is a fun and engaging video game developed with HTML, CSS, JavaScript, and WebGL. It was designed to be accessible across multiple devices, with a responsive interface and intuitive controls. This project was completed as part of my training with Studi to master modern web development tools."
     }
   },
   "projectDetails": {
     "overview": "Overview",
-    "technologies": "Technologies used",
+    "technologies": "Technologies Used",
     "challenges": "Challenges",
     "challengesAndSolutions": "Challenges and Solutions",
     "details": "PROJECT DETAILS",
     "objective": "Objective",
-    "backToHome": "Back to Home page",
-    "viewLive": "View live",
-    "viewCode": "View Source Code on GitHub",
+    "backToHome": "Home",
+    "viewLive": "View Live Project",
+    "viewCode": "View on GitHub",
     "previous": "Previous project",
     "next": "Next project",
     "gallery": "GALLERY",
@@ -178,9 +180,19 @@
       "technologiesDetail": "I developed this application using React.js for component structure and user interface management. I implemented state management using React Hooks (useState, useEffect, useContext) to efficiently manage application data. For data persistence, I used localStorage so users could maintain their information between sessions. I also created interactive data visualizations to graphically represent expenses.",
       "challengesSolutions": "The main challenge was designing an effective component architecture and properly managing the application state as it grew more complex. I solved this by using React's Context API to centralize state management and avoid prop drilling. Another challenge was ensuring a smooth user experience with appropriate transitions and animations while maintaining good performance. I optimized renders with techniques such as component memoization and judicious use of the useCallback hook."
     },
-    "previousProjectArcadiaZoo": "Previous project: Arcadia Zoo"
+    "tetrisWindsurf": {
+      "title": "Tetris Windsurf - YellowBlueSkye Portfolio",
+      "headerTitle": "TETRIS WINDSURF PROJECT",
+      "objective": "The objective of this project was to create a fun and engaging video game that combines the logic of the famous Tetris game with a water sports theme. This game was designed to be accessible on different devices, with a responsive interface and intuitive controls for all types of users.",
+      "technologiesDetail": "This project was developed using vanilla JavaScript for game logic and interactions, HTML5 Canvas for graphical rendering of game elements, and CSS3 for user interface styling. I also implemented WebGL for certain advanced visual effects like water particles and light reflections. The responsive design allows for an optimal experience on all devices, from smartphones to wide screens.",
+      "challengesSolutions": "The main challenge was adapting Tetris' classic game mechanics to a windsurfing theme while maintaining fluid and intuitive gameplay. I solved this problem by designing custom Tetris pieces that resemble windsurfing elements and adding visual effects such as waves and water splashes to enhance the nautical atmosphere. Another challenge was optimizing performance for mobile devices, which I solved by implementing efficient rendering techniques and adapting graphical complexity based on device capabilities."
+    }
   },
   "ui": {
     "backToTop": "Back to top"
+  },
+  "navigation": {
+    "previousProject": "Previous Project",
+    "nextProject": "Next Project"
   }
 }

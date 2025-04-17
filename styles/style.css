@@ -10,6 +10,7 @@ body {
   color: #ffffff;
   position: relative;
   z-index: 1;
+  padding-top: var(--header-height, 80px); /* Ajustez selon la hauteur de votre header */
 }
 
 /* Image de fond pour toutes les pages */
@@ -31,13 +32,118 @@ body::before {
 
 /* Header commun pour toutes les pages */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
   background: rgba(35, 36, 54, 0.9);
-  padding: 20px 0;
-  position: relative;
+  padding: 15px 5px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border-bottom: 3px solid #5d5dff;
   text-align: center;
   display: block;
+}
+
+/* Header compact pour les pages de projet et de contact */
+.compact-header {
+  height: 85px; /* Hauteur réduite */
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  background-color: rgba(35, 36, 54, 0.95);
+  transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-left .page-title {
+  font-size: 1.2rem;
+  margin: 0;
+  color: white;
+}
+
+.header-left .btn-back-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.header-left .btn-back-home:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.compact-header .language-switch img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.compact-header .language-switch img:hover {
+  transform: scale(1.1);
+}
+
+/* Ajustement du padding du body pour la taille réduite du header */
+body.contact-page, 
+body.project-page {
+  padding-top: 60px; /* Même valeur que la hauteur du compact-header */
+}
+
+/* Effet de shadow quand on défile */
+.compact-header.nav-scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Classe ajoutée quand on défile vers le bas */
+header.nav-hidden {
+  transform: translateY(-100%);
+}
+
+/* Classe pour rendre la navbar plus compacte après un certain défilement */
+header.nav-scrolled {
+  background-color: rgba(35, 36, 54, 0.95); /* Plus opaque */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Effet de hover sur la navbar quand elle est cachée */
+@media (hover: hover) {
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    z-index: 1001;
+  }
+  
+  body::before:hover + header.nav-hidden {
+    transform: translateY(0);
+  }
 }
 
 header div {
@@ -45,7 +151,7 @@ header div {
 }
 
 header h1 {
-  margin: 25px auto;
+  margin: 0px auto;
   font-size: 28px;
   font-weight: bold;
   color: #5d5dff;
@@ -62,7 +168,7 @@ header nav {
 header nav ul {
   list-style: none;
   padding: 10px 0;
-  margin: 15px 0;
+  margin: 0px;
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -230,10 +336,10 @@ h3.title-banner:after {
 }
 
 .language-switch img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   transition: transform 0.3s ease;
-  margin-left: 10px;
+  margin: 0px;
 }
 
 .language-switch img:hover {
@@ -400,10 +506,47 @@ footer {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Style pour la grille de prévisualisation des projets 2x2 */
+/* Correction pour les boutons dans les pages de projet */
+.project-page .project-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.project-page .project-links a {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 160px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.project-page .project-links a:first-child {
+  background: linear-gradient(45deg, #5d5dff, #6b8cff);
+  color: white;
+}
+
+.project-page .project-links a.github-link {
+  background-color: #343654;
+  border: 2px solid #5d5dff;
+  color: white;
+}
+
+.project-page .project-links a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(93, 93, 255, 0.4);
+}
+
+/* Style pour la grille de prévisualisation des projets */
 .project-preview-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 30px;
   max-width: 1200px;
@@ -428,7 +571,7 @@ footer {
 .project-preview img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: all 0.8s ease;
 }
 
@@ -500,6 +643,23 @@ footer {
   background: linear-gradient(45deg, #4a4aff, #4b75ff);
 }
 
+/* Effet hover permanent */
+.project-preview.hover-active .project-preview-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Si vous avez des transformations sur l'image lors du survol */
+.project-preview.hover-active img {
+  transform: scale(1.05);
+  filter: blur(2px);
+}
+
+/* Autres effets hover que vous pourriez avoir */
+.project-preview.hover-active {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
 .view-all-projects {
   text-align: center;
   margin: 50px 0;
@@ -568,7 +728,7 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 25px;
+  padding: 5px 20px;
   background: linear-gradient(45deg, #5d5dff, #6b8cff);
   color: white;
   text-decoration: none;
@@ -1086,7 +1246,7 @@ footer {
 .project-hero img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.8s ease;
   display: block;
 }
@@ -1126,72 +1286,56 @@ footer {
 .project-detail .project-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 25px 0;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
 }
 
 .project-detail .project-tech span {
-  background: #343654;
-  color: #5d5dff;
-  padding: 8px 16px;
+  background: linear-gradient(45deg, rgba(93, 93, 255, 0.2), rgba(107, 140, 255, 0.2));
+  color: #ffffff;
+  padding: 6px 12px;
   border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid #5d5dff;
-  transition: all 0.3s ease;
-}
-
-.project-detail .project-tech span:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(93, 93, 255, 0.3);
-  background: #3f4168;
+  font-size: 0.9rem;
+  display: inline-block;
+  border: 1px solid rgba(93, 93, 255, 0.3);
 }
 
 /* Boutons d'action du projet */
 .project-detail .project-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 30px;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
 }
 
-.project-detail .btn-view-project, 
-.project-detail .btn-view-code {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 25px;
+.project-detail .project-links a {
+  padding: 12px 25px;
   border-radius: 30px;
-  font-weight: bold;
   text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.project-detail .btn-view-project {
+.project-detail .project-links a:first-child {
   background: linear-gradient(45deg, #5d5dff, #6b8cff);
   color: white;
 }
 
-.project-detail .btn-view-code {
-  background: #343654;
-  color: #5d5dff;
-  border: 1px solid #5d5dff;
+.project-detail .project-links a.github-link {
+  background-color: rgba(35, 36, 54, 0.8);
+  border: 2px solid #5d5dff;
+  color: #ffffff;
 }
 
-.project-detail .btn-view-project:hover, 
-.project-detail .btn-view-code:hover {
+.project-detail .project-links a:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(93, 93, 255, 0.3);
-}
-
-.project-detail .btn-view-project:hover {
-  background: linear-gradient(45deg, #4a4aff, #4b75ff);
-}
-
-.project-detail .btn-view-code:hover {
-  background: #3f4168;
+  box-shadow: 0 6px 15px rgba(93, 93, 255, 0.4);
 }
 
 /* Navigation entre projets */
@@ -1279,8 +1423,62 @@ footer {
 .gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:contain;
   transition: all 0.5s ease;
+}
+
+/* Styles du carrousel - mise à jour */
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 50%; /* Réduit à 80% au lieu de 100% */
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto; /* Centre l'élément dans le carrousel */
+}
+
+/* Assurez-vous que les contrôles sont bien visibles */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.carousel-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.carousel-btn:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+.carousel-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
 }
 
 /* Ajustements responsive */
