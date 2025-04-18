@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="projectDetails.sophieBluel.title">Sophie Bluel - Portfolio YellowBlueSkye</title>
+  <title data-i18n="projectDetails.sophieBluel.title">Sophie Bluel | YellowBlueSkye - Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -21,15 +21,26 @@
         </a>
         <h1 class="page-title" data-i18n="projectDetails.sophieBluel.headerTitle">PROJET SOPHIE BLUEL</h1>
       </div>
-      
       <div class="header-right">
         <div class="language-switch">
+          <!-- Attention aux chemins relatifs pour les images des drapeaux -->
           <a href="javascript:void(0)" id="switch-to-en" title="Switch to English">
             <img src="../images/icons/icons8-uk-flag-48.png" alt="English" />
           </a>
           <a href="javascript:void(0)" id="switch-to-fr" style="display: none">
             <img src="../images/icons/icons8-french-flag-48.png" alt="Français" />
           </a>
+        </div>
+        <!-- Ajoutez ce bloc pour le bouton de thème -->
+        <div class="theme-toggle">
+          <button id="theme-switch" aria-label="Changer de thème">
+            <svg width="24" height="24" viewBox="0 0 24 24" class="moon-icon">
+              <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" fill="currentColor"/>
+            </svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" class="sun-icon" style="display: none;">
+              <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v0a1 1 0 0 0 1 1zm0 20a1 1 0 0 0-1 1v0a1 1 0 0 0 2 0v0a1 1 0 0 0-1-1zm10-11h0a1 1 0 0 0 0-2h0a1 1 0 0 0 0 2zM2 11h0a1 1 0 0 0 0 2h0a1 1 0 0 0 0-2zm16.95-5.95a1 1 0 0 0 0-1.41l0 0a1 1 0 0 0-1.41 0l0 0a1 1 0 0 0 0 1.41l0 0a1 1 0 0 0 1.41 0zm-14.9 14.9a1 1 0 0 0 0-1.41l0 0a1 1 0 0 0-1.41 0l0 0a1 1 0 0 0 0 1.41l0 0a1 1 0 0 0 1.41 0zM18.95 18.95a1 1 0 0 0 0-1.41l0 0a1 1 0 0 0-1.41 0l0 0a1 1 0 0 0 0 1.41l0 0a1 1 0 0 0 1.41 0zm-14.9-14.9a1 1 0 0 0 0-1.41l0 0a1 1 0 0 0-1.41 0l0 0a1 1 0 0 0 0 1.41l0 0a1 1 0 0 0 1.41 0z" fill="currentColor"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -185,5 +196,6 @@
   </script>
   <script src="../scripts/translator.js"></script>
   <script src="../scripts/navbar.js"></script>
+  <script src="../scripts/theme-switcher.js"></script>
 </body>
 </html>

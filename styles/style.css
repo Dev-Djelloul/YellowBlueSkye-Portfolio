@@ -1,4 +1,86 @@
-/* Style commun pour toutes les pages - fond et couleurs */
+/* Variables pour les thèmes */
+:root {
+  --background-color: #1e1f2f;
+  --text-color: #ffffff;
+  --card-bg: #343654;
+  --accent-color: #5d5dff;
+  --secondary-bg: #232436;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --input-bg: rgba(255, 255, 255, 0.1);
+  --transition-speed: 0.3s;
+}
+
+/* Styles pour le thème clair - MODIFICATION */
+[data-theme="light"] {
+  /* --background-color: #f0eeff; */ /* Ancienne valeur solide */
+  --background-color: rgba(100, 85, 220, 0.55); /* Violet très clair avec 85% d'opacité */
+  --text-color: #333333;
+  --card-bg: #ffffff; /* Cartes blanches sur fond violet clair */
+  --accent-color: #5d5dff;
+  --secondary-bg: #e5e3ff; /* Violet encore plus clair pour les éléments secondaires */
+  --border-color: rgba(93, 93, 255, 0.2);
+  --shadow-color: rgba(93, 93, 255, 0.1);
+  --input-bg: rgba(0, 0, 0, 0.05);
+  --skill-icon-bg: #ffffff;
+  --skill-icon-border: rgba(93, 93, 255, 0.3);
+  --skill-text-color: #555555;
+}
+
+/* Ajustement pour l'image de fond en mode clair - SUPPRIMER ou COMMENTER l'opacité ici */
+[data-theme="light"] body::before {
+  /* opacity: 0.08; */ /* On supprime cette ligne pour garder l'opacité constante */
+}
+
+/* Ajout d'un arrière-plan coloré supplémentaire pour le mode clair - MODIFICATION */
+/* On va utiliser ce pseudo-élément pour la couleur de fond principale */
+body::after {
+  content: "";
+  position: absolute; /* Doit être absolute ou fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color); /* Applique la couleur du thème */
+  z-index: -2; /* Placé DERRIÈRE l'image (body::before) */
+  transition: background-color var(--transition-speed) ease; /* Transition pour la couleur */
+  pointer-events: none; /* Empêche l'interaction avec cette couche */
+}
+
+/* Correction pour les cartes de projet en mode clair */
+[data-theme="light"] .project-card {
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(93, 93, 255, 0.15);
+  border: 2px solid rgba(93, 93, 255, 0.6); /* Bordure permanente en mode clair */
+}
+
+/* Suppression du changement de bordure au survol en mode clair pour les projets */
+[data-theme="light"] .project-card:hover {
+  /* ...existing light theme hover styles... */
+  /* Assurez-vous qu'il n'y a pas de 'border-color' ou 'border-width' ici */
+}
+
+/* Correction pour le texte des projets en mode clair */
+[data-theme="light"] .project-info p {
+  color: #555555;
+}
+
+/* Correction pour le header en mode clair */
+[data-theme="light"] header,
+[data-theme="light"] .compact-header {
+  background-color: rgba(240, 238, 255, 0.9);
+  border-bottom: 3px solid #5d5dff;
+}
+
+/* Correction pour les titres en mode clair */
+[data-theme="light"] h2.title-banner {
+  background-color: rgba(229, 227, 255, 0.8); /* Violet encore plus clair, 80% opacité */
+  color: #5d5dff;
+  /* width: fit-content; */ /* Déjà défini dans la règle de base */
+  /* margin: 30px auto; */ /* Déjà défini dans la règle de base */
+}
+
+/* Transition douce lors du changement de thème */
 body {
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
@@ -6,28 +88,32 @@ body {
   padding: 0;
   line-height: 1.6;
   text-align: center;
-  background-color: #2b2c3d;
-  color: #ffffff;
-  position: relative;
-  z-index: 1;
+  color: var(--text-color);
+  position: relative; /* Nécessaire pour les pseudo-éléments positionnés absolument */
+  z-index: 0; /* Assurer que le body est au-dessus des pseudo-éléments */
   padding-top: var(--header-height, 80px); /* Ajustez selon la hauteur de votre header */
+  transition: color var(--transition-speed) ease; /* Transition uniquement pour la couleur du texte */
+  background-color: transparent !important; /* Forcer la transparence sur le body lui-même */
 }
 
-/* Image de fond pour toutes les pages */
+/* Image de fond pour toutes les pages - MISE À JOUR */
 body::before {
   content: "";
-  position: absolute;
+  position: absolute; /* Garder absolute car body est relative */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../images/emily-bernal-v9vII5gV8Lw-unsplash.jpg');
+  /* Chemin relatif depuis /styles/ vers /images/ */
+  background-image: url('../images/emily-bernal-v9vII5gV8Lw-unsplash.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  opacity: 0.15;
-  z-index: -1;
+  background-attachment: fixed; /* Garde l'image fixe au défilement */
+  opacity: 0.1; /* Opacité désirée (ajustez si besoin, ex: 0.15) */
+  z-index: -1; /* Derrière le contenu principal */
+  transition: opacity var(--transition-speed) ease; /* Optionnel: transition douce */
+  pointer-events: none; /* Empêche l'interaction avec cette couche */
 }
 
 /* Header commun pour toutes les pages */
@@ -73,7 +159,7 @@ header {
 .header-left .page-title {
   font-size: 1.2rem;
   margin: 0;
-  color: white;
+  color: #5d5dff;
 }
 
 .header-left .btn-back-home {
@@ -95,6 +181,11 @@ header {
 .header-right {
   display: flex;
   align-items: center;
+  gap: 15px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
 }
 
 .compact-header .language-switch img {
@@ -202,6 +293,8 @@ header .language-switch {
   position: absolute;
   top: 20px;
   right: 20px;
+  display: flex; /* Assurer l'alignement si plusieurs drapeaux sont visibles */
+  align-items: center;
 }
 
 /* Style pour les boutons de langue */
@@ -227,8 +320,12 @@ h2.title-banner {
   color: #5d5dff;
   background-color: rgba(35, 36, 54, 0.7);
   position: relative;
-  margin: 30px auto;
+  /* margin: 30px auto; */ /* Ancienne valeur - déjà correcte ! */
   padding: 15px;
+  /* Ajouter width: fit-content et ajuster margin */
+  width: fit-content;
+  margin: 30px auto; /* 30px haut/bas, auto gauche/droite pour centrer */
+  border-radius: 10px; /* Ajout pour cohérence avec h3 */
 }
 
 h2.title-banner:after {
@@ -246,9 +343,10 @@ h2.title-banner:after {
 h3.title-banner {
   color: #ffffff;
   position: relative;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin: 60px auto; /* 60px pour haut/bas, auto pour gauche/droite */
   padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
 }
 
 h3.title-banner:after {
@@ -412,19 +510,21 @@ footer {
 }
 
 .project-card {
-  background-color: rgba(35, 36, 54, 0.8);
+  background-color: var(--card-bg);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px var(--shadow-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
+  border: 2px solid var(--accent-color, #5d5dff); /* Bordure permanente */
 }
 
 .project-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(93, 93, 255, 0.3);
+  /* Assurez-vous qu'il n'y a pas de 'border-color' ou 'border-width' ici */
 }
 
 .project-card img {
@@ -445,7 +545,7 @@ footer {
 .project-info h3 {
   margin-top: 0;
   margin-bottom: 15px;
-  color: #ffffff;
+  color: var(--accent-color);
   font-size: 1.4rem;
 }
 
@@ -714,7 +814,7 @@ footer {
   }
   
   .project-card img {
-    height: 180px;
+    height: 380px;
   }
 }
 
@@ -802,13 +902,13 @@ footer {
 
 /* Style modernisé pour le formulaire de contact */
 .contact-form {
-  background: rgba(35, 36, 54, 0.8);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  background: var(--card-bg, rgba(35, 36, 54, 0.8));
+  box-shadow: 0 10px 30px var(--shadow-color, rgba(0, 0, 0, 0.25));
+  border-top: 5px solid var(--accent-color, #5d5dff);
+  border-radius: 10px;
   padding: 30px 40px;
   margin: 30px auto;
   max-width: 600px;
-  border-top: 5px solid #5d5dff;
   transform: translateY(0);
   transition: all 0.5s ease;
 }
@@ -834,7 +934,7 @@ footer {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #b8c2cc;
+  color: var(--text-color, #b8c2cc);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -844,16 +944,16 @@ footer {
 .contact-form label svg {
   width: 18px;
   height: 18px;
-  fill: #5d5dff;
+  fill: var(--accent-color, #5d5dff);
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 15px;
-  border: 2px solid #343654;
-  background: rgba(32, 33, 50, 0.9);
+  border: 2px solid var(--secondary-bg, #343654);
+  background: var(--input-bg, rgba(32, 33, 50, 0.9));
   border-radius: 10px;
-  color: #ffffff;
+  color: var(--text-color, #ffffff);
   font-family: inherit;
   font-size: 16px;
   transition: all 0.3s ease;
@@ -863,14 +963,14 @@ footer {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #5d5dff;
+  border-color: var(--accent-color, #5d5dff);
   box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.3);
-  background: #2a2c43;
+  background: var(--secondary-bg, #2a2c43);
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: #6c7983;
+  color: var(--text-color, #6c7983);
   opacity: 0.7;
 }
 
@@ -931,15 +1031,15 @@ footer {
 
 /* Style amélioré pour les informations de contact */
 .contact-email {
-  background: rgba(35, 36, 54, 0.8);
+  background: var(--card-bg, rgba(35, 36, 54, 0.8));
   padding: 25px;
   border-radius: 16px;
   max-width: 600px;
   margin: 40px auto !important;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  border-left: 5px solid #5d5dff;
+  box-shadow: 0 10px 25px var(--shadow-color, rgba(0, 0, 0, 0.2));
+  border-left: 5px solid var(--accent-color, #5d5dff);
   font-size: 18px;
-  color: #b8c2cc;
+  color: var(--text-color, #b8c2cc);
   transition: all 0.3s ease;
 }
 
@@ -949,10 +1049,10 @@ footer {
 }
 
 .contact-email a {
-  color: #5d5dff;
+  color: var(--accent-color, #5d5dff);
   text-decoration: none;
   font-weight: bold;
-  border-bottom: 2px dotted #5d5dff;
+  border-bottom: 2px dotted var(--accent-color, #5d5dff);
   padding-bottom: 2px;
   transition: all 0.3s ease;
 }
@@ -976,10 +1076,10 @@ footer {
   justify-content: center;
   width: 70px;
   height: 70px;
-  background: rgba(35, 36, 54, 0.8);
+  background: var(--card-bg, rgba(35, 36, 54, 0.8));
   border-radius: 50%;
   transition: all 0.4s ease;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px var(--shadow-color, rgba(0, 0, 0, 0.2));
   position: relative;
   overflow: hidden;
 }
@@ -1034,11 +1134,13 @@ footer {
   padding: 15px;
 }
 
+/* Améliorations pour les catégories de compétences */
+
 .skills-category {
   flex: 1;
   min-width: 280px; /* Réduit de 320px à 280px */
   max-width: 450px; /* Réduit de 600px à 450px */
-  background: rgba(35, 36, 54, 0.8);
+  background-color: var(--card-bg, rgba(35, 36, 54, 0.8));
   border-radius: 12px;
   padding: 20px; /* Réduit de 30px à 20px */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -1093,25 +1195,73 @@ footer {
   transform: translateY(-5px);
 }
 
+/* Modification des cartes de compétences avec bordure violette PERMANENTE */
 .skill-icon {
-  width: 55px; /* Réduit de 70px à 55px */
-  height: 55px; /* Réduit de 70px à 55px */
-  padding: 10px; /* Réduit de 15px à 10px */
-  background: #343654;
+  position: relative;
+  overflow: hidden;
+  width: 55px;
+  height: 55px;
+  padding: 10px;
+  background-color: var(--skill-icon-bg, #343654);
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 8px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(93, 93, 255, 0.2);
+  box-shadow: 0 4px 10px var(--shadow-color, rgba(0, 0, 0, 0.2));
+  border: 2px solid var(--accent-color, #5d5dff); /* Bordure permanente 2px */
 }
 
+/* Effet hover SANS changer la bordure */
 .skill:hover .skill-icon {
-  background: #3f4168;
-  box-shadow: 0 8px 20px rgba(93, 93, 255, 0.3);
-  border-color: #5d5dff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(93, 93, 255, 0.25);
+  /* Pas de changement de 'border-color' ou 'border-width' ici */
+}
+
+/* Mode clair pour les icônes de compétences avec bordure PERMANENTE */
+[data-theme="light"] .skill-icon {
+  background-color: #ffffff;
+  border: 2px solid rgba(93, 93, 255, 0.6); /* Bordure permanente 2px en mode clair */
+  box-shadow: 0 4px 10px rgba(93, 93, 255, 0.15);
+}
+
+/* Effet hover en mode clair SANS changer la bordure */
+[data-theme="light"] .skill:hover .skill-icon {
+  background-color: #f0f4ff;
+  box-shadow: 0 8px 15px rgba(93, 93, 255, 0.2);
+  /* Pas de changement de 'border-color' ou 'border-width' ici */
+}
+
+
+/* Mode clair pour les catégories */
+[data-theme="light"] .skills-category {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(93, 93, 255, 0.1);
+}
+
+/* Mode clair pour le texte des compétences */
+[data-theme="light"] .skill p {
+  color: #555555;
+}
+
+/* Mode clair pour les titres de catégories */
+[data-theme="light"] .category-title {
+  color: #5d5dff;
+}
+
+/* Modification des icônes de compétences pour l'effet parallaxe */
+
+.skill-icon img {
+  transition: transform 0.2s ease-out;
+  /* Conserver les autres propriétés existantes */
+}
+
+/* On peut garder un effet plus subtil pour les compétences */
+.skill-parallax-container {
+  overflow: visible; /* Pour permettre l'effet de débordement */
+  position: relative;
 }
 
 .skill img {
@@ -1174,9 +1324,12 @@ footer {
 }
 
 /* Pages spécifiques - ajustements pour la cohérence */
+/* Commentaire ajouté pour désactiver la règle qui force le fond sombre */
+/*
 .project-page, .contact-page {
-  background-color: #2b2c3d;
+  background-color: #2b2c3d; 
 }
+*/
 
 /* Suppression des styles en doublon ou incohérents */
 .project-page header h1, 
@@ -1246,7 +1399,7 @@ footer {
 .project-hero img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.8s ease;
   display: block;
 }
@@ -1299,6 +1452,14 @@ footer {
   font-size: 0.9rem;
   display: inline-block;
   border: 1px solid rgba(93, 93, 255, 0.3);
+}
+
+/* Badges de technologies dans les pages de projet en mode clair */
+[data-theme="light"] .project-detail .project-tech span {
+  background: var(--secondary-bg); /* Fond violet très clair */
+  color: var(--accent-color); /* Texte violet */
+  border: 1px solid rgba(93, 93, 255, 0.3); /* Bordure violette subtile */
+  box-shadow: 0 2px 5px rgba(93, 93, 255, 0.1); /* Légère ombre */
 }
 
 /* Boutons d'action du projet */
@@ -1499,4 +1660,674 @@ footer {
   .gallery-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Styles pour le bouton de changement de thème */
+.theme-toggle {
+  /* margin-right: 15px; */ /* Remplacé par le gap dans .header-right */
+}
+
+.theme-toggle button {
+  background-color: rgba(255, 255, 255, 0.08); /* Fond très léger en mode sombre par défaut */
+  border: 1px solid var(--border-color); /* Bordure subtile */
+  color: var(--text-color);
+  cursor: pointer;
+  width: 40px; /* Taille cohérente */
+  height: 40px; /* Taille cohérente */
+  border-radius: 50%; /* Rond parfait */
+  display: flex; /* Pour centrer l'icône SVG */
+  align-items: center; /* Centrer verticalement */
+  justify-content: center; /* Centrer horizontalement */
+  padding: 0; /* Supprimer le padding par défaut */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.theme-toggle button svg {
+  width: 20px; /* Taille de l'icône */
+  height: 20px; /* Taille de l'icône */
+  transition: fill 0.3s ease; /* Transition pour la couleur de l'icône */
+}
+
+.theme-toggle button:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Fond un peu plus visible au survol */
+  transform: translateY(-2px); /* Léger soulèvement */
+  box-shadow: 0 4px 10px rgba(93, 93, 255, 0.2); /* Ombre accentuée au survol */
+}
+
+.theme-toggle button:focus {
+  outline: none; /* Supprimer l'outline par défaut */
+  box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.4); /* Outline personnalisé au focus */
+}
+
+/* Styles spécifiques au thème clair pour le bouton */
+[data-theme="light"] .theme-toggle button {
+  background-color: rgba(93, 93, 255, 0.08); /* Fond violet très léger */
+  border-color: var(--border-color); /* Utilise la variable de bordure claire */
+  color: var(--text-color); /* Couleur du texte/icône claire */
+  box-shadow: 0 2px 5px var(--shadow-color); /* Ombre claire */
+}
+
+[data-theme="light"] .theme-toggle button:hover {
+  background-color: rgba(93, 93, 255, 0.15); /* Fond violet un peu plus visible */
+  box-shadow: 0 4px 10px rgba(93, 93, 255, 0.2); /* Ombre accentuée claire */
+}
+
+[data-theme="light"] .theme-toggle button:focus {
+  box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.4); /* Garder le même focus */
+}
+
+/* Mise à jour des éléments existants pour utiliser les variables */
+.project-card {
+  background-color: var(--card-bg);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.title-banner {
+  color: var(--text-color);
+}
+
+.project-info h3 {
+  color: var(--accent-color);
+}
+
+/* Ajoutez d'autres éléments selon vos besoins */
+
+/* Styles pour l'effet parallaxe */
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+  border-radius: 16px;
+}
+
+.parallax-image {
+  transition: transform 0.2s ease-out;
+  width: 250%;
+  height: 250%;
+  object-fit: contain;
+  position: absolute;
+  top: -15%;
+  left: -15%;
+}
+
+/* --- Styles spécifiques pour le thème clair --- */
+
+/* Header compact en mode clair */
+[data-theme="light"] .compact-header {
+  background-color: rgba(240, 238, 255, 0.95); /* Fond violet très clair semi-transparent */
+  box-shadow: 0 2px 10px var(--shadow-color);
+  border-bottom: 3px solid var(--accent-color);
+  border-radius: 0px 0px 15px 15px;
+}
+
+[data-theme="light"] .header-left .page-title {
+  color: var(--accent-color); /* Assurer la couleur du titre */
+}
+
+[data-theme="light"] .header-left .btn-back-home {
+  background-color: rgba(93, 93, 255, 0.1); /* Fond du bouton retour */
+  fill: var(--accent-color); /* Couleur de l'icône */
+}
+[data-theme="light"] .header-left .btn-back-home svg path {
+  fill: var(--accent-color); /* Couleur de l'icône */
+}
+
+[data-theme="light"] .header-left .btn-back-home:hover {
+  background: linear-gradient(45deg, #6a6aff, #6b85ff);
+}
+[data-theme="light"] .header-left .btn-back-home:hover svg path {
+  fill: #ffffff; /* Icône blanche au survol */
+}
+
+
+/* Styles pour le formulaire (déjà ajoutés, mais vérification) */
+[data-theme="light"] .contact-form {
+  background: var(--card-bg); /* Doit être #ffffff */
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border-top-color: var(--accent-color);
+}
+
+/* Styles pour l'email (déjà ajoutés, mais vérification) */
+[data-theme="light"] .contact-email {
+  background: var(--card-bg); /* Doit être #ffffff */
+  box-shadow: 0 10px 25px var(--shadow-color);
+  border-left-color: var(--accent-color);
+  color: #555;
+}
+
+/* Styles pour les icônes sociales en mode clair */
+[data-theme="light"] .social-media a {
+  background: var(--card-bg); /* Doit être #ffffff */
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+/* Footer en mode clair */
+[data-theme="light"] footer#footer {
+  background-color: var(--secondary-bg); /* Fond violet plus clair */
+  color: var(--skill-text-color); /* Texte gris foncé */
+  border-top: 1px solid var(--border-color);
+}
+
+/* Titres de section (bannières) en mode clair */
+[data-theme="light"] .title-banner {
+  background-color: rgba(229, 227, 255, 0.9); /* Violet encore plus clair */
+  color: var(--accent-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+/* Carte Google Maps en mode clair (optionnel : filtre pour atténuer) */
+[data-theme="light"] .map {
+   filter: grayscale(20%) contrast(90%); /* Léger filtre pour mieux s'intégrer */
+}
+
+/* --- Styles spécifiques pour le thème clair --- */
+
+/* Header (déjà couvert, mais vérification) */
+[data-theme="light"] header {
+  background-color: rgba(240, 238, 255, 0.9);
+  border-bottom: 3px solid var(--accent-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+[data-theme="light"] header nav ul li a {
+  color: #555; /* Texte des liens de navigation plus sombre */
+}
+[data-theme="light"] header nav ul li a:hover {
+  color: var(--accent-color);
+}
+[data-theme="light"] header h1,
+[data-theme="light"] header h4 {
+  color: var(--text-color); /* Utilise la variable texte du thème clair */
+}
+[data-theme="light"] header h1 {
+  color: var(--accent-color); /* Titre principal en violet */
+}
+
+/* Bouton de thème (déjà couvert, mais vérification) */
+[data-theme="light"] .theme-toggle button {
+  color: var(--text-color);
+  background-color: rgba(93, 93, 255, 0.1);
+}
+[data-theme="light"] .theme-toggle button:hover {
+  background-color: rgba(93, 93, 255, 0.2);
+}
+
+/* Section "À propos" */
+[data-theme="light"] .about-text-box {
+  background: var(--card-bg); /* Fond blanc */
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+[data-theme="light"] .about-text-box p {
+  color: var(--skill-text-color); /* Texte gris foncé */
+}
+[data-theme="light"] .link-schools-openclassrooms,
+[data-theme="light"] .link-schools-studi {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+[data-theme="light"] .link-schools-openclassrooms:hover,
+[data-theme="light"] .link-schools-studi:hover {
+  color: #7b7bff;
+  border-bottom-color: #7b7bff;
+}
+
+/* Photo de profil */
+[data-theme="light"] .profile-photo {
+  border-color: rgba(93, 93, 255, 0.6); /* Bordure violette plus claire */
+  box-shadow: 0 35px 80px var(--shadow-color);
+}
+[data-theme="light"] .profile-photo:hover {
+  box-shadow: 0 35px 80px rgba(93, 93, 255, 0.25);
+}
+
+/* Titres bannières (déjà couverts) */
+[data-theme="light"] h2.title-banner,
+[data-theme="light"] h3.title-banner {
+  background-color: rgba(229, 227, 255, 0.9);
+  color: var(--accent-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+[data-theme="light"] h2.title-banner:after,
+[data-theme="light"] h3.title-banner:after {
+  background: var(--accent-color);
+}
+
+/* Aperçus des projets */
+[data-theme="light"] .project-preview {
+  box-shadow: 0 10px 30px var(--shadow-color);
+}
+[data-theme="light"] .project-preview:hover {
+  box-shadow: 0 20px 40px rgba(93, 93, 255, 0.25);
+}
+[data-theme="light"] .project-preview-overlay {
+  /* Le dégradé peut rester sombre pour la lisibilité, ou être ajusté */
+  background: linear-gradient(to top, rgba(240, 238, 255, 0.95), transparent);
+}
+[data-theme="light"] .project-preview-overlay h3 {
+  color: var(--accent-color); /* Titre en violet */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+[data-theme="light"] .btn-view-project {
+  /* Le bouton peut garder son dégradé ou être adapté */
+  /* Option: background: #ffffff; color: var(--accent-color); border: 1px solid var(--accent-color); */
+}
+[data-theme="light"] .btn-view-project:hover {
+ /* Option: background: var(--accent-color); color: #ffffff; */
+}
+
+/* Bouton "Voir tous les projets" */
+[data-theme="light"] .view-all-projects .btn {
+ /* Le bouton peut garder son dégradé ou être adapté */
+}
+[data-theme="light"] .view-all-projects .btn:hover {
+ /* Option: ajuster l'ombre */
+ box-shadow: 0 10px 30px rgba(93, 93, 255, 0.3);
+}
+
+/* Section Compétences (déjà couverte) */
+[data-theme="light"] .skills-category {
+  background-color: var(--card-bg);
+  box-shadow: 0 8px 20px var(--shadow-color);
+  border-top-color: var(--accent-color);
+}
+[data-theme="light"] .category-title {
+  color: var(--accent-color);
+}
+[data-theme="light"] .category-title::after {
+  background: var(--accent-color);
+}
+[data-theme="light"] .skill-icon {
+  background-color: var(--skill-icon-bg);
+  border-color: rgba(93, 93, 255, 0.6);
+  box-shadow: 0 4px 10px var(--shadow-color);
+}
+[data-theme="light"] .skill p {
+  color: var(--skill-text-color);
+}
+
+/* Bouton Scroll-to-top */
+[data-theme="light"] .scroll-to-top {
+  background: #ffffff;
+  color: var(--accent-color);
+  border: 2px solid rgba(93, 93, 255, 0.6);
+  box-shadow: 0 4px 10px var(--shadow-color);
+}
+[data-theme="light"] .scroll-to-top:hover {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+  box-shadow: 0 6px 15px rgba(93, 93, 255, 0.3);
+}
+
+/* Footer (déjà couvert) */
+[data-theme="light"] footer#footer {
+  background-color: var(--secondary-bg);
+  color: var(--skill-text-color);
+  border-top: 1px solid var(--border-color);
+  border-radius: 15px 15px 0px 0px;
+}
+
+/* Contenu des pages de projet en mode clair */
+[data-theme="light"] .project-content {
+  background-color: var(--card-bg); /* Fond blanc */
+  box-shadow: 0 8px 25px var(--shadow-color);
+  border-radius: 12px; /* Ajouter un peu de bord arrondi */
+  padding: 25px; /* Ajouter un peu d'espace intérieur */
+  margin-bottom: 30px; /* Espacement entre les sections de contenu */
+}
+
+/* Textes dans le contenu du projet en mode clair */
+[data-theme="light"] .project-content p {
+  color: var(--skill-text-color); /* Texte gris foncé */
+}
+
+/* Sous-titres (h4) dans le contenu du projet en mode clair */
+[data-theme="light"] .project-content h4 {
+  color: var(--accent-color); /* Couleur violette pour les sous-titres */
+  border-bottom: 2px solid rgba(93, 93, 255, 0.2); /* Ligne de séparation subtile */
+  padding-bottom: 5px;
+  margin-top: 20px; /* Espacement avant les sous-titres */
+}
+
+/* Titres bannières (h2, h3) dans le contenu du projet en mode clair (vérification) */
+[data-theme="light"] .project-content .title-banner {
+  background-color: rgba(229, 227, 255, 0.9);
+  color: var(--accent-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  /* Assurer que le margin-bottom est approprié */
+  margin-bottom: 20px;
+}
+[data-theme="light"] .project-content .title-banner:after {
+  background: var(--accent-color);
+}
+
+/* Liens dans le contenu du projet (si applicable) */
+[data-theme="light"] .project-content a {
+  color: var(--accent-color);
+}
+[data-theme="light"] .project-content a:hover {
+  color: #7b7bff;
+}
+
+/* Galerie de projet en mode clair */
+[data-theme="light"] .project-gallery {
+  background-color: var(--card-bg); /* Fond blanc */
+  box-shadow: 0 8px 25px var(--shadow-color);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+[data-theme="light"] .gallery-item img {
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Bordure légère pour les images */
+}
+
+/* Boutons de navigation entre projets en mode clair */
+[data-theme="light"] .project-navigation a {
+  background-color: var(--card-bg);
+  color: var(--accent-color);
+  border: 1px solid rgba(93, 93, 255, 0.3);
+  box-shadow: 0 4px 10px var(--shadow-color);
+}
+[data-theme="light"] .project-navigation a:hover {
+  background-color: #f0f4ff;
+  border-color: var(--accent-color);
+  box-shadow: 0 6px 15px rgba(93, 93, 255, 0.2);
+}
+[data-theme="light"] .project-navigation a svg {
+  stroke: var(--accent-color);
+}
+
+/* Rendre les conteneurs principaux transparents pour voir l'arrière-plan du body */
+main,
+section, /* Cible toutes les sections principales */
+.contact-page, /* Cible le body si cette classe est utilisée */
+.project-page, /* Cible le body si cette classe est utilisée */
+.project-detail /* Cible la section spécifique des détails du projet */ {
+  background-color: transparent !important;
+}
+
+/* Rappel des règles importantes pour l'arrière-plan */
+body {
+  position: relative;
+  z-index: 0;
+  background-color: transparent !important;
+  /* ... */
+}
+body::before { /* Image */
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('../images/emily-bernal-v9vII5gV8Lw-unsplash.jpg');
+  background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;
+  opacity: 0.5; /* Ou votre valeur */
+  z-index: -1;
+  pointer-events: none;
+  /* ... */
+}
+body::after { /* Couleur */
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: var(--background-color);
+  z-index: -2;
+  pointer-events: none;
+  transition: background-color var(--transition-speed) ease;
+  /* ... */
+}
+
+/* Rendre le conteneur principal transparent pour voir l'arrière-plan du body */
+/* Remplacez 'main' ou '.wrapper-class' par le sélecteur réel de votre conteneur */
+main,
+.wrapper-class /* Remplacez par le sélecteur correct si nécessaire */ {
+  background-color: transparent !important;
+}
+
+/* --- Styles spécifiques pour le thème clair --- */
+
+/* Header (normal et compact) */
+[data-theme="light"] header,
+[data-theme="light"] .compact-header {
+  /* background-color: rgba(240, 238, 255, 0.9); */ /* Ancienne valeur */
+  background-color: rgba(240, 238, 255, 0.8); /* Violet très clair, 90% opacité */
+  /* border-bottom et box-shadow restent */
+}
+
+/* Section "À propos" */
+[data-theme="light"] .about-text-box {
+  /* background: var(--card-bg); */ /* Ancienne valeur */
+  background: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
+  /* box-shadow reste */
+}
+
+/* Titres bannières (h2, h3) */
+[data-theme="light"] h2.title-banner,
+[data-theme="light"] h3.title-banner,
+[data-theme="light"] .project-content .title-banner { /* Cible aussi dans project-content */
+  /* background-color: rgba(229, 227, 255, 0.9); */ /* Ancienne valeur */
+  background-color: rgba(229, 227, 255, 0.8); /* Violet encore plus clair, 85% opacité */
+  /* color et box-shadow restent */
+}
+
+/* Cartes de projet (dans la grille) */
+[data-theme="light"] .project-card {
+  /* background-color: #ffffff; */ /* Ancienne valeur */
+  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
+  /* border et box-shadow restent */
+}
+
+/* Aperçus des projets (sur index.html) */
+[data-theme="light"] .project-preview {
+  /* Pas de background direct, mais l'overlay peut être ajusté si besoin */
+  /* box-shadow reste */
+}
+[data-theme="light"] .project-preview-overlay {
+  /* background: linear-gradient(to top, rgba(240, 238, 255, 0.95), transparent); */ /* Ancienne valeur */
+  background: linear-gradient(to top, rgba(240, 238, 255, 0.8), transparent); /* Violet très clair, 90% opacité en bas */
+}
+
+/* Section Compétences */
+[data-theme="light"] .skills-category {
+  /* background-color: var(--card-bg); */ /* Ancienne valeur */
+  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
+  /* border-top et box-shadow restent */
+}
+[data-theme="light"] .skill-icon {
+  /* background-color: var(--skill-icon-bg); */ /* Ancienne valeur */
+  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 95% opacité (un peu plus opaque) */
+  /* border et box-shadow restent */
+}
+
+/* Bouton Scroll-to-top */
+[data-theme="light"] .scroll-to-top {
+  /* background: #ffffff; */ /* Ancienne valeur */
+  background: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
+  /* color, border, box-shadow restent */
+}
+
+/* Footer */
+[data-theme="light"] footer#footer {
+  /* background-color: var(--secondary-bg); */ /* Ancienne valeur */
+  background-color: rgba(229, 227, 255, 0.8); /* Violet clair, 90% opacité */
+  /* color et border-top restent */
+}
+
+/* Contenu des pages de projet */
+[data-theme="light"] .project-content {
+  /* background-color: var(--card-bg); */ /* Ancienne valeur */
+  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
+  /* box-shadow, border-radius, etc. restent */
+}
+
+/* Galerie de projet */
+[data-theme="light"] .project-gallery {
+  /* background-color: var(--card-bg); */ /* Ancienne valeur */
+  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
+  /* box-shadow, border-radius, etc. restent */
+}
+
+/* Boutons de navigation entre projets */
+[data-theme="light"] .project-navigation a {
+  /* background-color: var(--card-bg); */ /* Ancienne valeur */
+  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
+  /* color, border, box-shadow restent */
+}
+
+/* Formulaire de contact */
+[data-theme="light"] .contact-form {
+  /* background: var(--card-bg); */ /* Ancienne valeur */
+  background: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
+  /* box-shadow, border-top restent */
+}
+
+/* Email de contact */
+[data-theme="light"] .contact-email {
+  /* background: var(--card-bg); */ /* Ancienne valeur */
+  background: rgba(240, 238, 255, 0.8); /* Blanc, 90% opacité */
+  /* box-shadow, border-left restent */
+}
+
+/* Icônes sociales */
+[data-theme="light"] .social-media a {
+  /* background: var(--card-bg); */ /* Ancienne valeur */
+  background: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
+  /* box-shadow reste */
+}
+
+/* Badges de technologies (déjà rgba, mais on peut ajuster si besoin) */
+[data-theme="light"] .project-detail .project-tech span {
+  /* background: var(--secondary-bg); */ /* Ancienne valeur */
+  background: rgba(229, 227, 255, 0.8); /* Violet clair, 90% opacité */
+  /* color, border, box-shadow restent */
+}
+
+/* Sélecteur de langue - REPOSITIONNÉ SOUS LA NAV pour le header principal */
+header:not(.compact-header) .language-switch {
+  position: static; /* Annuler le positionnement absolu */
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 0; /* Marge au-dessus, centré */
+  top: auto;
+  right: auto;
+  width: fit-content;
+}
+
+/* Bouton thème - REPOSITIONNÉ À DROITE pour le header principal */
+header:not(.compact-header) .theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transform: none;
+}
+
+/* HEADER PRINCIPALE (Page d'accueil) */
+/* Sélecteur de langue en dessous de la nav et centré */
+header:not(.compact-header) .language-switch {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 0;
+  position: static;
+}
+
+/* Bouton thème à droite */
+header:not(.compact-header) .header-right {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+/* HEADER COMPACT (Autres pages) */
+/* Container avec espace entre */
+.compact-header .header-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Partie gauche avec titre + langue */
+.compact-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espace entre les éléments */
+}
+
+/* Style des drapeaux dans le header compact */
+.compact-header .language-switch img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.compact-header .language-switch img:hover {
+  transform: scale(1.1);
+}
+
+/* Ajustement pour les petits écrans */
+@media (max-width: 768px) {
+  .compact-header .header-left {
+    gap: 10px; /* Espace réduit sur mobile */
+  }
+  
+  .compact-header .page-title {
+    font-size: 1rem; /* Titre plus petit sur mobile */
+  }
+  
+  .compact-header .language-switch img {
+    width: 32px; /* Images plus petites sur mobile */
+    height: 32px;
+  }
+}
+
+/* Partie gauche avec titre + langue */
+.compact-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Langue dans le header compact */
+.compact-header .language-switch {
+  display: flex;
+  align-items: center;
+}
+
+/* Drapeaux dans la navbar compacte */
+.compact-header .language-switch img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header:not(.compact-header) .header-right {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .compact-header .header-left {
+    gap: 8px;
+  }
+  
+  .compact-header .page-title {
+    font-size: 1rem;
+  }
+}
+
+/* Réorganiser l'ordre des éléments dans header-left */
+.compact-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Modifier l'ordre avec flexbox - 1=bouton retour, 2=drapeau, 3=titre */
+.compact-header .header-left .btn-back-home {
+  order: 1;
+}
+
+.compact-header .header-left .language-switch {
+  order: 2;
+}
+
+.compact-header .header-left .page-title {
+  order: 3;
 }
