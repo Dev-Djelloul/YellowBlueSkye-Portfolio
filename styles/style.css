@@ -82,7 +82,7 @@ body::after {
 
 /* Transition douce lors du changement de thème */
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: "Shantell Sans", cursive;
   font-optical-sizing: auto;
   margin: 0;
   padding: 0;
@@ -135,7 +135,7 @@ header {
 
 /* Header compact pour les pages de projet et de contact */
 .compact-header {
-  height: 85px; /* Hauteur réduite */
+  height: 100px; /* Hauteur réduite */
   display: flex;
   align-items: center;
   padding: 0px;
@@ -181,21 +181,26 @@ header {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 15px;
   position: absolute;
-  top: 50%;
-  right: 20px;
+  top: 55%;
+  right: 25px;
   transform: translateY(-50%);
 }
 
 .compact-header .language-switch img {
   width: 40px;
   height: 40px;
+  margin: 0px 40px;
   transition: transform 0.3s ease;
 }
 
 .compact-header .language-switch img:hover {
   transform: scale(1.1);
+}
+
+.compact-header .theme-toggle{
+  top: 10px;
+  right: 20px;
 }
 
 /* Ajustement du padding du body pour la taille réduite du header */
@@ -295,6 +300,12 @@ header .language-switch {
   right: 20px;
   display: flex; /* Assurer l'alignement si plusieurs drapeaux sont visibles */
   align-items: center;
+  /* Si ces propriétés existent, les supprimer ou commenter */
+  /*
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  */
 }
 
 /* Style pour les boutons de langue */
@@ -671,7 +682,7 @@ footer {
 .project-preview img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: all 0.8s ease;
 }
 
@@ -1019,11 +1030,11 @@ footer {
 }
 
 .map {
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 100%;
-  height: 500px;
+  max-width: 900px;
+  height: 350px;
   margin: 0 auto;
   border: none;
   display: block;
@@ -1664,7 +1675,7 @@ footer {
 
 /* Styles pour le bouton de changement de thème */
 .theme-toggle {
-  /* margin-right: 15px; */ /* Remplacé par le gap dans .header-right */
+  margin:20px auto; /* Remplacé par le gap dans .header-right */
 }
 
 .theme-toggle button {
@@ -1990,7 +2001,7 @@ footer {
 
 /* Titres bannières (h2, h3) dans le contenu du projet en mode clair (vérification) */
 [data-theme="light"] .project-content .title-banner {
-  background-color: rgba(229, 227, 255, 0.9);
+  background-color: rgba(229, 227, 255, 0.336);
   color: var(--accent-color);
   box-shadow: 0 4px 15px var(--shadow-color);
   /* Assurer que le margin-bottom est approprié */
@@ -2199,6 +2210,8 @@ main,
   /* color, border, box-shadow restent */
 }
 
+/* HEADER PRINCIPAL (Page d'accueil) */
+
 /* Sélecteur de langue - REPOSITIONNÉ SOUS LA NAV pour le header principal */
 header:not(.compact-header) .language-switch {
   position: static; /* Annuler le positionnement absolu */
@@ -2210,30 +2223,27 @@ header:not(.compact-header) .language-switch {
   width: fit-content;
 }
 
-/* Bouton thème - REPOSITIONNÉ À DROITE pour le header principal */
-header:not(.compact-header) .theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  transform: none;
-}
-
-/* HEADER PRINCIPALE (Page d'accueil) */
 /* Sélecteur de langue en dessous de la nav et centré */
 header:not(.compact-header) .language-switch {
   display: flex;
   justify-content: center;
-  margin: 10px auto 0;
+  margin: 10px 10;
+  position: static;
+}
+
+header:not(.compact-header) .theme-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 10px 10;
   position: static;
 }
 
 /* Bouton thème à droite */
 header:not(.compact-header) .header-right {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 95px;
+  right: 385px;
 }
-
 /* HEADER COMPACT (Autres pages) */
 /* Container avec espace entre */
 .compact-header .header-container {
@@ -2260,6 +2270,12 @@ header:not(.compact-header) .header-right {
 .compact-header .language-switch img:hover {
   transform: scale(1.1);
 }
+
+.compact-header .theme-toggle{
+  /* Supprimer ces propriétés qui n'ont pas d'effet */
+  /* top: 10px; */
+  /* right: 20px; */
+
 
 /* Ajustement pour les petits écrans */
 @media (max-width: 768px) {
@@ -2294,6 +2310,7 @@ header:not(.compact-header) .header-right {
 .compact-header .language-switch img {
   width: 40px;
   height: 40px;
+  margin: 0 10px; /* Marge réduite */
 }
 
 /* Responsive */
@@ -2330,4 +2347,55 @@ header:not(.compact-header) .header-right {
 
 .compact-header .header-left .page-title {
   order: 3;
+}
+
+/* Annuler le positionnement absolu pour le header compact uniquement */
+.compact-header .header-right {
+  position: static; /* Au lieu de absolute */
+  transform: none; /* Supprimer la transformation */
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espace entre les éléments */
+  margin-right: 20px; /* Marge à droite pour l'alignement */
+}
+
+/* Réduire un peu la marge des drapeaux */
+.compact-header .language-switch img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px; /* Marge réduite */
+  transition: transform 0.3s ease;
+}
+
+/* Réinitialiser les dimensions si besoin */
+.compact-header .theme-toggle {
+  /* Supprimer ces propriétés qui n'ont pas d'effet */
+  /* top: 10px; */
+  /* right: 20px; */
+}
+
+/* Assurer l'alignement du conteneur du header */
+.compact-header .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Regrouper et aligner correctement .language-switch et .theme-toggle */
+.compact-header .header-right {
+  display: flex; /* Active Flexbox */
+  align-items: center; /* Aligne verticalement les éléments */
+  justify-content: flex-end; /* Aligne les éléments à droite */
+  gap: 15px; /* Ajoute un espace entre le drapeau et le bouton de thème */
+  margin: 0; /* Supprime toute marge inutile */
+}
+
+/* Supprimer la marge de .theme-toggle */
+.compact-header .theme-toggle {
+  margin: 0; /* Supprime la marge qui causait le problème */
+  display: flex; /* Assure que le bouton est bien centré */
+  align-items: center;
+  justify-content: center;
 }
