@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "YellowBlueSkye - Web Developer",
+    "title": "YellowBlueSkye - Web Developer & Designer Portfolio",
     "projectsTitle": "YellowBlueSkye - Projects & Skills"
   },
   "header": {
-    "title": "Web Developer & Web Designer",
+    "title": "YELLOWBLUESKYE WEB DESIGNER",
     "about": "ABOUT",
     "projects": "MY PROJECTS",
     "contact": "CONTACT",
@@ -23,7 +23,7 @@
   "projects": {
     "title": "A brief overview of my projects",
     "pageTitle": "Projects - YellowBlueSkye Portfolio",
-    "headerTitle": "MY PROJECTS",
+    "headerTitle": "My projects",
     "subtitle": "MY PROJECTS & SKILLS",
     "allTitle": "All my projects",
     "viewProject": "View project",

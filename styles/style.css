@@ -80,7 +80,24 @@ body::after {
   /* margin: 30px auto; */ /* Déjà défini dans la règle de base */
 }
 
-/* Transition douce lors du changement de thème */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+
 body {
   font-family: "Shantell Sans", cursive;
   font-optical-sizing: auto;
@@ -91,7 +108,6 @@ body {
   color: var(--text-color);
   position: relative; /* Nécessaire pour les pseudo-éléments positionnés absolument */
   z-index: 0; /* Assurer que le body est au-dessus des pseudo-éléments */
-  padding-top: var(--header-height, 80px); /* Ajustez selon la hauteur de votre header */
   transition: color var(--transition-speed) ease; /* Transition uniquement pour la couleur du texte */
   background-color: transparent !important; /* Forcer la transparence sur le body lui-même */
 }
@@ -508,6 +524,7 @@ footer {
   padding: 20px;
   margin-top: 50px;
   border-top: 1px solid #343654;
+  
 }
 
 /* Style pour la grille de projets */
@@ -1153,9 +1170,9 @@ footer {
   max-width: 450px; /* Réduit de 600px à 450px */
   background-color: var(--card-bg, rgba(35, 36, 54, 0.8));
   border-radius: 12px;
-  padding: 20px; /* Réduit de 30px à 20px */
+  padding: 10px; /* Réduit de 30px à 20px */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border-top: 3px solid #5d5dff; /* Bordure plus fine */
   transition: all 0.3s ease;
 }
@@ -1167,10 +1184,10 @@ footer {
 
 .category-title {
   color: #5d5dff;
-  font-size: 20px; /* Réduit de 22px à 20px */
-  margin-bottom: 20px; /* Réduit de 30px à 20px */
+  font-size: 18px; /* Réduit de 22px à 20px */
+  margin-bottom: 15px; /* Réduit de 30px à 20px */
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
   font-weight: 700;
 }
 
@@ -1189,7 +1206,7 @@ footer {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* Réduit de 120px à 90px */
-  gap: 15px; /* Réduit de 25px à 15px */
+  gap: 10px; /* Réduit de 25px à 15px */
   justify-items: center;
 }
 
@@ -1210,15 +1227,15 @@ footer {
 .skill-icon {
   position: relative;
   overflow: hidden;
-  width: 55px;
-  height: 55px;
-  padding: 10px;
+  width: 45px; /* Réduit de 55px à 45px */
+  height: 45px; /* Réduit de 55px à 45px */
+  padding: 8px; /* Réduit de 10px à 8px */
   background-color: var(--skill-icon-bg, #343654);
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 5px; /* Réduit de 8px à 5px */
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px var(--shadow-color, rgba(0, 0, 0, 0.2));
   border: 2px solid var(--accent-color, #5d5dff); /* Bordure permanente 2px */
@@ -1287,7 +1304,7 @@ footer {
 }
 
 .skill p {
-  font-size: 13px; /* Réduit de 15px à 13px */
+  font-size: 12px; /* Réduit de 13px à 12px */
   color: #b8c2cc;
   margin: 0;
   text-align: center;

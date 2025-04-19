@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="projectDetails.sophieBluel.title">Sophie Bluel | YellowBlueSkye - Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/style.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<body class="project-page">
-  <header class="compact-header">
-    <div class="header-container">
-      <div class="header-left">
-        <a href="../index.html" class="btn-back-home" data-i18n-title="ui.backToHome" title="Retour à l'accueil">
-          <svg width="20" height="20" viewBox="0 0 24 24">
-            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"></path>
-          </svg>
-        </a>
-        <h1 class="page-title" data-i18n="projectDetails.sophieBluel.headerTitle">PROJET SOPHIE BLUEL</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio de YellowBlueSkye, intégrateur web et designer web créatif et passionné. Spécialisé en HTML, CSS, JavaScript et responsive design. Découvrez mes projets.">
+    <title data-i18n="meta.title">Sophie Bluel | YellowBlueSkye - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/navbar-side.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
+<body class="projects-page">
+     <!-- Header avec le titre et hamburger à gauche -->
+     <header>
+      <!-- Bouton hamburger à gauche -->
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
       </div>
-      <div class="header-right">
-        <div class="language-switch">
-          <!-- Attention aux chemins relatifs pour les images des drapeaux -->
-          <a href="javascript:void(0)" id="switch-to-en" title="Switch to English">
-            <img src="../images/icons/icons8-uk-flag-48.png" alt="English" />
-          </a>
-          <a href="javascript:void(0)" id="switch-to-fr" style="display: none">
-            <img src="../images/icons/icons8-french-flag-48.png" alt="Français" />
-          </a>
-        </div>
-        <!-- Ajoutez ce bloc pour le bouton de thème -->
+      
+      <!-- Titre centré -->
+      <div class="header-logo">
+        <h1>Projet Sophie Bluel</h1>
+      </div>
+
+       <!-- Sélecteur de langue -->
+       <div class="language-switch">
+        <a href="javascript:void(0)" id="switch-to-en" title="Switch to English">
+          <img src="/images/icons/icons8-uk-flag-48.png" alt="English" width="32" height="32">
+        </a>
+        <a href="javascript:void(0)" id="switch-to-fr" style="display: none;" title="Passer en français">
+          <img src="/images/icons/icons8-french-flag-48.png" alt="Français" width="32" height="32">
+        </a>
+      </div>
+    </header>
+  
+    <!-- Menu latéral qui sort de la droite -->
+    <div class="sidebar-menu" id="sidebar-menu">
+      <!-- Bouton pour fermer le menu -->
+      <div class="close-menu" id="close-menu">
+        <i class="fas fa-times"></i>
+      </div>
+      
+       <!-- Navigation -->
+       <nav class="sidebar-nav">
+        <ul>
+          <li><a href="/index.html">ACCUEIL</a></li>
+          <li><a href="/projects.html">PROJETS</a></li>
+          <li><a href="/contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Contrôles (langue et thème) -->
+      <div class="sidebar-controls">
+        
+        <!-- Sélecteur de thème -->
         <div class="theme-toggle">
           <button id="theme-switch" aria-label="Changer de thème">
             <svg width="24" height="24" viewBox="0 0 24 24" class="moon-icon">
@@ -44,7 +69,9 @@
         </div>
       </div>
     </div>
-  </header>
+    
+    <!-- Overlay sombre -->
+    <div class="menu-overlay" id="menu-overlay"></div>
 
   <!-- Section Projet Détaillé -->
   <section class="project-detail">
@@ -194,8 +221,9 @@
       });
     });
   </script>
-  <script src="../scripts/translator.js"></script>
-  <script src="../scripts/navbar.js"></script>
-  <script src="../scripts/theme-switcher.js"></script>
+ <script src="../scripts/translator.js"></script>
+ <script src="../scripts/navbar.js"></script>
+ <script src="../scripts/theme-switcher.js"></script>
+ <script src="../scripts/navbar-side.js"></script>
 </body>
 </html>
