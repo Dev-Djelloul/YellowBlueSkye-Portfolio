@@ -93,10 +93,15 @@ main {
 }
 
 section {
+  margin-top: 50px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
+section#about, 
+#about {
+  scroll-margin-top: 10px; /* hauteur de ton header fixe */
+}
 
 body {
   font-family: "Shantell Sans", cursive;
@@ -204,8 +209,8 @@ header {
 }
 
 .compact-header .language-switch img {
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
   margin: 0px 40px;
   transition: transform 0.3s ease;
 }
@@ -344,7 +349,7 @@ header .language-switch {
 
 /* Titres et textes communs */
 h2.title-banner {
-  color: #5d5dff;
+  color: white;
   background-color: rgba(35, 36, 54, 0.7);
   position: relative;
   /* margin: 30px auto; */ /* Ancienne valeur - déjà correcte ! */
@@ -352,7 +357,7 @@ h2.title-banner {
   /* Ajouter width: fit-content et ajuster margin */
   width: fit-content;
   margin: 30px auto; /* 30px haut/bas, auto gauche/droite pour centrer */
-  border-radius: 10px; /* Ajout pour cohérence avec h3 */
+  border-radius: 5px; /* Ajout pour cohérence avec h3 */
 }
 
 h2.title-banner:after {
@@ -363,7 +368,7 @@ h2.title-banner:after {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: #5d5dff;
+  background: white;
   border-radius: 2px;
 }
 
@@ -391,8 +396,8 @@ h3.title-banner:after {
 .about-text-box {
   background: rgba(35, 36, 54, 0.7);
   padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3)!important;
   margin: 30px auto;
   max-width: 900px;
 }
@@ -453,25 +458,7 @@ h3.title-banner:after {
   background: linear-gradient(45deg, #4a4aff, #4b75ff);
 }
 
-/* Sélecteur de langue commun */
-.language-switch {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
 
-.language-switch img {
-  width: 40px;
-  height: 40px;
-  transition: transform 0.3s ease;
-  margin: 0px;
-}
-
-.language-switch img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(93, 93, 255, 0.6);
-  border-radius: 50%;
-}
 
 /* Animation au scroll pour toutes les pages */
 [data-aos] {
