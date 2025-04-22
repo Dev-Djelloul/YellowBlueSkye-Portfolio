@@ -34,10 +34,10 @@
     "headerTitle": "My projects",
     "subtitle": "MY PROJECTS & SKILLS",
     "allTitle": "All my projects",
-    "viewProject": "View project",
+    "viewProject": "View Project",
     "viewAllProjects": "View all my projects and skills",
-    "viewLive": "View project",
-    "viewCode": "GitHub",
+    "viewLive": "View Project",
+    "viewCode": "View Source Code",
     "prevProject": "Previous Project: {projectName}",
     "nextProject": "Next Project: {projectName}"
   },

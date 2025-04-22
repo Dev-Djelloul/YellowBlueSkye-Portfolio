@@ -118,7 +118,8 @@ header.nav-scrolled, .compact-header.nav-scrolled { background-color: rgba(35, 3
 /* Alignement du contenu du Header */
 .header-container { width: 100%; display: flex; justify-content: space-between; align-items: center; } /* Utilisé dans le header compact pour structurer */
 .header-logo { display: flex; align-items: center; } /* Conteneur pour le logo vidéo */
-#logo-video { height: 48px; width: auto; object-fit: contain; border-radius: 50%; border: 1px solid var(--border-color); box-shadow: 0 3px 10px rgba(255, 255, 255, 0.1); } /* Style du logo vidéo */
+#logo-video { height: 48px; width: auto; object-fit: contain; border-radius: 50%; border: 1px solid var(--border-color); /* Bordure */
+  box-shadow: 0 3px 10px #5d5dff; /* Ombre (légèrement ajustée) */; } /* Style du logo vidéo */
 .compact-header #logo-video { height: 35px; } /* Logo légèrement plus petit dans le header compact */
 
 /* Titre dans le Header Normal */
@@ -207,7 +208,7 @@ header h1 {
 /* Styles pour l'icône Hamburger (si utilisée directement avec cette classe) */
 .hamburger {
   cursor: pointer; /* Curseur main */
-  font-size: 1.8rem; /* Taille de l'icône */
+  font-size: 1.5rem; /* Taille de l'icône */
   color: #5d5dff; /* Couleur d'accentuation par défaut */
   transition: color 0.3s; /* Transition pour la couleur */
   padding: 10px; /* Zone cliquable */
@@ -757,18 +758,21 @@ footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 5
 
 @media (max-width: 768px) {
   /* Mobiles */
-  body { padding-top: 60px; } /* Toujours utiliser la hauteur du header compact sur mobile */
+  body { padding-top: 60px; } /* Ajuster le padding du body pour le header compact */
 
-  /* Ajuster le Header Normal pour Mobile (s'il était encore utilisé directement) */
-  header { height: 60px; padding: 0 15px; }
-  header h1 { font-size: 1rem; margin: 0 10px; }
 
   /* Ajuster le Header Compact pour Mobile */
-  .compact-header { padding: 0 15px; }
-  .compact-header .header-left { gap: 8px; }
-  .compact-header .page-title { font-size: 1rem; }
-  .compact-header #logo-video { height: 30px; }
-  .compact-header .language-switch img { width: 32px; height: 32px; }
+  header { height: 60px; padding: 0 15px; } /* Header compact */
+  header h1 { font-size: 1rem; margin: 0 10px; } /* Titre plus petit */
+  .hamburger { font-size: 1rem; } /* Taille de l'icône */
+  #logo-video { height: 28px; } /* Logo plus petit */
+
+  /* Ajuster le Header Compact pour Mobile */
+  .compact-header { padding: 0 15px; } /* Header compact */
+  .compact-header .header-left { gap: 8px; } /* Espacement entre logo et titre */
+  .compact-header .page-title { font-size: 1rem; } /* Titre plus petit */
+  .compact-header #logo-video { height: 30px; } /* Logo plus petit */
+  .compact-header .language-switch img { width: 32px; height: 32px; } /* Icône langue plus petite */
   .menu-toggle { font-size: 1.8rem; padding: 8px; } /* Bouton menu plus petit */
   .theme-toggle button { width: 35px; height: 35px; } /* Bouton thème plus petit */
   .theme-toggle button svg { width: 18px; height: 18px; }
@@ -779,6 +783,7 @@ footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 5
   .project-card img { height: 280px; } /* Image carte projet plus haute */
   .project-preview-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 10px; } /* Grille aperçu 1 colonne */
   .project-preview { height: 250px; } /* Aperçu moins haut */
+  .project-preview .btn-view-project { padding: 8px 18px; /* Réduit le padding vertical et horizontal */font-size: 0.9rem; /* Réduit la taille de la police */min-width: auto; /* Permet au bouton de prendre une largeur plus naturelle si nécessaire */}
   .project-preview-overlay h3 { color: white; font-size: 1rem; } /* Titre overlay plus petit */
   .project-hero { height: 250px; } /* Image détail projet moins haute */
   .project-navigation { flex-direction: column; gap: 15px; align-items: center; } /* Navigation projet en colonne */
