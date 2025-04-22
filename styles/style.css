@@ -8,7 +8,7 @@
   --card-bg: #343654;          /* Couleur de fond des cartes/conteneurs */
   --accent-color: #5d5dff;     /* Couleur d'accentuation (liens, bordures, etc.) */
   --secondary-bg: #232436;     /* Couleur de fond secondaire */
-  --border-color: rgba(255, 255, 255, 0.925); /* Couleur des bordures */
+  --border-color: #5d5dff; /* Couleur des bordures */
   --shadow-color: rgba(0, 0, 0, 0.3);       /* Couleur des ombres */
   --input-bg: rgba(255, 255, 255, 0.1); /* Couleur de fond des champs de formulaire */
   --skill-icon-bg: #343654;     /* Couleur de fond des icônes de compétence */
@@ -202,7 +202,7 @@ header h1 {
   object-fit: contain; /* Assure que la vidéo s'adapte sans déformation */
   border-radius: 50%; /* Forme circulaire */
   border: 1px solid var(--border-color); /* Bordure */
-  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.851); /* Ombre (légèrement ajustée) */
+  box-shadow: 0 3px 10px #5d5dff; /* Ombre (légèrement ajustée) */
 }
 /* Styles pour l'icône Hamburger (si utilisée directement avec cette classe) */
 .hamburger {
@@ -278,10 +278,15 @@ header h1 {
 
 /* Contrôles (Thème/Langue) dans le menu déroulant */
 .menu-controls {
-  display: flex; justify-content: flex-start; align-items: center; /* Alignement horizontal */
+  display: flex; justify-content: center; align-items: center; /* Alignement horizontal */
   gap: 32px; border-top: 1px solid rgba(255,255,255,0.1); /* Espacement et ligne de séparation */
   padding-top: 18px; margin-top: 30px; /* Espacement vertical */
 }
+
+.menu-controls #logo-video-dropdown:hover {
+  transform: scale(3.1); /* Agrandit le logo vidéo */
+}
+
 .menu-controls button {
   background: none; /* Pas de fond */
   border: none; /* Pas de bordure */
@@ -690,6 +695,24 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 .social-media a:hover::before { opacity: 1; } /* Affichage fond coloré */
 .social-media img { width: 32px; height: 32px; position: relative; z-index: 1; transition: filter 0.3s ease; filter: brightness(0.9); } /* Icône */
 .social-media a:hover img { filter: brightness(1.2); } /* Effet survol icône */
+
+/* Style de base pour la vidéo du logo dans la section social-media */
+.social-media #logo-video-dropdown {
+  /* Ajoutez une transition pour un effet fluide */
+  transition: transform 0.3s ease-in-out; 
+  /* Assurez-vous que la vidéo est affichée comme un bloc ou inline-block pour que transform fonctionne correctement */
+  display: inline-block; /* ou block, selon votre layout */
+  vertical-align: middle; /* Ajustez si nécessaire pour l'alignement */
+  /* Définissez une largeur si ce n'est pas déjà fait, pour référence */
+  width: 66px; /* Exemple, ajustez à la taille actuelle ou souhaitée */
+  height: 66px; /* Exemple, ajustez à la taille actuelle ou souhaitée */
+}
+
+/* Effet d'agrandissement au survol */
+.social-media #logo-video-dropdown:hover {
+  /* Agrandit la vidéo de 10% (ajustez la valeur si besoin) */
+  transform: scale(3.1); 
+}
 
 /* Styles Contact en thème clair */
 [data-theme="light"] .contact-form { background: var(--card-bg); box-shadow: 0 10px 30px var(--shadow-color); border-top-color: var(--accent-color); }
