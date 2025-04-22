@@ -1,2405 +1,692 @@
-/* Variables pour les thèmes */
+/* =========================
+   VARIABLES & THÈMES
+   ========================= */
 :root {
-  --background-color: #1e1f2f;
-  --text-color: #ffffff;
-  --card-bg: #343654;
-  --accent-color: #5d5dff;
-  --secondary-bg: #232436;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --input-bg: rgba(255, 255, 255, 0.1);
-  --transition-speed: 0.3s;
+  /* Variables pour le thème sombre (par défaut) */
+  --background-color: #1e1f2f; /* Couleur de fond principale */
+  --text-color: #ffffff;       /* Couleur du texte principale */
+  --card-bg: #343654;          /* Couleur de fond des cartes/conteneurs */
+  --accent-color: #5d5dff;     /* Couleur d'accentuation (liens, bordures, etc.) */
+  --secondary-bg: #232436;     /* Couleur de fond secondaire */
+  --border-color: rgba(255, 255, 255, 0.1); /* Couleur des bordures */
+  --shadow-color: rgba(0, 0, 0, 0.3);       /* Couleur des ombres */
+  --input-bg: rgba(255, 255, 255, 0.1); /* Couleur de fond des champs de formulaire */
+  --skill-icon-bg: #343654;     /* Couleur de fond des icônes de compétence */
+  --skill-text-color: #b8c2cc; /* Couleur du texte des compétences */
+  --transition-speed: 0.3s;     /* Vitesse de transition générale */
 }
 
-/* Styles pour le thème clair - MODIFICATION */
 [data-theme="light"] {
-  /* --background-color: #f0eeff; */ /* Ancienne valeur solide */
-  --background-color: rgba(100, 85, 220, 0.55); /* Violet très clair avec 85% d'opacité */
+  /* Variables pour le thème clair */
+  --background-color: rgba(100, 85, 220, 0.55);
   --text-color: #333333;
-  --card-bg: #ffffff; /* Cartes blanches sur fond violet clair */
-  --accent-color: #5d5dff;
-  --secondary-bg: #e5e3ff; /* Violet encore plus clair pour les éléments secondaires */
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --accent-color: #5d5dff; /* Couleur d'accentuation reste la même */
+  --secondary-bg: rgba(229, 227, 255, 0.8);
   --border-color: rgba(93, 93, 255, 0.2);
-  --shadow-color: rgba(93, 93, 255, 0.1);
+  --shadow-color: rgba(93, 93, 255, 0.15);
   --input-bg: rgba(0, 0, 0, 0.05);
-  --skill-icon-bg: #ffffff;
-  --skill-icon-border: rgba(93, 93, 255, 0.3);
+  --skill-icon-bg: rgba(255, 255, 255, 0.8);
   --skill-text-color: #555555;
 }
 
-/* Ajustement pour l'image de fond en mode clair - SUPPRIMER ou COMMENTER l'opacité ici */
-[data-theme="light"] body::before {
-  /* opacity: 0.08; */ /* On supprime cette ligne pour garder l'opacité constante */
-}
-
-/* Ajout d'un arrière-plan coloré supplémentaire pour le mode clair - MODIFICATION */
-/* On va utiliser ce pseudo-élément pour la couleur de fond principale */
-body::after {
-  content: "";
-  position: absolute; /* Doit être absolute ou fixed */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--background-color); /* Applique la couleur du thème */
-  z-index: -2; /* Placé DERRIÈRE l'image (body::before) */
-  transition: background-color var(--transition-speed) ease; /* Transition pour la couleur */
-  pointer-events: none; /* Empêche l'interaction avec cette couche */
-}
-
-/* Correction pour les cartes de projet en mode clair */
-[data-theme="light"] .project-card {
-  background-color: #ffffff;
-  box-shadow: 0 8px 20px rgba(93, 93, 255, 0.15);
-  border: 2px solid rgba(93, 93, 255, 0.6); /* Bordure permanente en mode clair */
-}
-
-/* Suppression du changement de bordure au survol en mode clair pour les projets */
-[data-theme="light"] .project-card:hover {
-  /* ...existing light theme hover styles... */
-  /* Assurez-vous qu'il n'y a pas de 'border-color' ou 'border-width' ici */
-}
-
-/* Correction pour le texte des projets en mode clair */
-[data-theme="light"] .project-info p {
-  color: #555555;
-}
-
-/* Correction pour le header en mode clair */
-[data-theme="light"] header,
-[data-theme="light"] .compact-header {
-  background-color: rgba(240, 238, 255, 0.9);
-  border-bottom: 3px solid #5d5dff;
-}
-
-/* Correction pour les titres en mode clair */
-[data-theme="light"] h2.title-banner {
-  background-color: rgba(229, 227, 255, 0.8); /* Violet encore plus clair, 80% opacité */
-  color: #5d5dff;
-  /* width: fit-content; */ /* Déjà défini dans la règle de base */
-  /* margin: 30px auto; */ /* Déjà défini dans la règle de base */
-}
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-main {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-section {
-  margin-top: 50px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-section#about, 
-#about {
-  scroll-margin-top: 10px; /* hauteur de ton header fixe */
-}
+/* =========================
+   RESET & STYLES DE BASE
+   ========================= */
+* { margin: 0; padding: 0; box-sizing: border-box; } /* Reset universel pour marges, paddings et modèle de boîte */
 
 body {
-  font-family: "Shantell Sans", cursive;
-  font-optical-sizing: auto;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  text-align: center;
-  color: var(--text-color);
-  position: relative; /* Nécessaire pour les pseudo-éléments positionnés absolument */
-  z-index: 0; /* Assurer que le body est au-dessus des pseudo-éléments */
-  transition: color var(--transition-speed) ease; /* Transition uniquement pour la couleur du texte */
-  background-color: transparent !important; /* Forcer la transparence sur le body lui-même */
+  font-family: "Shantell Sans", cursive, Arial, sans-serif; /* Police principale */
+  font-optical-sizing: auto; /* Ajustement optique de la police */
+  line-height: 1.6; /* Hauteur de ligne pour la lisibilité */
+  text-align: center; /* Alignement du texte par défaut */
+  color: var(--text-color); /* Couleur du texte héritée des variables */
+  position: relative; /* Nécessaire pour le positionnement des pseudo-éléments ::before et ::after */
+  z-index: 0; /* Contexte d'empilement de base */
+  background-color: transparent !important; /* Fond transparent pour laisser voir les couches inférieures (pseudo-éléments) */
+  transition: color var(--transition-speed) ease; /* Transition douce pour le changement de couleur de texte */
+  padding-top: 90px; /* Espace en haut par défaut pour le header normal fixe */
 }
 
-/* Image de fond pour toutes les pages - MISE À JOUR */
-body::before {
-  content: "";
-  position: absolute; /* Garder absolute car body est relative */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Chemin relatif depuis /styles/ vers /images/ */
-  background-image: url('../images/emily-bernal-v9vII5gV8Lw-unsplash.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* Garde l'image fixe au défilement */
-  opacity: 0.1; /* Opacité désirée (ajustez si besoin, ex: 0.15) */
-  z-index: -1; /* Derrière le contenu principal */
-  transition: opacity var(--transition-speed) ease; /* Optionnel: transition douce */
-  pointer-events: none; /* Empêche l'interaction avec cette couche */
+/* Ajustement du padding pour les pages utilisant le header compact */
+body.contact-page, body.project-page { padding-top: 60px; }
+
+/* Pseudo-éléments pour gérer l'arrière-plan en couches */
+body::before, body::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; /* Ne capture pas les clics */ }
+
+body::before { /* Couche pour l'image de fond */
+  background: url('../images/emily-bernal-v9vII5gV8Lw-unsplash.jpg') center/cover no-repeat fixed; /* Image de fond */
+  opacity: 0.1; /* Opacité par défaut (thème sombre) */
+  z-index: -1; /* Positionnée derrière le contenu mais devant ::after */
+  transition: opacity var(--transition-speed) ease; /* Transition douce pour l'opacité */
 }
 
-/* Header commun pour toutes les pages */
+body::after { /* Couche pour la couleur de fond unie */
+  background-color: var(--background-color); /* Couleur de fond héritée des variables */
+  z-index: -2; /* Positionnée tout en arrière */
+  transition: background-color var(--transition-speed) ease; /* Transition douce pour la couleur */
+}
+
+/* Ajustement de l'opacité de l'image de fond en thème clair */
+[data-theme="light"] body::before { opacity: 0.5; }
+
+/* Conteneur principal du contenu */
+main { max-width: 800px; margin: 0 auto; padding: 20px; background-color: transparent !important; } /* Largeur max, centré, padding */
+/* Styles de base pour les sections */
+section { margin-top: 50px; border: 1px solid #ddd;border-radius: 5px; background-color: transparent !important; } /* Espacement, bordure (peut-être à revoir), fond transparent */
+/* Marge spécifique pour l'ancre #about pour compenser le header fixe */
+section#about, #about { scroll-margin-top: 110px; }
+
+/* =========================
+   HEADER (Normal & Compact) 
+   ========================= */
+header, .compact-header {
+  position: fixed; top: 0; left: 0; width: 100%; /* Positionnement fixe en haut */
+  /* --- MODIFICATION: Augmenter le z-index pour qu'il soit au-dessus du dropdown initialement --- */
+  z-index: 1001; /* Au-dessus du contenu et du dropdown (quand il n'est pas actif) */
+  transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Transitions pour l'animation et le style */
+  will-change: transform; /* Indication au navigateur pour optimiser l'animation de transformation */
+  background: rgba(35, 36, 54, 0.9); /* Fond semi-transparent sombre par défaut */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre portée */
+  border-bottom: 3px solid var(--accent-color); /* Ligne d'accentuation en bas */
+}
+/* Styles spécifiques au header normal (plus grand) */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-  will-change: transform;
-  background: rgba(35, 36, 54, 0.9);
-  padding: 15px 5px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border-bottom: 3px solid #5d5dff;
-  text-align: center;
-  display: block;
+  padding: 15px 30px; /* Padding intérieur augmenté */
+  display: flex; /* Utilisation de flexbox pour l'alignement */
+  justify-content: space-between; /* Espace entre les éléments enfants (logo/titre et menu toggle) */
+  align-items: center; /* Alignement vertical des éléments */
+  height: 90px; /* Hauteur fixe explicite */
 }
-
-/* Header compact pour les pages de projet et de contact */
+/* Styles spécifiques au header compact (plus petit) */
 .compact-header {
-  height: 100px; /* Hauteur réduite */
-  display: flex;
-  align-items: center;
-  padding: 0px;
-  background-color: rgba(35, 36, 54, 0.95);
-  transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  height: 60px; /* Hauteur fixe réduite */
+  display: flex; /* Utilisation de flexbox */
+  align-items: center; /* Alignement vertical */
+  justify-content: space-between; /* Assure l'espacement entre les groupes gauche/droite */
+  padding: 0 20px; /* Padding horizontal */
 }
 
-.header-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* Classes pour masquer/afficher le header au scroll */
+header.nav-hidden, .compact-header.nav-hidden { transform: translateY(-100%); } /* Cache le header en le déplaçant vers le haut */
+/* Style optionnel quand le header est visible après scroll */
+header.nav-scrolled, .compact-header.nav-scrolled { background-color: rgba(35, 36, 54, 0.95); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
 
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+/* Styles du header en thème clair */
+[data-theme="light"] header, [data-theme="light"] .compact-header { background-color: rgba(240, 238, 255, 0.8); box-shadow: 0 4px 15px var(--shadow-color); border-bottom-color: var(--accent-color); }
 
-.header-left .page-title {
-  font-size: 1.2rem;
-  margin: 0;
-  color: #5d5dff;
-}
+/* Alignement du contenu du Header */
+.header-container { width: 100%; display: flex; justify-content: space-between; align-items: center; } /* Utilisé dans le header compact pour structurer */
+.header-logo { display: flex; align-items: center; } /* Conteneur pour le logo vidéo */
+#logo-video { height: 40px; width: auto; object-fit: contain; border-radius: 50%; border: 1px solid var(--border-color); box-shadow: 0 3px 10px rgba(255, 255, 255, 0.1); } /* Style du logo vidéo */
+.compact-header #logo-video { height: 35px; } /* Logo légèrement plus petit dans le header compact */
 
-.header-left .btn-back-home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  width: 20px;
-  height: 20px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.header-left .btn-back-home:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 55%;
-  right: 25px;
-  transform: translateY(-50%);
-}
-
-.compact-header .language-switch img {
-  width: 70px;
-  height: 70px;
-  margin: 0px 40px;
-  transition: transform 0.3s ease;
-}
-
-.compact-header .language-switch img:hover {
-  transform: scale(1.1);
-}
-
-.compact-header .theme-toggle{
-  top: 10px;
-  right: 20px;
-}
-
-/* Ajustement du padding du body pour la taille réduite du header */
-body.contact-page, 
-body.project-page {
-  padding-top: 60px; /* Même valeur que la hauteur du compact-header */
-}
-
-/* Effet de shadow quand on défile */
-.compact-header.nav-scrolled {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Classe ajoutée quand on défile vers le bas */
-header.nav-hidden {
-  transform: translateY(-100%);
-}
-
-/* Classe pour rendre la navbar plus compacte après un certain défilement */
-header.nav-scrolled {
-  background-color: rgba(35, 36, 54, 0.95); /* Plus opaque */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Effet de hover sur la navbar quand elle est cachée */
-@media (hover: hover) {
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 10px;
-    z-index: 1001;
-  }
-  
-  body::before:hover + header.nav-hidden {
-    transform: translateY(0);
-  }
-}
-
-header div {
-  text-align: center;
-}
-
+/* Titre dans le Header Normal */
 header h1 {
-  margin: 0px auto;
-  font-size: 28px;
-  font-weight: bold;
-  color: #5d5dff;
-  text-shadow: 0 0 10px rgba(93, 93, 255, 0.5);
-  background: none;
-  -webkit-background-clip: initial;
-  -webkit-text-fill-color: initial;
-}
-
-header nav {
-  margin: 15px 0;
-}
-
-header nav ul {
-  list-style: none;
-  padding: 10px 0;
-  margin: 0px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-header nav ul li a {
-  color: #b8c2cc;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 15px;
-  transition: all 0.3s ease;
-  background: none;
-  -webkit-background-clip: initial;
-  -webkit-text-fill-color: initial;
-}
-
-header nav ul li a:hover {
-  color: #5d5dff;
-}
-
-header h4 {
-  margin: 10px auto;
-  font-size: 16px;
-  color: #b8c2cc;
-  background: none;
-  -webkit-background-clip: initial;
-  -webkit-text-fill-color: initial;
-}
-
-header .language-switch {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex; /* Assurer l'alignement si plusieurs drapeaux sont visibles */
-  align-items: center;
-  /* Si ces propriétés existent, les supprimer ou commenter */
-  /*
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  */
-}
-
-/* Style pour les boutons de langue */
-.lang-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.lang-button:hover {
-  transform: scale(1.1);
-}
-
-.lang-button img {
-  width: 30px;
-  height: 30px;
-}
-
-/* Titres et textes communs */
-h2.title-banner {
-  color: white;
-  background-color: rgba(35, 36, 54, 0.7);
-  position: relative;
-  /* margin: 30px auto; */ /* Ancienne valeur - déjà correcte ! */
-  padding: 15px;
-  /* Ajouter width: fit-content et ajuster margin */
-  width: fit-content;
-  margin: 30px auto; /* 30px haut/bas, auto gauche/droite pour centrer */
-  border-radius: 5px; /* Ajout pour cohérence avec h3 */
-}
-
-h2.title-banner:after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: white;
-  border-radius: 2px;
-}
-
-h3.title-banner {
-  color: #ffffff;
-  position: relative;
-  margin: 60px auto; /* 60px pour haut/bas, auto pour gauche/droite */
-  padding: 10px;
-  border-radius: 10px;
-  width: fit-content;
-}
-
-h3.title-banner:after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: #5d5dff;
-  border-radius: 2px;
-}
-
-.about-text-box {
-  background: rgba(35, 36, 54, 0.7);
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3)!important;
-  margin: 30px auto;
-  max-width: 900px;
-}
-
-.about-text-box p {
-  color: #b8c2cc;
-  line-height: 1.7;
-  font-size: 16px;
-  margin-bottom: 15px;
-}
-
-.link-schools-openclassrooms {
-  color: #5d5dff;
-  text-decoration: none;
-  font-weight: bold;
-  border-bottom: 2px dotted #5d5dff;
-  padding-bottom: 2px;
-  transition: all 0.3s ease;
-}
-
-.link-schools-openclassrooms:hover {
-  color: #7b7bff;
-  border-bottom: 2px solid #7b7bff;
-}
-
-.link-schools-studi {
-  color: #5d5dff;
-  text-decoration: none;
-  font-weight: bold;
-  border-bottom: 2px dotted #5d5dff;
-  padding-bottom: 2px;
-  transition: all 0.3s ease;
-}
-
-.link-schools-studi:hover {
-  color: #7b7bff;
-  border-bottom: 2px solid #7b7bff;
-}
-
-/* Bouton commun à toutes les pages */
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  background: linear-gradient(45deg, #5d5dff, #6b8cff);
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 7px 20px rgba(93, 93, 255, 0.4);
-  background: linear-gradient(45deg, #4a4aff, #4b75ff);
-}
-
-
-
-/* Animation au scroll pour toutes les pages */
-[data-aos] {
-  opacity: 0;
-  transition: all 0.8s ease;
-}
-
-[data-aos].aos-animate {
-  opacity: 1;
-}
-
-/* Bouton retour en haut pour toutes les pages */
-.scroll-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 55px;
-  height: 55px;
-  background: #343654;
-  color: #5d5dff;
-  border: 2px solid #5d5dff;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  opacity: 0;
-  transition: all 0.3s ease;
-  z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  padding: 0;
-}
-
-.scroll-to-top:hover {
-  background: #5d5dff;
-  color: white;
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(93, 93, 255, 0.4);
-}
-
-.scroll-to-top svg {
-  width: 30px;
-  height: 30px;
-}
-
-/* Footer commun */
-footer {
-  background-color: #1f2032;
-  color: #b8c2cc;
-  padding: 20px;
-  margin-top: 50px;
-  border-top: 1px solid #343654;
-  
-}
-
-/* Style pour la grille de projets */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 30px;
-  padding: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.project-card {
-  background-color: var(--card-bg);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px var(--shadow-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid var(--accent-color, #5d5dff); /* Bordure permanente */
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(93, 93, 255, 0.3);
-  /* Assurez-vous qu'il n'y a pas de 'border-color' ou 'border-width' ici */
-}
-
-.project-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-bottom: 3px solid #5d5dff;
-}
-
-.project-info {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-}
-
-.project-info h3 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: var(--accent-color);
-  font-size: 1.4rem;
-}
-
-.project-info p {
-  color: #b8c2cc;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-size: 0.95rem;
-}
-
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.project-tech span {
-  background: #343654;
-  color: #5d5dff;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.project-links {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: auto;
-}
-
-.project-links a {
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  text-align: center;
-  min-width: 120px;
-}
-
-.project-links a:first-child {
-  background: linear-gradient(45deg, #5d5dff, #6b8cff);
-  color: white;
-}
-
-.project-links a.github-link {
-  background-color: transparent;
-  border: 1px solid #5d5dff;
-  color: #5d5dff;
-}
-
-.project-links a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Correction pour les boutons dans les pages de projet */
-.project-page .project-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 30px 0;
-}
-
-.project-page .project-links a {
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  min-width: 160px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-}
-
-.project-page .project-links a:first-child {
-  background: linear-gradient(45deg, #5d5dff, #6b8cff);
-  color: white;
-}
-
-.project-page .project-links a.github-link {
-  background-color: #343654;
-  border: 2px solid #5d5dff;
-  color: white;
-}
-
-.project-page .project-links a:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(93, 93, 255, 0.4);
-}
-
-/* Style pour la grille de prévisualisation des projets */
-.project-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 30px;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-.project-preview {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  height: 350px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.5s ease;
-}
-
-.project-preview:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(93, 93, 255, 0.4);
-}
-
-.project-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.8s ease;
-}
-
-.project-preview:hover img {
-  transform: scale(1.1);
-  filter: brightness(0.7) blur(2px);
-}
-
-.project-preview-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(35, 36, 54, 0.9), transparent);
-  padding: 30px 20px 20px;
-  transform: translateY(100%);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.project-preview:hover .project-preview-overlay {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.project-preview-overlay h3 {
-  color: white;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  text-align: center;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  transform: translateY(20px);
-  opacity: 0;
-  transition: all 0.5s ease 0.1s;
-}
-
-.project-preview:hover .project-preview-overlay h3 {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.btn-view-project {
-  background: linear-gradient(45deg, #5d5dff, #6b8cff);
-  color: white;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  transform: translateY(20px);
-  opacity: 0;
-  transition: all 0.5s ease 0.2s;
-}
-
-.project-preview:hover .btn-view-project {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.btn-view-project:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 8px 25px rgba(93, 93, 255, 0.5);
-  background: linear-gradient(45deg, #4a4aff, #4b75ff);
-}
-
-/* Effet hover permanent */
-.project-preview.hover-active .project-preview-overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Si vous avez des transformations sur l'image lors du survol */
-.project-preview.hover-active img {
-  transform: scale(1.05);
-  filter: blur(2px);
-}
-
-/* Autres effets hover que vous pourriez avoir */
-.project-preview.hover-active {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.view-all-projects {
-  text-align: center;
-  margin: 50px 0;
-}
-
-.view-all-projects .btn {
-  padding: 15px 30px;
-  font-size: 1.1rem;
-  border-radius: 30px;
-  background: linear-gradient(45deg, #5d5dff, #6b8cff);
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.view-all-projects .btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(93, 93, 255, 0.5);
-  background: linear-gradient(45deg, #4a4aff, #4b75ff);
-}
-
-/* Ajustements responsive pour la grille de prévisualisation */
-@media (max-width: 992px) {
-  .project-preview-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-  }
-  
-  .project-preview {
-    height: 300px;
-  }
-}
-
-@media (max-width: 768px) {
-  .project-preview-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .project-preview {
-    height: 250px;
-  }
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    padding: 15px;
-  }
-  
-  .project-card img {
-    height: 380px;
-  }
-}
-
-/* Bouton retour à l'accueil */
-.back-home {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.btn-back-home {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 20px;
-  background: linear-gradient(45deg, #5d5dff, #6b8cff);
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.btn-back-home:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(93, 93, 255, 0.4);
-  background: linear-gradient(45deg, #4a4aff, #4b75ff);
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  header h1 {
-    font-size: 24px;
-  }
-  
-  header h4 {
-    font-size: 14px;
-  }
-  
-  .language-switch {
-    top: 10px;
-    right: 10px;
-  }
-  
-  .about-text-box {
-    padding: 15px;
-  }
-
-  .project-preview-grid {
-    grid-template-columns: 1fr; /* 1 colonne sur mobile */
-    gap: 20px;
-    padding: 0 10px;
-  }
-}
-
-/* Style pour la photo de profil */
-.profile-photo-container {
-  margin: 40px auto;
-  text-align: center;
-  max-width: 300px;
-}
-
-
-.profile-photo:hover {
-  transform: translateY(-5px); /* Léger effet de survol */
-  box-shadow: 0 35px 80px rgba(93, 93, 255, 0.4);
-}
-
-/* Variante avec effet circulaire - décommentez si vous préférez ce style */
-
-.profile-photo {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.3);
-  border: 3px solid #5d5dff;
-  transition: all 0.5s ease;
-}
-
-
-/* Style modernisé pour le formulaire de contact */
-.contact-form {
-  background: var(--card-bg, rgba(35, 36, 54, 0.8));
-  box-shadow: 0 10px 30px var(--shadow-color, rgba(0, 0, 0, 0.25));
-  border-top: 5px solid var(--accent-color, #5d5dff);
-  border-radius: 10px;
-  padding: 30px 40px;
-  margin: 30px auto;
-  max-width: 600px;
-  transform: translateY(0);
-  transition: all 0.5s ease;
-}
-
-.contact-form:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(93, 93, 255, 0.3);
-}
-
-.contact-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.contact-form label {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: var(--text-color, #b8c2cc);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.contact-form label svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--accent-color, #5d5dff);
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 15px;
-  border: 2px solid var(--secondary-bg, #343654);
-  background: var(--input-bg, rgba(32, 33, 50, 0.9));
-  border-radius: 10px;
-  color: var(--text-color, #ffffff);
-  font-family: inherit;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  resize: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--accent-color, #5d5dff);
-  box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.3);
-  background: var(--secondary-bg, #2a2c43);
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: var(--text-color, #6c7983);
-  opacity: 0.7;
-}
-
-.contact-form button {
-  background: linear-gradient(45deg, #5d5dff, #6b8cff);
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  margin-top: 15px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  align-self: center;
-  min-width: 200px;
-  box-shadow: 0 5px 15px rgba(93, 93, 255, 0.3);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-form button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: all 0.5s ease;
-}
-
-.contact-form button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(93, 93, 255, 0.5);
-  background: linear-gradient(45deg, #4a4aff, #4b75ff);
-}
-
-.contact-form button:hover::before {
-  left: 100%;
-}
-
-/* Mise à jour de la carte */
-.contact-map {
-  margin-bottom: 60px;
-}
-
-.map {
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  max-width: 900px;
-  height: 350px;
-  margin: 0 auto;
-  border: none;
-  display: block;
-}
-
-/* Style amélioré pour les informations de contact */
-.contact-email {
-  background: var(--card-bg, rgba(35, 36, 54, 0.8));
-  padding: 25px;
-  border-radius: 16px;
-  max-width: 600px;
-  margin: 40px auto !important;
-  box-shadow: 0 10px 25px var(--shadow-color, rgba(0, 0, 0, 0.2));
-  border-left: 5px solid var(--accent-color, #5d5dff);
-  font-size: 18px;
-  color: var(--text-color, #b8c2cc);
-  transition: all 0.3s ease;
-}
-
-.contact-email:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(93, 93, 255, 0.2);
-}
-
-.contact-email a {
-  color: var(--accent-color, #5d5dff);
-  text-decoration: none;
-  font-weight: bold;
-  border-bottom: 2px dotted var(--accent-color, #5d5dff);
-  padding-bottom: 2px;
-  transition: all 0.3s ease;
-}
-
-.contact-email a:hover {
-  color: #7b7bff;
-  border-bottom: 2px solid #7b7bff;
-}
-
-/* Style amélioré pour les icônes de médias sociaux */
-.social-media {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 50px 0;
-}
-
-.social-media a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 70px;
-  background: var(--card-bg, rgba(35, 36, 54, 0.8));
-  border-radius: 50%;
-  transition: all 0.4s ease;
-  box-shadow: 0 8px 20px var(--shadow-color, rgba(0, 0, 0, 0.2));
-  position: relative;
-  overflow: hidden;
-}
-
-.social-media a:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, #5d5dff, #6b8cff);
-  opacity: 0;
-  transition: all 0.4s ease;
-  z-index: 0;
-}
-
-.social-media a:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 15px 30px rgba(93, 93, 255, 0.3);
-}
-
-.social-media a:hover:before {
-  opacity: 1;
-}
-
-.social-media img {
-  width: 32px;
-  height: 32px;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s ease;
-  filter: brightness(0.9);
-}
-
-.social-media a:hover img {
-  filter: brightness(1.2);
-}
-
-/* Organisation des compétences - version réduite */
-.skills-section {
-  padding: 40px 0;
-}
-
-.skills-categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px; /* Réduit l'espacement entre les catégories */
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 15px;
-}
-
-/* Améliorations pour les catégories de compétences */
-
-.skills-category {
-  flex: 1;
-  min-width: 280px; /* Réduit de 320px à 280px */
-  max-width: 450px; /* Réduit de 600px à 450px */
-  background-color: var(--card-bg, rgba(35, 36, 54, 0.8));
-  border-radius: 12px;
-  padding: 10px; /* Réduit de 30px à 20px */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  margin-bottom: 10px;
-  border-top: 3px solid #5d5dff; /* Bordure plus fine */
-  transition: all 0.3s ease;
-}
-
-.skills-category:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(93, 93, 255, 0.3);
-}
-
-.category-title {
-  color: #5d5dff;
-  font-size: 18px; /* Réduit de 22px à 20px */
-  margin-bottom: 15px; /* Réduit de 30px à 20px */
-  position: relative;
-  padding-bottom: 8px;
-  font-weight: 700;
-}
-
-.category-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px; /* Réduit de 80px à 60px */
-  height: 2px; /* Réduit de 3px à 2px */
-  background: #5d5dff;
-  border-radius: 2px;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* Réduit de 120px à 90px */
-  gap: 10px; /* Réduit de 25px à 15px */
-  justify-items: center;
-}
-
-.skill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 0.3s ease;
-  width: 100%;
-  max-width: 90px; /* Réduit de 120px à 90px */
-}
-
-.skill:hover {
-  transform: translateY(-5px);
-}
-
-/* Modification des cartes de compétences avec bordure violette PERMANENTE */
-.skill-icon {
-  position: relative;
-  overflow: hidden;
-  width: 45px; /* Réduit de 55px à 45px */
-  height: 45px; /* Réduit de 55px à 45px */
-  padding: 8px; /* Réduit de 10px à 8px */
-  background-color: var(--skill-icon-bg, #343654);
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5px; /* Réduit de 8px à 5px */
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px var(--shadow-color, rgba(0, 0, 0, 0.2));
-  border: 2px solid var(--accent-color, #5d5dff); /* Bordure permanente 2px */
-}
-
-/* Effet hover SANS changer la bordure */
-.skill:hover .skill-icon {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(93, 93, 255, 0.25);
-  /* Pas de changement de 'border-color' ou 'border-width' ici */
-}
-
-/* Mode clair pour les icônes de compétences avec bordure PERMANENTE */
-[data-theme="light"] .skill-icon {
-  background-color: #ffffff;
-  border: 2px solid rgba(93, 93, 255, 0.6); /* Bordure permanente 2px en mode clair */
-  box-shadow: 0 4px 10px rgba(93, 93, 255, 0.15);
-}
-
-/* Effet hover en mode clair SANS changer la bordure */
-[data-theme="light"] .skill:hover .skill-icon {
-  background-color: #f0f4ff;
-  box-shadow: 0 8px 15px rgba(93, 93, 255, 0.2);
-  /* Pas de changement de 'border-color' ou 'border-width' ici */
-}
-
-
-/* Mode clair pour les catégories */
-[data-theme="light"] .skills-category {
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 8px 20px rgba(93, 93, 255, 0.1);
-}
-
-/* Mode clair pour le texte des compétences */
-[data-theme="light"] .skill p {
-  color: #555555;
-}
-
-/* Mode clair pour les titres de catégories */
-[data-theme="light"] .category-title {
-  color: #5d5dff;
-}
-
-/* Modification des icônes de compétences pour l'effet parallaxe */
-
-.skill-icon img {
-  transition: transform 0.2s ease-out;
-  /* Conserver les autres propriétés existantes */
-}
-
-/* On peut garder un effet plus subtil pour les compétences */
-.skill-parallax-container {
-  overflow: visible; /* Pour permettre l'effet de débordement */
-  position: relative;
-}
-
-.skill img {
-  width: 30px; /* Réduit de 40px à 30px */
-  height: 30px; /* Réduit de 40px à 30px */
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.skill:hover img {
-  transform: scale(1.1);
-}
-
-.skill p {
-  font-size: 12px; /* Réduit de 13px à 12px */
-  color: #b8c2cc;
-  margin: 0;
-  text-align: center;
-  font-weight: 500;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: 12px;
-  }
-}
-
-@media (max-width: 768px) {
-  .skills-categories {
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .skills-category {
-    min-width: auto;
-    padding: 15px 10px;
-  }
-  
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-    gap: 10px;
-  }
-  
-  .skill-icon {
-    width: 45px;
-    height: 45px;
-    padding: 8px;
-  }
-  
-  .skill img {
-    width: 25px;
-    height: 25px;
-  }
-  
-  .skill p {
-    font-size: 12px;
-  }
-}
-
-/* Pages spécifiques - ajustements pour la cohérence */
-/* Commentaire ajouté pour désactiver la règle qui force le fond sombre */
-/*
-.project-page, .contact-page {
-  background-color: #2b2c3d; 
-}
-*/
-
-/* Suppression des styles en doublon ou incohérents */
-.project-page header h1, 
-.contact-page header h1 {
-  background: none;
-  -webkit-background-clip: initial;
-  -webkit-text-fill-color: initial;
-  color: #5d5dff;
-}
-
-/* Adaptation pour les tablettes et mobiles */
-@media (max-width: 1200px) {
-  .project-preview-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  header h1 {
-    font-size: 24px;
-  }
-  
-  header h4 {
-    font-size: 14px;
-  }
-  
-  .language-switch {
-    top: 10px;
-    right: 10px;
-  }
-  
-  .about-text-box {
-    padding: 15px;
-  }
-
-  .project-preview-grid {
-    grid-template-columns: 1fr; /* 1 colonne sur mobile */
-    gap: 20px;
-    padding: 0 10px;
-  }
-}
-
-/* Style amélioré pour les pages de projets détaillés */
-.project-detail {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Amélioration de l'image principale */
-.project-hero {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  margin-bottom: 40px;
-}
-
-.project-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease;
-  display: block;
-}
-
-.project-hero:hover img {
-  transform: scale(1.05);
-}
-
-.project-hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, #5d5dff, #6b8cff);
-}
-
-/* Contenu du projet */
-.project-content {
-  background: rgba(35, 36, 54, 0.8);
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  margin-bottom: 40px;
-  border-left: 5px solid #5d5dff;
-}
-
-.project-content p {
-  color: #b8c2cc;
-  line-height: 1.7;
-  text-align: left;
-  margin-bottom: 25px;
-}
-
-/* Technologies du projet */
-.project-detail .project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.project-detail .project-tech span {
-  background: linear-gradient(45deg, rgba(93, 93, 255, 0.2), rgba(107, 140, 255, 0.2));
-  color: #ffffff;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  display: inline-block;
-  border: 1px solid rgba(93, 93, 255, 0.3);
-}
-
-/* Badges de technologies dans les pages de projet en mode clair */
-[data-theme="light"] .project-detail .project-tech span {
-  background: var(--secondary-bg); /* Fond violet très clair */
-  color: var(--accent-color); /* Texte violet */
-  border: 1px solid rgba(93, 93, 255, 0.3); /* Bordure violette subtile */
-  box-shadow: 0 2px 5px rgba(93, 93, 255, 0.1); /* Légère ombre */
-}
-
-/* Boutons d'action du projet */
-.project-detail .project-links {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 15px;
-  margin: 25px 0;
-}
-
-.project-detail .project-links a {
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  min-width: 150px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.project-detail .project-links a:first-child {
-  background: linear-gradient(45deg, #5d5dff, #6b8cff);
-  color: white;
-}
-
-.project-detail .project-links a.github-link {
-  background-color: rgba(35, 36, 54, 0.8);
-  border: 2px solid #5d5dff;
-  color: #ffffff;
-}
-
-.project-detail .project-links a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(93, 93, 255, 0.4);
-}
-
-/* Navigation entre projets */
-.project-navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 60px;
-  margin-bottom: 40px;
-}
-
-.project-nav-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 25px;
-  background: #444875; /* Couleur plus claire pour être visible */
-  color: #ffffff; /* Texte blanc pour meilleur contraste */
-  text-decoration: none;
-  border-radius: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border: 2px solid #5d5dff; /* Bordure plus épaisse */
-  font-weight: bold;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.project-nav-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, #5d5dff, #6b8cff);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-
-.project-nav-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(93, 93, 255, 0.5);
-  color: #ffffff;
-}
-
-.project-nav-btn:hover::before {
-  opacity: 1;
-}
-
-.project-nav-btn svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-}
-
-/* Galerie d'images du projet */
-.project-gallery {
-  margin-top: 40px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  margin-top: 25px;
-}
-
-.gallery-item {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  border: 3px solid #343654;
-  transition: all 0.3s ease;
-  height: 200px;
-}
-
-.gallery-item:hover {
-  transform: translateY(-5px) scale(1.02);
-  border-color: #5d5dff;
-  box-shadow: 0 10px 25px rgba(93, 93, 255, 0.3);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit:contain;
-  transition: all 0.5s ease;
-}
-
-/* Styles du carrousel - mise à jour */
-.carousel-container {
-  position: relative;
-  max-width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-  min-width: 50%; /* Réduit à 80% au lieu de 100% */
-  padding: 20px;
-  box-sizing: border-box;
-  margin: 0 auto; /* Centre l'élément dans le carrousel */
-}
-
-/* Assurez-vous que les contrôles sont bien visibles */
-.carousel-controls {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-.carousel-btn {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s;
-  font-size: 16px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.carousel-btn:hover {
-  background-color: #2980b9;
-  transform: scale(1.05);
-}
-
-.carousel-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
-}
-
-/* Ajustements responsive */
-@media (max-width: 768px) {
-  .project-hero {
-    height: 250px;
-  }
-  
-  .project-navigation {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .project-detail .project-links {
-    flex-direction: column;
-  }
-  
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Styles pour le bouton de changement de thème */
-.theme-toggle {
-  margin:20px auto; /* Remplacé par le gap dans .header-right */
-}
-
+  flex-grow: 1; /* Permet au titre de prendre l'espace disponible */
+  text-align: center; /* Centre le titre */
+  margin: 0 20px; /* Ajoute des marges horizontales */
+  font-size: 28px; /* Taille de police */
+  font-weight: bold; /* Graisse */
+  color: var(--accent-color); /* Couleur d'accentuation */
+  text-shadow: 0 0 10px rgba(93, 93, 255, 0.5); /* Ombre de texte légère */
+}
+
+/* Navigation Header (Normale - Supprimée car le dropdown est utilisé) */
+/* header nav { margin: 15px 0; } ... etc ... */
+
+/* Contrôles Header (Langue & Thème) */
+.header-left { display: flex; align-items: center; gap: 15px; } /* Côté gauche du header compact */
+.header-right { display: flex; align-items: center; gap: 15px; } /* Côté droit du header compact */
+
+/* Ordre des éléments dans le header compact (côté gauche) */
+.compact-header .header-left .btn-back-home { order: 1; } /* Bouton retour en premier */
+.compact-header .header-left .language-switch { order: 2; } /* Sélecteur de langue ensuite */
+.compact-header .header-left .page-title { order: 3; font-size: 1.2rem; margin: 0; color: var(--accent-color); } /* Titre de la page en dernier */
+[data-theme="light"] .compact-header .header-left .page-title { color: var(--accent-color); } /* Assure la couleur en thème clair */
+
+/* Sélecteur de langue */
+.language-switch { display: flex; align-items: center; gap: 10px; }
+.lang-button { background: none; border: none; padding: 0; cursor: pointer; transition: transform 0.3s ease; } /* Bouton drapeau */
+.lang-button:hover { transform: scale(1.1); } /* Effet au survol */
+.lang-button img { width: 30px; height: 30px; border-radius: 50%; } /* Image du drapeau */
+
+/* Positionnement différent des contrôles dans les headers */
+/* Les contrôles du header normal sont maintenant dans le dropdown ou placés via .header-right */
+.compact-header .language-switch img { width: 40px; height: 40px; } /* Taille drapeau dans header compact */
+
+/* Bouton de changement de thème */
 .theme-toggle button {
-  background-color: rgba(255, 255, 255, 0.08); /* Fond très léger en mode sombre par défaut */
-  border: 1px solid var(--border-color); /* Bordure subtile */
-  color: var(--text-color);
-  cursor: pointer;
-  width: 40px; /* Taille cohérente */
-  height: 40px; /* Taille cohérente */
-  border-radius: 50%; /* Rond parfait */
-  display: flex; /* Pour centrer l'icône SVG */
-  align-items: center; /* Centrer verticalement */
-  justify-content: center; /* Centrer horizontalement */
-  padding: 0; /* Supprimer le padding par défaut */
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  background-color: rgba(255, 255, 255, 0.08); border: 1px solid var(--border-color); color: var(--text-color); /* Style de base */
+  cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; /* Dimensions et centrage */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Transitions et ombre */
+}
+.theme-toggle button svg { width: 20px; height: 20px; transition: fill 0.3s ease; fill: currentColor; } /* Style de l'icône SVG (lune/soleil), hérite la couleur du bouton */
+.theme-toggle button:hover { background-color: rgba(255, 255, 255, 0.15); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(93, 93, 255, 0.2); } /* Effet au survol */
+.theme-toggle button:focus { outline: none; box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.4); } /* Style visuel au focus */
+
+/* Bouton de thème en mode clair */
+[data-theme="light"] .theme-toggle button { background-color: rgba(93, 93, 255, 0.08); border-color: var(--border-color); color: var(--text-color); box-shadow: 0 2px 5px var(--shadow-color); } /* Ajustement couleurs/ombre */
+[data-theme="light"] .theme-toggle button:hover { background-color: rgba(93, 93, 255, 0.15); box-shadow: 0 4px 10px rgba(93, 93, 255, 0.2); }
+
+/* Logo vidéo dans le menu déroulant */
+#logo-video-dropdown { 
+  height: 75px; /* Taille souhaitée */
+  width: auto;
+  object-fit: contain; /* Assure que la vidéo s'adapte sans déformation */
+  border-radius: 50%; /* Forme circulaire */
+  border: 1px solid var(--border-color); /* Bordure */
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.851); /* Ombre (légèrement ajustée) */
+}
+/* Styles pour l'icône Hamburger (si utilisée directement avec cette classe) */
+.hamburger {
+  cursor: pointer; /* Curseur main */
+  font-size: 1.8rem; /* Taille de l'icône */
+  color: #5d5dff; /* Couleur d'accentuation par défaut */
+  transition: color 0.3s; /* Transition pour la couleur */
+  padding: 10px; /* Zone cliquable */
+}
+.hamburger:hover {
+  color: #ff66c4; /* Couleur rose au survol */
 }
 
-.theme-toggle button svg {
-  width: 20px; /* Taille de l'icône */
-  height: 20px; /* Taille de l'icône */
-  transition: fill 0.3s ease; /* Transition pour la couleur de l'icône */
+/* =========================
+   DROPDOWN MENU 
+   ========================= */
+/* Bouton pour ouvrir/fermer le menu (utilisant .menu-toggle) */
+.menu-toggle { /* Ou .hamburger si tu utilises cette classe */
+  background: none; border: none; cursor: pointer; /* Reset et curseur */
+  /* --- MODIFICATION: Intégration des styles .hamburger --- */
+  font-size: 1.8rem; /* Taille depuis .hamburger */
+  color: var(--accent-color); /* Couleur depuis .hamburger (via variable) */
+  z-index: 1002; /* Doit être au-dessus de tout pour être cliquable */
+  transition: color 0.3s; /* Transition couleur */
+  outline: none; /* Pas de contour au focus */
+  padding: 10px; /* Zone cliquable */
+  display: flex; align-items: center; justify-content: center; /* Centrage icône interne */
+  position: relative; /* Pour positionner l'icône de fermeture */
+}
+.menu-toggle:hover { /* Ou .hamburger:hover */
+  /* --- MODIFICATION: Couleur hover depuis .hamburger --- */
+  color: #ff66c4; /* Couleur rose au survol */
+}
+/* Icônes internes (barres et croix) */
+.menu-toggle .icon-bars, .menu-toggle .icon-close { pointer-events: none; transition: opacity 0.3s ease; }
+.menu-toggle .icon-close {
+  color: var(--accent-color); /* Même couleur que l'icône active */
+  display: inline; /* Toujours dans le flux, mais invisible */
+  opacity: 0; /* Cachée par défaut */
+  position: absolute; /* Superposée à l'icône barres */
+}
+/* Gestion de l'affichage/masquage des icônes quand le menu est actif */
+.menu-toggle.active .icon-bars { opacity: 0; } /* Cache les barres */
+.menu-toggle.active .icon-close { opacity: 1; } /* Affiche la croix */
+
+/* Conteneur principal du menu déroulant */
+.dropdown-menu {
+  position: fixed; /* Position fixe par rapport à la fenêtre */
+  /* --- MODIFICATION: Démarrer en dessous du header normal --- */
+  top: 90px; /* Positionné sous le header normal */
+  left: 0; width: 100%; /* Prend toute la largeur */
+  /* --- MODIFICATION: Hauteur restante de la vue --- */
+  height: calc(100vh - 90px); /* Prend la hauteur restante de l'écran */
+  background-color: rgba(35, 36, 54, 0.98); color: white; /* Fond et couleur texte */
+  /* --- MODIFICATION: Ajuster le padding top --- */
+  padding: 30px 40px 40px; /* Padding intérieur */
+  /* --- MODIFICATION: Transition sur transform pour le masquage --- */
+  transform: translateY(-110%); /* Caché au-dessus par défaut */
+  transition: transform 0.4s ease; /* Animation de glissement */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Ombre */
+  /* --- MODIFICATION: z-index inférieur au header et au toggle --- */
+  z-index: 1000; /* Sous le header et le toggle, mais au-dessus du contenu */
+  text-align: left; /* Alignement du texte à gauche */
+  overflow-y: auto; /* Permet le défilement si le contenu dépasse */
+}
+.dropdown-menu.active {
+  /* --- MODIFICATION: Afficher en ramenant à la position top: 90px --- */
+  transform: translateY(0); /* Affiche le menu en le ramenant à sa position */
 }
 
-.theme-toggle button:hover {
-  background-color: rgba(255, 255, 255, 0.15); /* Fond un peu plus visible au survol */
-  transform: translateY(-2px); /* Léger soulèvement */
-  box-shadow: 0 4px 10px rgba(93, 93, 255, 0.2); /* Ombre accentuée au survol */
+/* Liens de navigation dans le menu déroulant */
+.dropdown-nav ul {
+  list-style: none; display: flex; flex-direction: column; /* Liste verticale sans puces */
+  gap: 25px; margin-bottom: 40px; align-items: flex-start; /* Espacement et alignement */
+}
+.dropdown-nav a {
+  color: #ff66c4; text-decoration: none; font-size: 1.8rem; /* Style des liens */
+  padding: 5px 10px; transition: color 0.3s, transform 0.2s; display: inline-block; /* Padding, transitions, affichage */
+}
+.dropdown-nav a:hover { color: var(--accent-color); transform: translateX(5px); } /* Effet au survol */
+
+/* Contrôles (Thème/Langue) dans le menu déroulant */
+.menu-controls {
+  display: flex; justify-content: flex-start; align-items: center; /* Alignement horizontal */
+  gap: 32px; border-top: 1px solid rgba(255,255,255,0.1); /* Espacement et ligne de séparation */
+  padding-top: 18px; margin-top: 30px; /* Espacement vertical */
+}
+.menu-controls button {
+  background: none; /* Pas de fond */
+  border: none; /* Pas de bordure */
+  color: #7b7bff; /* Couleur par défaut pour les icônes SVG (sera écrasée pour le thème) */
+  outline: none; /* Pas de contour */
+  padding: 0; /* Pas de padding */
+  cursor: pointer; /* Curseur main */
 }
 
-.theme-toggle button:focus {
-  outline: none; /* Supprimer l'outline par défaut */
-  box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.4); /* Outline personnalisé au focus */
+/* Style général au survol DANS les contrôles du menu (peut être trop large) */
+.menu-controls :hover {
+  color: #ff66c4; /* Couleur rose au survol */
+  transform: scale(1.1); /* Léger zoom */
+}
+/* Style spécifique pour le bouton de thème DANS le menu */
+.menu-controls .theme-toggle button {
+   background-color: transparent; /* Fond transparent */
+   border: 1px solid rgba(255,255,255,0.2); /* Bordure légère */
+   width: 40px; height: 40px; border-radius: 50%; /* Dimensions et forme */
+   display: flex; align-items: center; justify-content: center; /* Centrage icône */
+   transition: background-color 0.3s ease, transform 0.3s ease; /* Transitions */
+   /* La couleur du SVG est définie plus bas via [data-theme] ou héritée */
+}
+/* Icône SVG (lune/soleil) */
+.menu-controls .theme-toggle button svg { 
+    fill: currentColor; /* Le SVG prend la couleur définie sur le bouton parent */
+    width: 20px; /* Assurer la taille */
+    height: 20px;
+}
+/* Effet survol spécifique pour le bouton de thème DANS le menu */
+.menu-controls .theme-toggle button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Léger fond au survol */
+    transform: scale(1.05); /* Zoom léger (écrase le zoom général .menu-controls :hover) */
+}
+/* Style pour les images des boutons de langue DANS le menu */
+.menu-controls .language-switch .lang-button img {
+    width: 40px; height: 40px; /* Taille image */
+    border-radius: 50%; /* Forme ronde */
+    transition: transform 0.3s ease; /* Transition */
+}
+/* Effet survol spécifique pour les images de langue DANS le menu */
+.menu-controls .language-switch .lang-button:hover img {
+    transform: scale(1.1); /* Zoom (écrase le zoom général .menu-controls :hover) */
 }
 
-/* Styles spécifiques au thème clair pour le bouton */
-[data-theme="light"] .theme-toggle button {
-  background-color: rgba(93, 93, 255, 0.08); /* Fond violet très léger */
-  border-color: var(--border-color); /* Utilise la variable de bordure claire */
-  color: var(--text-color); /* Couleur du texte/icône claire */
-  box-shadow: 0 2px 5px var(--shadow-color); /* Ombre claire */
+/* Overlay sombre affiché derrière le menu déroulant */
+.menu-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; /* Couvre tout l'écran */
+  background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+  /* --- MODIFICATION: z-index inférieur au dropdown --- */
+  z-index: 999; /* Positionné sous le menu déroulant mais au-dessus du contenu */
+  display: none; /* Caché par défaut */
+  opacity: 0; /* Invisible par défaut */
+  transition: opacity 0.4s ease; /* Transition douce pour l'opacité */
+}
+.menu-overlay.active {
+  display: block; /* Affiché quand le menu est actif */
+  opacity: 1; /* Rendu visible */
 }
 
-[data-theme="light"] .theme-toggle button:hover {
-  background-color: rgba(93, 93, 255, 0.15); /* Fond violet un peu plus visible */
-  box-shadow: 0 4px 10px rgba(93, 93, 255, 0.2); /* Ombre accentuée claire */
+/* Ajustements spécifiques au menu déroulant pour le thème clair */
+[data-theme="light"] .dropdown-menu { background-color:rgba(240, 238, 255, 0.8); color: var(--text-color); } /* Fond et texte */
+[data-theme="light"] .dropdown-nav a { color: var(--accent-color); } /* Couleur liens */
+[data-theme="light"] .dropdown-nav a:hover { color: #7b7bff; } /* Couleur liens au survol */
+[data-theme="light"] .menu-controls { border-top-color: var(--border-color); } /* Couleur ligne séparation */
+[data-theme="light"] .menu-controls .theme-toggle button {
+    /* --- MODIFICATION: Couleur du bouton/SVG en mode clair --- */
+    color: var(--text-color); /* La couleur du bouton devient sombre (pour que le SVG hérite) */
+    border-color: var(--border-color); /* Bordure adaptée */
+    background-color: rgba(0,0,0,0.05); /* Léger fond */
+}
+/* --- AJOUT: Assurer que le SVG prend la couleur en mode clair --- */
+[data-theme="light"] .menu-controls .theme-toggle button svg {
+    fill: currentColor; /* Assure que le SVG hérite de la couleur du bouton parent */
 }
 
-[data-theme="light"] .theme-toggle button:focus {
-  box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.4); /* Garder le même focus */
-}
-
-/* Mise à jour des éléments existants pour utiliser les variables */
-.project-card {
-  background-color: var(--card-bg);
-  box-shadow: 0 8px 20px var(--shadow-color);
-}
-
+/* =========================
+   TITRES DE SECTION
+   ========================= */
 .title-banner {
-  color: var(--text-color);
+  color: var(--text-color); background-color: rgba(35, 36, 54, 0.7); position: relative; /* Style bannière */
+  padding: 15px; width: fit-content; margin: 30px auto; border-radius: 5px; /* Dimensions et espacement */
+}
+.title-banner::after { /* Soulignement décoratif */
+  content: ""; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); /* Positionnement */
+  width: 80px; height: 4px; background: var(--accent-color); border-radius: 2px; /* Style du trait */
+}
+h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit pour h3 */
+
+/* Titre bannière en thème clair */
+[data-theme="light"] .title-banner { background-color: var(--secondary-bg); color: var(--accent-color); box-shadow: 0 4px 15px var(--shadow-color); }
+[data-theme="light"] .title-banner::after { background: var(--accent-color); }
+
+/* =========================
+   SECTION "À PROPOS"
+   ========================= */
+.about-text-box {
+  background: rgba(35, 36, 54, 0.7); padding: 25px; border-radius: 10px; /* Boîte de texte */
+  box-shadow: 0 8px 30px var(--shadow-color) !important; margin: 30px auto; max-width: 900px; /* Ombre, marges, largeur max */
+}
+.about-text-box p { color: #b8c2cc; line-height: 1.7; font-size: 16px; margin-bottom: 15px; } /* Style des paragraphes */
+.link-schools-openclassrooms, .link-schools-studi { /* Liens vers les écoles */
+  color: var(--accent-color); text-decoration: none; font-weight: bold; /* Style de base */
+  border-bottom: 2px dotted var(--accent-color); padding-bottom: 2px; transition: all 0.3s ease; /* Soulignement pointillé et transition */
+}
+.link-schools-openclassrooms:hover, .link-schools-studi:hover { color: #7b7bff; border-bottom-style: solid; } /* Changement au survol */
+
+.profile-photo-container { margin: 40px auto; text-align: center; max-width: 300px; } /* Conteneur de la photo */
+.profile-photo {
+  width: 200px; height: 200px; border-radius: 50%; object-fit: cover; /* Dimensions, forme, ajustement image */
+  box-shadow: 0 35px 80px var(--shadow-color); border: 3px solid var(--accent-color); transition: all 0.5s ease; /* Ombre, bordure, transition */
+}
+.profile-photo:hover { transform: translateY(-5px); box-shadow: 0 35px 80px rgba(93, 93, 255, 0.4); } /* Effet au survol */
+
+/* Styles "À propos" en thème clair */
+[data-theme="light"] .about-text-box { background: var(--card-bg); box-shadow: 0 8px 30px var(--shadow-color) !important; }
+[data-theme="light"] .about-text-box p { color: var(--skill-text-color); }
+[data-theme="light"] .link-schools-openclassrooms, [data-theme="light"] .link-schools-studi { color: var(--accent-color); border-bottom-color: var(--accent-color); }
+[data-theme="light"] .link-schools-openclassrooms:hover, [data-theme="light"] .link-schools-studi:hover { color: #7b7bff; border-bottom-color: #7b7bff; }
+[data-theme="light"] .profile-photo { border-color: rgba(93, 93, 255, 0.6); box-shadow: 0 35px 80px var(--shadow-color); }
+[data-theme="light"] .profile-photo:hover { box-shadow: 0 35px 80px rgba(93, 93, 255, 0.25); }
+
+/* =========================
+   BOUTONS
+   ========================= */
+/* Style de base commun pour les boutons principaux (dégradé) */
+.btn, .btn-back-home, .btn-view-project, .view-all-projects .btn, .project-links a:first-child, .contact-form button, .project-detail .project-links a:first-child {
+  display: inline-block; padding: 12px 25px; background: linear-gradient(45deg, var(--accent-color), #6b8cff); color: white; /* Affichage, padding, fond dégradé, couleur texte */
+  text-decoration: none; border-radius: 30px; font-weight: bold; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Style texte, forme, ombre */
+  transition: all 0.3s ease; border: none; cursor: pointer; text-align: center; /* Transition, reset bordure, curseur, alignement */
+}
+/* Effet commun au survol des boutons principaux */
+.btn:hover, .btn-back-home:hover, .btn-view-project:hover, .view-all-projects .btn:hover, .project-links a:first-child:hover, .contact-form button:hover, .project-detail .project-links a:first-child:hover {
+  transform: translateY(-3px); box-shadow: 0 7px 20px rgba(93, 93, 255, 0.4); background: linear-gradient(45deg, #4a4aff, #4b75ff); /* Léger déplacement, ombre accentuée, dégradé modifié */
 }
 
-.project-info h3 {
-  color: var(--accent-color);
-}
+/* Styles spécifiques à certains boutons */
+.btn-back-home { display: inline-flex; align-items: center; gap: 10px; padding: 5px 20px; } /* Bouton retour accueil (avec icône potentielle) */
+.view-all-projects .btn { padding: 15px 30px; font-size: 1.1rem; } /* Bouton "Voir tous les projets" (plus grand) */
+.contact-form button { padding: 15px 30px; margin-top: 15px; font-size: 16px; align-self: center; min-width: 200px; position: relative; overflow: hidden; } /* Bouton envoyer formulaire */
+.contact-form button::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); transition: left 0.5s ease; } /* Effet "shine" au survol */
+.contact-form button:hover::before { left: 100%; }
 
-/* Ajoutez d'autres éléments selon vos besoins */
+/* Style spécifique pour les liens GitHub (style secondaire) */
+.project-links a.github-link { background-color: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); }
+/* Style spécifique lien GitHub dans la page détail projet */
+.project-detail .project-links a.github-link { background-color: rgba(35, 36, 54, 0.8); border: 2px solid var(--accent-color); color: #ffffff; }
+/* Effet survol commun pour les liens de projet (y compris GitHub) */
+.project-links a:hover, .project-detail .project-links a:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
 
-/* Styles pour l'effet parallaxe */
-.parallax-container {
-  overflow: hidden;
-  position: relative;
-  border-radius: 16px;
+/* Bouton "Scroll to Top" (remonter en haut) */
+.scroll-to-top {
+  position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background: var(--card-bg); color: var(--accent-color); /* Positionnement, dimensions, couleurs */
+  border: 2px solid var(--accent-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; /* Bordure, forme, centrage icône */
+  cursor: pointer; opacity: 0; transition: all 0.3s ease; z-index: 1000; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); padding: 0; /* Curseur, caché par défaut, transition, empilement, ombre */
 }
+.scroll-to-top svg { width: 30px; height: 30px; fill: currentColor; } /* Icône flèche */
+.scroll-to-top:hover { background: var(--accent-color); color: white; transform: translateY(-5px); box-shadow: 0 6px 15px rgba(93, 93, 255, 0.4); } /* Effet au survol */
 
-.parallax-image {
-  transition: transform 0.2s ease-out;
-  width: 250%;
-  height: 250%;
-  object-fit: contain;
-  position: absolute;
-  top: -15%;
-  left: -15%;
-}
+/* Scroll to top en thème clair */
+[data-theme="light"] .scroll-to-top { background: var(--card-bg); color: var(--accent-color); border-color: rgba(93, 93, 255, 0.6); box-shadow: 0 4px 10px var(--shadow-color); }
+[data-theme="light"] .scroll-to-top:hover { background: var(--accent-color); color: white; border-color: var(--accent-color); box-shadow: 0 6px 15px rgba(93, 93, 255, 0.3); }
 
-/* --- Styles spécifiques pour le thème clair --- */
+/* =========================
+   PROJETS (Grille, Aperçu, Détail)
+   ========================= */
+/* Grille principale des projets (page projets) */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; padding: 20px; max-width: 1400px; margin: 0 auto; } /* Grille responsive */
+/* Carte individuelle de projet */
+.project-card {
+  background-color: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 20px var(--shadow-color); /* Style de la carte */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; display: flex; flex-direction: column; /* Transition, hauteur, flex pour contenu */
+  border: 2px solid var(--accent-color); /* Bordure d'accentuation */
+}
+.project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(93, 93, 255, 0.3); } /* Effet au survol */
+.project-card img { width: 100%; height: 220px; object-fit: cover; border-bottom: 3px solid var(--accent-color); } /* Image de la carte */
+.project-info { padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; } /* Zone de texte de la carte */
+.project-info h3 { margin: 0 0 15px; color: var(--accent-color); font-size: 1.4rem; } /* Titre */
+.project-info p { color: #b8c2cc; line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem; } /* Description */
+.project-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; } /* Technologies (tags) */
+.project-tech span { background: var(--secondary-bg); color: var(--accent-color); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(93, 93, 255, 0.3); } /* Style des tags */
+.project-links { display: flex; gap: 15px; flex-wrap: wrap; margin-top: auto; } /* Conteneur des liens (en bas) */
+.project-links a { padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; min-width: 120px; } /* Style des liens dans la carte */
 
-/* Header compact en mode clair */
-[data-theme="light"] .compact-header {
-  background-color: rgba(240, 238, 255, 0.95); /* Fond violet très clair semi-transparent */
-  box-shadow: 0 2px 10px var(--shadow-color);
-  border-bottom: 3px solid var(--accent-color);
-  border-radius: 0px 0px 15px 15px;
+/* Grille d'aperçu des projets (page d'accueil) */
+.project-preview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1200px; margin: 40px auto; padding: 20px; } /* Grille 2 colonnes */
+/* Aperçu individuel */
+.project-preview { position: relative; border-radius: 16px; overflow: hidden; height: 350px; box-shadow: 0 10px 30px var(--shadow-color); transition: all 0.5s ease; } /* Conteneur avec image */
+.project-preview:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(93, 93, 255, 0.4); } /* Effet survol conteneur */
+.project-preview img { width: 100%; height: 100%; object-fit: cover; transition: all 0.8s ease; } /* Image */
+.project-preview:hover img { transform: scale(1.1); filter: brightness(0.7) blur(2px); } /* Effet survol image (zoom, assombrissement, flou) */
+.project-preview-overlay { /* Overlay qui apparaît au survol */
+  position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(35, 36, 54, 0.9), transparent); /* Positionnement, fond dégradé */
+  padding: 30px 20px 20px; transform: translateY(100%); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; /* Caché en bas, transition complexe, invisible */
+  display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; /* Centrage contenu */
 }
-
-[data-theme="light"] .header-left .page-title {
-  color: var(--accent-color); /* Assurer la couleur du titre */
-}
-
-[data-theme="light"] .header-left .btn-back-home {
-  background-color: rgba(93, 93, 255, 0.1); /* Fond du bouton retour */
-  fill: var(--accent-color); /* Couleur de l'icône */
-}
-[data-theme="light"] .header-left .btn-back-home svg path {
-  fill: var(--accent-color); /* Couleur de l'icône */
-}
-
-[data-theme="light"] .header-left .btn-back-home:hover {
-  background: linear-gradient(45deg, #6a6aff, #6b85ff);
-}
-[data-theme="light"] .header-left .btn-back-home:hover svg path {
-  fill: #ffffff; /* Icône blanche au survol */
-}
-
-
-/* Styles pour le formulaire (déjà ajoutés, mais vérification) */
-[data-theme="light"] .contact-form {
-  background: var(--card-bg); /* Doit être #ffffff */
-  box-shadow: 0 10px 30px var(--shadow-color);
-  border-top-color: var(--accent-color);
-}
-
-/* Styles pour l'email (déjà ajoutés, mais vérification) */
-[data-theme="light"] .contact-email {
-  background: var(--card-bg); /* Doit être #ffffff */
-  box-shadow: 0 10px 25px var(--shadow-color);
-  border-left-color: var(--accent-color);
-  color: #555;
-}
-
-/* Styles pour les icônes sociales en mode clair */
-[data-theme="light"] .social-media a {
-  background: var(--card-bg); /* Doit être #ffffff */
-  box-shadow: 0 8px 20px var(--shadow-color);
-}
-
-/* Footer en mode clair */
-[data-theme="light"] footer#footer {
-  background-color: var(--secondary-bg); /* Fond violet plus clair */
-  color: var(--skill-text-color); /* Texte gris foncé */
-  border-top: 1px solid var(--border-color);
-}
-
-/* Titres de section (bannières) en mode clair */
-[data-theme="light"] .title-banner {
-  background-color: rgba(229, 227, 255, 0.9); /* Violet encore plus clair */
-  color: var(--accent-color);
-  box-shadow: 0 4px 15px var(--shadow-color);
-}
-
-/* Carte Google Maps en mode clair (optionnel : filtre pour atténuer) */
-[data-theme="light"] .map {
-   filter: grayscale(20%) contrast(90%); /* Léger filtre pour mieux s'intégrer */
-}
-
-/* --- Styles spécifiques pour le thème clair --- */
-
-/* Header (déjà couvert, mais vérification) */
-[data-theme="light"] header {
-  background-color: rgba(240, 238, 255, 0.9);
-  border-bottom: 3px solid var(--accent-color);
-  box-shadow: 0 4px 15px var(--shadow-color);
-}
-[data-theme="light"] header nav ul li a {
-  color: #555; /* Texte des liens de navigation plus sombre */
-}
-[data-theme="light"] header nav ul li a:hover {
-  color: var(--accent-color);
-}
-[data-theme="light"] header h1,
-[data-theme="light"] header h4 {
-  color: var(--text-color); /* Utilise la variable texte du thème clair */
-}
-[data-theme="light"] header h1 {
-  color: var(--accent-color); /* Titre principal en violet */
-}
-
-/* Bouton de thème (déjà couvert, mais vérification) */
-[data-theme="light"] .theme-toggle button {
-  color: var(--text-color);
-  background-color: rgba(93, 93, 255, 0.1);
-}
-[data-theme="light"] .theme-toggle button:hover {
-  background-color: rgba(93, 93, 255, 0.2);
-}
-
-/* Section "À propos" */
-[data-theme="light"] .about-text-box {
-  background: var(--card-bg); /* Fond blanc */
-  box-shadow: 0 8px 30px var(--shadow-color);
-}
-[data-theme="light"] .about-text-box p {
-  color: var(--skill-text-color); /* Texte gris foncé */
-}
-[data-theme="light"] .link-schools-openclassrooms,
-[data-theme="light"] .link-schools-studi {
-  color: var(--accent-color);
-  border-bottom-color: var(--accent-color);
-}
-[data-theme="light"] .link-schools-openclassrooms:hover,
-[data-theme="light"] .link-schools-studi:hover {
-  color: #7b7bff;
-  border-bottom-color: #7b7bff;
-}
-
-/* Photo de profil */
-[data-theme="light"] .profile-photo {
-  border-color: rgba(93, 93, 255, 0.6); /* Bordure violette plus claire */
-  box-shadow: 0 35px 80px var(--shadow-color);
-}
-[data-theme="light"] .profile-photo:hover {
-  box-shadow: 0 35px 80px rgba(93, 93, 255, 0.25);
-}
-
-/* Titres bannières (déjà couverts) */
-[data-theme="light"] h2.title-banner,
-[data-theme="light"] h3.title-banner {
-  background-color: rgba(229, 227, 255, 0.9);
-  color: var(--accent-color);
-  box-shadow: 0 4px 15px var(--shadow-color);
-}
-[data-theme="light"] h2.title-banner:after,
-[data-theme="light"] h3.title-banner:after {
-  background: var(--accent-color);
-}
-
-/* Aperçus des projets */
-[data-theme="light"] .project-preview {
-  box-shadow: 0 10px 30px var(--shadow-color);
-}
-[data-theme="light"] .project-preview:hover {
-  box-shadow: 0 20px 40px rgba(93, 93, 255, 0.25);
-}
-[data-theme="light"] .project-preview-overlay {
-  /* Le dégradé peut rester sombre pour la lisibilité, ou être ajusté */
-  background: linear-gradient(to top, rgba(240, 238, 255, 0.95), transparent);
-}
-[data-theme="light"] .project-preview-overlay h3 {
-  color: var(--accent-color); /* Titre en violet */
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-[data-theme="light"] .btn-view-project {
-  /* Le bouton peut garder son dégradé ou être adapté */
-  /* Option: background: #ffffff; color: var(--accent-color); border: 1px solid var(--accent-color); */
-}
-[data-theme="light"] .btn-view-project:hover {
- /* Option: background: var(--accent-color); color: #ffffff; */
-}
+.project-preview:hover .project-preview-overlay { transform: translateY(0); opacity: 1; } /* Affichage de l'overlay au survol */
+.project-preview-overlay h3 { color: white; font-size: 1.8rem; margin-bottom: 20px; text-align: center; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); transform: translateY(20px); opacity: 0; transition: all 0.5s ease 0.1s; } /* Titre dans l'overlay (animation) */
+.project-preview:hover .project-preview-overlay h3 { transform: translateY(0); opacity: 1; } /* Animation titre au survol */
+.btn-view-project { transform: translateY(20px); opacity: 0; transition: all 0.5s ease 0.2s; } /* Bouton dans l'overlay (animation) */
+.project-preview:hover .btn-view-project { transform: translateY(0); opacity: 1;} /* Animation bouton au survol */
 
 /* Bouton "Voir tous les projets" */
-[data-theme="light"] .view-all-projects .btn {
- /* Le bouton peut garder son dégradé ou être adapté */
+.view-all-projects { text-align: center; margin: 50px 0; }
+
+/* Page de détail d'un projet */
+.project-detail { max-width: 1200px; margin: 0 auto; padding: 20px; } /* Conteneur principal */
+.project-hero { position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 16px; box-shadow: 0 10px 30px var(--shadow-color); margin-bottom: 40px; } /* Grande image en haut */
+.project-hero img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; display: block; } /* Style image */
+.project-hero:hover img { transform: scale(1.05); } /* Effet zoom sur image */
+.project-hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--accent-color), #6b8cff); } /* Ligne colorée sous l'image */
+.project-content { background: var(--card-bg); border-radius: 16px; padding: 30px; box-shadow: 0 8px 30px var(--shadow-color); margin-bottom: 40px; border-left: 5px solid var(--accent-color); } /* Bloc de contenu texte */
+.project-content p { color: #b8c2cc; line-height: 1.7; text-align: left; margin-bottom: 25px; } /* Paragraphes */
+.project-content h4 { color: var(--accent-color); border-bottom: 2px solid rgba(93, 93, 255, 0.2); padding-bottom: 5px; margin-top: 20px; } /* Sous-titres */
+.project-detail .project-tech { justify-content: center; margin: 20px 0; } /* Technologies centrées */
+.project-detail .project-links { justify-content: center; margin: 25px 0; } /* Liens centrés */
+.project-detail .project-links a { padding: 12px 25px; font-size: 1rem; min-width: 150px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); } /* Style des liens */
+
+/* Navigation entre projets (Précédent/Suivant) */
+.project-navigation { display: flex; justify-content: space-between; margin: 60px 0 40px; }
+.project-nav-btn { /* Style des boutons de navigation */
+  display: flex; align-items: center; gap: 10px; padding: 15px 25px; background: #444875; color: #ffffff; text-decoration: none; /* Affichage, padding, couleurs */
+  border-radius: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); border: 2px solid var(--accent-color); font-weight: bold; /* Forme, ombre, bordure */
+  transition: all 0.3s ease; position: relative; z-index: 1; overflow: hidden; /* Transition, position pour effet */
 }
-[data-theme="light"] .view-all-projects .btn:hover {
- /* Option: ajuster l'ombre */
- box-shadow: 0 10px 30px rgba(93, 93, 255, 0.3);
+.project-nav-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, var(--accent-color), #6b8cff); opacity: 0; transition: opacity 0.3s ease; z-index: -1; } /* Effet de fond dégradé au survol */
+.project-nav-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(93, 93, 255, 0.5); color: #ffffff; } /* Effet survol */
+.project-nav-btn:hover::before { opacity: 1; } /* Affichage effet fond */
+.project-nav-btn svg { width: 20px; height: 20px; fill: currentColor; } /* Icônes flèches */
+
+/* Galerie d'images du projet */
+.project-gallery { margin-top: 40px; background: var(--card-bg); border-radius: 12px; padding: 25px; box-shadow: 0 8px 25px var(--shadow-color); margin-bottom: 30px; } /* Conteneur galerie */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 25px; } /* Grille responsive */
+.gallery-item { border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); border: 3px solid var(--secondary-bg); transition: all 0.3s ease; height: 200px; } /* Image individuelle */
+.gallery-item:hover { transform: translateY(-5px) scale(1.02); border-color: var(--accent-color); box-shadow: 0 10px 25px rgba(93, 93, 255, 0.3); } /* Effet survol image */
+.gallery-item img { width: 100%; height: 100%; object-fit: contain; transition: all 0.5s ease; } /* Style image (contain pour voir toute l'image) */
+
+/* Carrousel */
+.carousel-container { position: relative; max-width: 100%; margin: 0 auto; overflow: hidden; }
+.carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+.carousel-item { min-width: 50%; padding: 20px; box-sizing: border-box; margin: 0 auto; }
+.carousel-controls { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+.carousel-btn { background-color: #3498db; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s; font-size: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.carousel-btn:hover { background-color: #2980b9; transform: scale(1.05); }
+.carousel-btn:focus { outline: none; box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3); }
+
+/* Styles Projets en thème clair */
+[data-theme="light"] .project-card { background-color: var(--card-bg); box-shadow: 0 8px 20px var(--shadow-color); border-color: rgba(93, 93, 255, 0.6); }
+[data-theme="light"] .project-info p { color: var(--skill-text-color); }
+[data-theme="light"] .project-tech span { background: var(--secondary-bg); color: var(--accent-color); border-color: rgba(93, 93, 255, 0.3); box-shadow: 0 2px 5px rgba(93, 93, 255, 0.1); }
+[data-theme="light"] .project-preview { box-shadow: 0 10px 30px var(--shadow-color); }
+[data-theme="light"] .project-preview:hover { box-shadow: 0 20px 40px rgba(93, 93, 255, 0.25); }
+[data-theme="light"] .project-preview-overlay { background: linear-gradient(to top, rgba(240, 238, 255, 0.8), transparent); }
+[data-theme="light"] .project-preview-overlay h3 { color: var(--accent-color); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
+[data-theme="light"] .project-content { background-color: var(--card-bg); box-shadow: 0 8px 25px var(--shadow-color); border-left-color: var(--accent-color); }
+[data-theme="light"] .project-content p { color: var(--skill-text-color); }
+[data-theme="light"] .project-content h4 { color: var(--accent-color); border-bottom-color: rgba(93, 93, 255, 0.2); }
+[data-theme="light"] .project-gallery { background-color: var(--card-bg); box-shadow: 0 8px 25px var(--shadow-color); }
+[data-theme="light"] .gallery-item { border-color: rgba(0,0,0,0.1); }
+[data-theme="light"] .gallery-item:hover { border-color: var(--accent-color); box-shadow: 0 10px 25px rgba(93, 93, 255, 0.2); }
+[data-theme="light"] .project-navigation a { background-color: var(--card-bg); color: var(--accent-color); border-color: rgba(93, 93, 255, 0.3); box-shadow: 0 4px 10px var(--shadow-color); }
+[data-theme="light"] .project-navigation a:hover { background-color: #f0f4ff; border-color: var(--accent-color); box-shadow: 0 6px 15px rgba(93, 93, 255, 0.2); }
+
+/* =========================
+   COMPÉTENCES (Skills)
+   ========================= */
+.skills-section { padding: 40px 0; } /* Section compétences */
+.skills-categories { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1400px; margin: 0 auto; padding: 15px; } /* Conteneur des catégories */
+.skills-category { /* Catégorie individuelle */
+  flex: 1; min-width: 280px; max-width: 450px; background-color: var(--card-bg); border-radius: 12px; padding: 20px; /* Dimensions, fond, forme */
+  box-shadow: 0 8px 20px var(--shadow-color); margin-bottom: 10px; border-top: 3px solid var(--accent-color); transition: all 0.3s ease; /* Ombre, marge, bordure haute, transition */
+}
+.skills-category:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(93, 93, 255, 0.3); } /* Effet survol catégorie */
+.category-title { color: var(--accent-color); font-size: 20px; margin-bottom: 20px; position: relative; padding-bottom: 8px; font-weight: 700; } /* Titre de catégorie */
+.category-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 2px; background: var(--accent-color); border-radius: 2px; } /* Soulignement titre */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 15px; justify-items: center; } /* Grille des compétences */
+.skill { display: flex; flex-direction: column; align-items: center; transition: all 0.3s ease; width: 100%; max-width: 90px; } /* Compétence individuelle */
+.skill:hover { transform: translateY(-5px); } /* Effet survol compétence */
+.skill-icon { /* Conteneur de l'icône */
+  width: 45px; height: 45px; padding: 8px; background-color: var(--skill-icon-bg); border-radius: 10px; /* Dimensions, fond, forme */
+  display: flex; justify-content: center; align-items: center; margin-bottom: 5px; transition: all 0.3s ease; /* Centrage, marge, transition */
+  box-shadow: 0 4px 10px var(--shadow-color); border: 2px solid var(--accent-color); /* Ombre, bordure */
+}
+.skill:hover .skill-icon { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(93, 93, 255, 0.25); } /* Effet survol icône */
+.skill img { width: 30px; height: 30px; object-fit: contain; transition: transform 0.3s ease; } /* Image de la compétence */
+.skill:hover img { transform: scale(1.1); } /* Effet survol image */
+.skill p { font-size: 12px; color: var(--skill-text-color); margin: 0; text-align: center; font-weight: 500; } /* Nom de la compétence */
+
+/* Styles Compétences en thème clair */
+[data-theme="light"] .skills-category { background-color: var(--card-bg); box-shadow: 0 8px 20px var(--shadow-color); border-top-color: var(--accent-color); }
+[data-theme="light"] .category-title { color: var(--accent-color); } /* Correction: var(--accent-color) et non var (--accent-color) */
+[data-theme="light"] .category-title::after { background: var(--accent-color); }
+[data-theme="light"] .skill-icon { background-color: var(--skill-icon-bg); border-color: rgba(93, 93, 255, 0.6); box-shadow: 0 4px 10px var(--shadow-color); }
+[data-theme="light"] .skill:hover .skill-icon { background-color: #f0f4ff; box-shadow: 0 8px 15px rgba(93, 93, 255, 0.2); }
+[data-theme="light"] .skill p { color: var(--skill-text-color); }
+
+/* =========================
+   CONTACT
+   ========================= */
+.contact-form { /* Formulaire de contact */
+  background: var(--card-bg); box-shadow: 0 10px 30px var(--shadow-color); border-top: 5px solid var(--accent-color); /* Fond, ombre, bordure haute */
+  border-radius: 10px; padding: 30px 40px; margin: 30px auto; max-width: 600px; transition: all 0.5s ease; /* Forme, padding, marges, largeur max, transition */
+}
+.contact-form:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(93, 93, 255, 0.3); } /* Effet survol */
+.contact-form form { display: flex; flex-direction: column; gap: 20px; } /* Structure interne formulaire */
+.form-group { display: flex; flex-direction: column; text-align: left; } /* Groupe label + input */
+.contact-form label { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: var(--text-color); transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; } /* Style des labels */
+.contact-form label svg { width: 18px; height: 18px; fill: var(--accent-color); } /* Icône dans le label */
+.contact-form input, .contact-form textarea { /* Champs de saisie */
+  padding: 15px; border: 2px solid var(--secondary-bg); background: var(--input-bg); border-radius: 10px; color: var(--text-color); /* Padding, bordure, fond, forme, couleur texte */
+  font-family: inherit; font-size: 16px; transition: all 0.3s ease; resize: none; /* Police, taille, transition, pas de redimensionnement textarea */
+}
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.3); background: var(--secondary-bg); } /* Style au focus */
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--text-color); opacity: 0.7; } /* Style placeholder */
+
+/* Carte Google Maps */
+.contact-map { margin-bottom: 60px; }
+.map { border-radius: 15px; box-shadow: 0 10px 30px var(--shadow-color); width: 100%; max-width: 900px; height: 350px; margin: 0 auto; border: none; display: block; } /* Style de la carte */
+
+/* Section email */
+.contact-email {
+  background: var(--card-bg); padding: 25px; border-radius: 16px; max-width: 600px; margin: 40px auto !important; /* Style conteneur */
+  box-shadow: 0 10px 25px var(--shadow-color); border-left: 5px solid var(--accent-color); font-size: 18px; color: var(--text-color); transition: all 0.3s ease; /* Ombre, bordure gauche, texte, transition */
+}
+.contact-email:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(93, 93, 255, 0.2); } /* Effet survol */
+.contact-email a { color: var(--accent-color); text-decoration: none; font-weight: bold; border-bottom: 2px dotted var(--accent-color); padding-bottom: 2px; transition: all 0.3s ease; } /* Lien email */
+.contact-email a:hover { color: #7b7bff; border-bottom-style: solid; } /* Effet survol lien */
+
+/* Liens réseaux sociaux */
+.social-media { display: flex; justify-content: center; gap: 30px; margin: 50px 0; } /* Conteneur */
+.social-media a { /* Bouton rond pour chaque réseau */
+  display: flex; align-items: center; justify-content: center; width: 70px; height: 70px; background: var(--card-bg); border-radius: 50%; /* Dimensions, fond, forme */
+  transition: all 0.4s ease; box-shadow: 0 8px 20px var(--shadow-color); position: relative; overflow: hidden; /* Transition, ombre, position pour effet */
+}
+.social-media a::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, var(--accent-color), #6b8cff); opacity: 0; transition: opacity 0.4s ease; z-index: 0; } /* Fond coloré au survol (caché) */
+.social-media a:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 15px 30px rgba(93, 93, 255, 0.3); } /* Effet survol bouton */
+.social-media a:hover::before { opacity: 1; } /* Affichage fond coloré */
+.social-media img { width: 32px; height: 32px; position: relative; z-index: 1; transition: filter 0.3s ease; filter: brightness(0.9); } /* Icône */
+.social-media a:hover img { filter: brightness(1.2); } /* Effet survol icône */
+
+/* Styles Contact en thème clair */
+[data-theme="light"] .contact-form { background: var(--card-bg); box-shadow: 0 10px 30px var(--shadow-color); border-top-color: var(--accent-color); }
+[data-theme="light"] .contact-form label { color: var(--text-color); }
+[data-theme="light"] .contact-form input, [data-theme="light"] .contact-form textarea { border-color: var(--secondary-bg); background: var(--input-bg); color: var(--text-color); }
+[data-theme="light"] .contact-form input:focus, [data-theme="light"] .contact-form textarea:focus { border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.3); background: var(--secondary-bg); }
+[data-theme="light"] .map { filter: grayscale(20%) contrast(90%); } /* Léger filtre sur la carte */
+[data-theme="light"] .contact-email { background: var(--card-bg); box-shadow: 0 10px 25px var(--shadow-color); border-left-color: var(--accent-color); color: #555; }
+[data-theme="light"] .contact-email a { color: var(--accent-color); border-bottom-color: var(--accent-color); }
+[data-theme="light"] .contact-email a:hover { color: #7b7bff; border-bottom-color: #7b7bff; }
+[data-theme="light"] .social-media a { background: var(--card-bg); box-shadow: 0 8px 20px var(--shadow-color); }
+
+/* =========================
+   FOOTER (Pied de page)
+   ========================= */
+footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 50px; border-top: 1px solid var(--secondary-bg); border-radius: 15px 15px 0 0; } /* Style pied de page */
+[data-theme="light"] footer { background-color: var(--secondary-bg); color: var(--skill-text-color); border-top-color: var(--border-color); } /* Pied de page en thème clair */
+
+/* =========================
+   UTILITAIRES & EFFETS
+   ========================= */
+/* Animation AOS (Animate On Scroll) */
+[data-aos] { opacity: 0; transition: all 0.8s ease; } /* Caché par défaut */
+[data-aos].aos-animate { opacity: 1; } /* Visible quand animé */
+
+/* Effet Parallaxe */
+.parallax-container { overflow: hidden; position: relative; border-radius: 16px; } /* Conteneur */
+.parallax-image { transition: transform 0.2s ease-out; width: 150%; height: 150%; object-fit: cover; position: absolute; top: -25%; left: -25%; } /* Image plus grande pour effet */
+
+/* =========================
+   RESPONSIVE (Adaptation écrans)
+   ========================= */
+@media (max-width: 1200px) {
+  /* Tablettes larges et petits ordinateurs */
+  .project-preview-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } /* Grille aperçu passe à 2 colonnes */
 }
 
-/* Section Compétences (déjà couverte) */
-[data-theme="light"] .skills-category {
-  background-color: var(--card-bg);
-  box-shadow: 0 8px 20px var(--shadow-color);
-  border-top-color: var(--accent-color);
-}
-[data-theme="light"] .category-title {
-  color: var(--accent-color);
-}
-[data-theme="light"] .category-title::after {
-  background: var(--accent-color);
-}
-[data-theme="light"] .skill-icon {
-  background-color: var(--skill-icon-bg);
-  border-color: rgba(93, 93, 255, 0.6);
-  box-shadow: 0 4px 10px var(--shadow-color);
-}
-[data-theme="light"] .skill p {
-  color: var(--skill-text-color);
+@media (max-width: 992px) {
+  /* Tablettes */
+  .skills-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 12px; } /* Grille compétences plus dense */
 }
 
-/* Bouton Scroll-to-top */
-[data-theme="light"] .scroll-to-top {
-  background: #ffffff;
-  color: var(--accent-color);
-  border: 2px solid rgba(93, 93, 255, 0.6);
-  box-shadow: 0 4px 10px var(--shadow-color);
-}
-[data-theme="light"] .scroll-to-top:hover {
-  background: var(--accent-color);
-  color: white;
-  border-color: var(--accent-color);
-  box-shadow: 0 6px 15px rgba(93, 93, 255, 0.3);
-}
-
-/* Footer (déjà couvert) */
-[data-theme="light"] footer#footer {
-  background-color: var(--secondary-bg);
-  color: var(--skill-text-color);
-  border-top: 1px solid var(--border-color);
-  border-radius: 15px 15px 0px 0px;
-}
-
-/* Contenu des pages de projet en mode clair */
-[data-theme="light"] .project-content {
-  background-color: var(--card-bg); /* Fond blanc */
-  box-shadow: 0 8px 25px var(--shadow-color);
-  border-radius: 12px; /* Ajouter un peu de bord arrondi */
-  padding: 25px; /* Ajouter un peu d'espace intérieur */
-  margin-bottom: 30px; /* Espacement entre les sections de contenu */
-}
-
-/* Textes dans le contenu du projet en mode clair */
-[data-theme="light"] .project-content p {
-  color: var(--skill-text-color); /* Texte gris foncé */
-}
-
-/* Sous-titres (h4) dans le contenu du projet en mode clair */
-[data-theme="light"] .project-content h4 {
-  color: var(--accent-color); /* Couleur violette pour les sous-titres */
-  border-bottom: 2px solid rgba(93, 93, 255, 0.2); /* Ligne de séparation subtile */
-  padding-bottom: 5px;
-  margin-top: 20px; /* Espacement avant les sous-titres */
-}
-
-/* Titres bannières (h2, h3) dans le contenu du projet en mode clair (vérification) */
-[data-theme="light"] .project-content .title-banner {
-  background-color: rgba(229, 227, 255, 0.336);
-  color: var(--accent-color);
-  box-shadow: 0 4px 15px var(--shadow-color);
-  /* Assurer que le margin-bottom est approprié */
-  margin-bottom: 20px;
-}
-[data-theme="light"] .project-content .title-banner:after {
-  background: var(--accent-color);
-}
-
-/* Liens dans le contenu du projet (si applicable) */
-[data-theme="light"] .project-content a {
-  color: var(--accent-color);
-}
-[data-theme="light"] .project-content a:hover {
-  color: #7b7bff;
-}
-
-/* Galerie de projet en mode clair */
-[data-theme="light"] .project-gallery {
-  background-color: var(--card-bg); /* Fond blanc */
-  box-shadow: 0 8px 25px var(--shadow-color);
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 30px;
-}
-[data-theme="light"] .gallery-item img {
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Bordure légère pour les images */
-}
-
-/* Boutons de navigation entre projets en mode clair */
-[data-theme="light"] .project-navigation a {
-  background-color: var(--card-bg);
-  color: var(--accent-color);
-  border: 1px solid rgba(93, 93, 255, 0.3);
-  box-shadow: 0 4px 10px var(--shadow-color);
-}
-[data-theme="light"] .project-navigation a:hover {
-  background-color: #f0f4ff;
-  border-color: var(--accent-color);
-  box-shadow: 0 6px 15px rgba(93, 93, 255, 0.2);
-}
-[data-theme="light"] .project-navigation a svg {
-  stroke: var(--accent-color);
-}
-
-/* Rendre les conteneurs principaux transparents pour voir l'arrière-plan du body */
-main,
-section, /* Cible toutes les sections principales */
-.contact-page, /* Cible le body si cette classe est utilisée */
-.project-page, /* Cible le body si cette classe est utilisée */
-.project-detail /* Cible la section spécifique des détails du projet */ {
-  background-color: transparent !important;
-}
-
-/* Rappel des règles importantes pour l'arrière-plan */
-body {
-  position: relative;
-  z-index: 0;
-  background-color: transparent !important;
-  /* ... */
-}
-body::before { /* Image */
-  content: "";
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url('../images/emily-bernal-v9vII5gV8Lw-unsplash.jpg');
-  background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;
-  opacity: 0.5; /* Ou votre valeur */
-  z-index: -1;
-  pointer-events: none;
-  /* ... */
-}
-body::after { /* Couleur */
-  content: "";
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-color: var(--background-color);
-  z-index: -2;
-  pointer-events: none;
-  transition: background-color var(--transition-speed) ease;
-  /* ... */
-}
-
-/* Rendre le conteneur principal transparent pour voir l'arrière-plan du body */
-/* Remplacez 'main' ou '.wrapper-class' par le sélecteur réel de votre conteneur */
-main,
-.wrapper-class /* Remplacez par le sélecteur correct si nécessaire */ {
-  background-color: transparent !important;
-}
-
-/* --- Styles spécifiques pour le thème clair --- */
-
-/* Header (normal et compact) */
-[data-theme="light"] header,
-[data-theme="light"] .compact-header {
-  /* background-color: rgba(240, 238, 255, 0.9); */ /* Ancienne valeur */
-  background-color: rgba(240, 238, 255, 0.8); /* Violet très clair, 90% opacité */
-  /* border-bottom et box-shadow restent */
-}
-
-/* Section "À propos" */
-[data-theme="light"] .about-text-box {
-  /* background: var(--card-bg); */ /* Ancienne valeur */
-  background: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
-  /* box-shadow reste */
-}
-
-/* Titres bannières (h2, h3) */
-[data-theme="light"] h2.title-banner,
-[data-theme="light"] h3.title-banner,
-[data-theme="light"] .project-content .title-banner { /* Cible aussi dans project-content */
-  /* background-color: rgba(229, 227, 255, 0.9); */ /* Ancienne valeur */
-  background-color: rgba(229, 227, 255, 0.8); /* Violet encore plus clair, 85% opacité */
-  /* color et box-shadow restent */
-}
-
-/* Cartes de projet (dans la grille) */
-[data-theme="light"] .project-card {
-  /* background-color: #ffffff; */ /* Ancienne valeur */
-  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
-  /* border et box-shadow restent */
-}
-
-/* Aperçus des projets (sur index.html) */
-[data-theme="light"] .project-preview {
-  /* Pas de background direct, mais l'overlay peut être ajusté si besoin */
-  /* box-shadow reste */
-}
-[data-theme="light"] .project-preview-overlay {
-  /* background: linear-gradient(to top, rgba(240, 238, 255, 0.95), transparent); */ /* Ancienne valeur */
-  background: linear-gradient(to top, rgba(240, 238, 255, 0.8), transparent); /* Violet très clair, 90% opacité en bas */
-}
-
-/* Section Compétences */
-[data-theme="light"] .skills-category {
-  /* background-color: var(--card-bg); */ /* Ancienne valeur */
-  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
-  /* border-top et box-shadow restent */
-}
-[data-theme="light"] .skill-icon {
-  /* background-color: var(--skill-icon-bg); */ /* Ancienne valeur */
-  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 95% opacité (un peu plus opaque) */
-  /* border et box-shadow restent */
-}
-
-/* Bouton Scroll-to-top */
-[data-theme="light"] .scroll-to-top {
-  /* background: #ffffff; */ /* Ancienne valeur */
-  background: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
-  /* color, border, box-shadow restent */
-}
-
-/* Footer */
-[data-theme="light"] footer#footer {
-  /* background-color: var(--secondary-bg); */ /* Ancienne valeur */
-  background-color: rgba(229, 227, 255, 0.8); /* Violet clair, 90% opacité */
-  /* color et border-top restent */
-}
-
-/* Contenu des pages de projet */
-[data-theme="light"] .project-content {
-  /* background-color: var(--card-bg); */ /* Ancienne valeur */
-  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
-  /* box-shadow, border-radius, etc. restent */
-}
-
-/* Galerie de projet */
-[data-theme="light"] .project-gallery {
-  /* background-color: var(--card-bg); */ /* Ancienne valeur */
-  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
-  /* box-shadow, border-radius, etc. restent */
-}
-
-/* Boutons de navigation entre projets */
-[data-theme="light"] .project-navigation a {
-  /* background-color: var(--card-bg); */ /* Ancienne valeur */
-  background-color: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
-  /* color, border, box-shadow restent */
-}
-
-/* Formulaire de contact */
-[data-theme="light"] .contact-form {
-  /* background: var(--card-bg); */ /* Ancienne valeur */
-  background: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
-  /* box-shadow, border-top restent */
-}
-
-/* Email de contact */
-[data-theme="light"] .contact-email {
-  /* background: var(--card-bg); */ /* Ancienne valeur */
-  background: rgba(240, 238, 255, 0.8); /* Blanc, 90% opacité */
-  /* box-shadow, border-left restent */
-}
-
-/* Icônes sociales */
-[data-theme="light"] .social-media a {
-  /* background: var(--card-bg); */ /* Ancienne valeur */
-  background: rgba(255, 255, 255, 0.8); /* Blanc, 90% opacité */
-  /* box-shadow reste */
-}
-
-/* Badges de technologies (déjà rgba, mais on peut ajuster si besoin) */
-[data-theme="light"] .project-detail .project-tech span {
-  /* background: var(--secondary-bg); */ /* Ancienne valeur */
-  background: rgba(229, 227, 255, 0.8); /* Violet clair, 90% opacité */
-  /* color, border, box-shadow restent */
-}
-
-/* HEADER PRINCIPAL (Page d'accueil) */
-
-/* Sélecteur de langue - REPOSITIONNÉ SOUS LA NAV pour le header principal */
-header:not(.compact-header) .language-switch {
-  position: static; /* Annuler le positionnement absolu */
-  display: flex;
-  justify-content: center;
-  margin: 10px auto 0; /* Marge au-dessus, centré */
-  top: auto;
-  right: auto;
-  width: fit-content;
-}
-
-/* Sélecteur de langue en dessous de la nav et centré */
-header:not(.compact-header) .language-switch {
-  display: flex;
-  justify-content: center;
-  margin: 10px 10;
-  position: static;
-}
-
-header:not(.compact-header) .theme-toggle {
-  display: flex;
-  justify-content: center;
-  margin: 10px 10;
-  position: static;
-}
-
-/* Bouton thème à droite */
-header:not(.compact-header) .header-right {
-  position: absolute;
-  top: 95px;
-  right: 385px;
-}
-/* HEADER COMPACT (Autres pages) */
-/* Container avec espace entre */
-.compact-header .header-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 20px;
-}
-
-/* Partie gauche avec titre + langue */
-.compact-header .header-left {
-  display: flex;
-  align-items: center;
-  gap: 15px; /* Espace entre les éléments */
-}
-
-/* Style des drapeaux dans le header compact */
-.compact-header .language-switch img {
-  width: 40px;
-  height: 40px;
-  transition: transform 0.3s ease;
-}
-
-.compact-header .language-switch img:hover {
-  transform: scale(1.1);
-}
-
-.compact-header .theme-toggle{
-  /* Supprimer ces propriétés qui n'ont pas d'effet */
-  /* top: 10px; */
-  /* right: 20px; */
-
-
-/* Ajustement pour les petits écrans */
 @media (max-width: 768px) {
-  .compact-header .header-left {
-    gap: 10px; /* Espace réduit sur mobile */
+  /* Mobiles */
+  body { padding-top: 60px; } /* Toujours utiliser la hauteur du header compact sur mobile */
+
+  /* Ajuster le Header Normal pour Mobile (s'il était encore utilisé directement) */
+  header { height: 60px; padding: 0 15px; }
+  header h1 { font-size: 1rem; margin: 0 10px; }
+
+  /* Ajuster le Header Compact pour Mobile */
+  .compact-header { padding: 0 15px; }
+  .compact-header .header-left { gap: 8px; }
+  .compact-header .page-title { font-size: 1rem; }
+  .compact-header #logo-video { height: 30px; }
+  .compact-header .language-switch img { width: 32px; height: 32px; }
+  .menu-toggle { font-size: 1.8rem; padding: 8px; } /* Bouton menu plus petit */
+  .theme-toggle button { width: 35px; height: 35px; } /* Bouton thème plus petit */
+  .theme-toggle button svg { width: 18px; height: 18px; }
+
+  /* Ajustements généraux du contenu pour mobile */
+  .about-text-box { padding: 15px; }
+  .projects-grid { grid-template-columns: 1fr; padding: 15px; } /* Grille projets 1 colonne */
+  .project-card img { height: 280px; } /* Image carte projet plus haute */
+  .project-preview-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 10px; } /* Grille aperçu 1 colonne */
+  .project-preview { height: 250px; } /* Aperçu moins haut */
+  .project-preview-overlay h3 { color: white; font-size: 1rem; } /* Titre overlay plus petit */
+  .project-hero { height: 250px; } /* Image détail projet moins haute */
+  .project-navigation { flex-direction: column; gap: 15px; } /* Navigation projet en colonne */
+  .project-detail .project-links { flex-direction: column; } /* Liens détail projet en colonne */
+  .gallery-grid { grid-template-columns: 1fr; } /* Galerie 1 colonne */
+  .skills-categories { flex-direction: column; gap: 30px; } /* Catégories compétences en colonne */
+  .skills-category { min-width: auto; padding: 15px 10px; }
+  .skills-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 10px; } /* Grille compétences plus dense */
+  .skill-icon { width: 45px; height: 45px; padding: 8px; }
+  .skill img { width: 25px; height: 25px; }
+  .skill p { font-size: 12px; }
+
+  /* Ajustements dropdown pour mobile */
+  .dropdown-menu {
+    top: 60px; /* Positionné sous le header compact */
+    height: calc(100vh - 60px); /* Hauteur restante */
+    padding: 20px 20px 20px; /* Padding réduit */
   }
-  
-  .compact-header .page-title {
-    font-size: 1rem; /* Titre plus petit sur mobile */
-  }
-  
-  .compact-header .language-switch img {
-    width: 32px; /* Images plus petites sur mobile */
-    height: 32px;
-  }
-}
-
-/* Partie gauche avec titre + langue */
-.compact-header .header-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* Langue dans le header compact */
-.compact-header .language-switch {
-  display: flex;
-  align-items: center;
-}
-
-/* Drapeaux dans la navbar compacte */
-.compact-header .language-switch img {
-  width: 40px;
-  height: 40px;
-  margin: 0 10px; /* Marge réduite */
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  header:not(.compact-header) .header-right {
-    top: 10px;
-    right: 10px;
-  }
-  
-  .compact-header .header-left {
-    gap: 8px;
-  }
-  
-  .compact-header .page-title {
-    font-size: 1rem;
-  }
-}
-
-/* Réorganiser l'ordre des éléments dans header-left */
-.compact-header .header-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* Modifier l'ordre avec flexbox - 1=bouton retour, 2=drapeau, 3=titre */
-.compact-header .header-left .btn-back-home {
-  order: 1;
-}
-
-.compact-header .header-left .language-switch {
-  order: 2;
-}
-
-.compact-header .header-left .page-title {
-  order: 3;
-}
-
-/* Annuler le positionnement absolu pour le header compact uniquement */
-.compact-header .header-right {
-  position: static; /* Au lieu de absolute */
-  transform: none; /* Supprimer la transformation */
-  display: flex;
-  align-items: center;
-  gap: 15px; /* Espace entre les éléments */
-  margin-right: 20px; /* Marge à droite pour l'alignement */
-}
-
-/* Réduire un peu la marge des drapeaux */
-.compact-header .language-switch img {
-  width: 40px;
-  height: 40px;
-  margin: 0 10px; /* Marge réduite */
-  transition: transform 0.3s ease;
-}
-
-/* Réinitialiser les dimensions si besoin */
-.compact-header .theme-toggle {
-  /* Supprimer ces propriétés qui n'ont pas d'effet */
-  /* top: 10px; */
-  /* right: 20px; */
-}
-
-/* Assurer l'alignement du conteneur du header */
-.compact-header .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0 20px;
-}
-
-/* Regrouper et aligner correctement .language-switch et .theme-toggle */
-.compact-header .header-right {
-  display: flex; /* Active Flexbox */
-  align-items: center; /* Aligne verticalement les éléments */
-  justify-content: flex-end; /* Aligne les éléments à droite */
-  gap: 15px; /* Ajoute un espace entre le drapeau et le bouton de thème */
-  margin: 0; /* Supprime toute marge inutile */
-}
-
-/* Supprimer la marge de .theme-toggle */
-.compact-header .theme-toggle {
-  margin: 0; /* Supprime la marge qui causait le problème */
-  display: flex; /* Assure que le bouton est bien centré */
-  align-items: center;
-  justify-content: center;
+  .dropdown-nav a { font-size: 1rem; } /* Liens plus petits */
+  .menu-controls { width: 90%; gap: 20px; margin-left: 20px; } /* Contrôles dropdown */
 }
