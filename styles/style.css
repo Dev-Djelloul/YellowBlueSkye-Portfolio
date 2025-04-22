@@ -8,7 +8,7 @@
   --card-bg: #343654;          /* Couleur de fond des cartes/conteneurs */
   --accent-color: #5d5dff;     /* Couleur d'accentuation (liens, bordures, etc.) */
   --secondary-bg: #232436;     /* Couleur de fond secondaire */
-  --border-color: rgba(255, 255, 255, 0.1); /* Couleur des bordures */
+  --border-color: rgba(255, 255, 255, 0.925); /* Couleur des bordures */
   --shadow-color: rgba(0, 0, 0, 0.3);       /* Couleur des ombres */
   --input-bg: rgba(255, 255, 255, 0.1); /* Couleur de fond des champs de formulaire */
   --skill-icon-bg: #343654;     /* Couleur de fond des icônes de compétence */
@@ -21,7 +21,7 @@
   --background-color: rgba(100, 85, 220, 0.55);
   --text-color: #333333;
   --card-bg: rgba(255, 255, 255, 0.8);
-  --accent-color: #5d5dff; /* Couleur d'accentuation reste la même */
+  --accent-color: #ff66c4; /* Couleur d'accentuation change en rose */
   --secondary-bg: rgba(229, 227, 255, 0.8);
   --border-color: rgba(93, 93, 255, 0.2);
   --shadow-color: rgba(93, 93, 255, 0.15);
@@ -75,7 +75,7 @@ main { max-width: 800px; margin: 0 auto; padding: 20px; background-color: transp
 /* Styles de base pour les sections */
 section { margin-top: 50px; border: 1px solid #ddd;border-radius: 5px; background-color: transparent !important; } /* Espacement, bordure (peut-être à revoir), fond transparent */
 /* Marge spécifique pour l'ancre #about pour compenser le header fixe */
-section#about, #about { scroll-margin-top: 110px; }
+section#about, #about { scroll-margin-top: 70px; }
 
 /* =========================
    HEADER (Normal & Compact) 
@@ -96,7 +96,7 @@ header {
   display: flex; /* Utilisation de flexbox pour l'alignement */
   justify-content: space-between; /* Espace entre les éléments enfants (logo/titre et menu toggle) */
   align-items: center; /* Alignement vertical des éléments */
-  height: 90px; /* Hauteur fixe explicite */
+  height: 75px; /* Hauteur fixe explicite */
 }
 /* Styles spécifiques au header compact (plus petit) */
 .compact-header {
@@ -118,7 +118,7 @@ header.nav-scrolled, .compact-header.nav-scrolled { background-color: rgba(35, 3
 /* Alignement du contenu du Header */
 .header-container { width: 100%; display: flex; justify-content: space-between; align-items: center; } /* Utilisé dans le header compact pour structurer */
 .header-logo { display: flex; align-items: center; } /* Conteneur pour le logo vidéo */
-#logo-video { height: 40px; width: auto; object-fit: contain; border-radius: 50%; border: 1px solid var(--border-color); box-shadow: 0 3px 10px rgba(255, 255, 255, 0.1); } /* Style du logo vidéo */
+#logo-video { height: 48px; width: auto; object-fit: contain; border-radius: 50%; border: 1px solid var(--border-color); box-shadow: 0 3px 10px rgba(255, 255, 255, 0.1); } /* Style du logo vidéo */
 .compact-header #logo-video { height: 35px; } /* Logo légèrement plus petit dans le header compact */
 
 /* Titre dans le Header Normal */
@@ -157,22 +157,48 @@ header h1 {
 
 /* Bouton de changement de thème */
 .theme-toggle button {
-  background-color: rgba(255, 255, 255, 0.08); border: 1px solid var(--border-color); color: var(--text-color); /* Style de base */
-  cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; /* Dimensions et centrage */
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Transitions et ombre */
+  background: none; /* Pas de fond */
+  border: none; /* Pas de bordure */
+  color: #7b7bff; /* Couleur par défaut pour les icônes SVG */
+  outline: none; /* Pas de contour */
+  padding: 0; /* Pas de padding */
+  cursor: pointer; /* Curseur main */
+  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease; /* Ajustement transition */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
 }
 .theme-toggle button svg { width: 20px; height: 20px; transition: fill 0.3s ease; fill: currentColor; } /* Style de l'icône SVG (lune/soleil), hérite la couleur du bouton */
-.theme-toggle button:hover { background-color: rgba(255, 255, 255, 0.15); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(93, 93, 255, 0.2); } /* Effet au survol */
-.theme-toggle button:focus { outline: none; box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.4); } /* Style visuel au focus */
 
-/* Bouton de thème en mode clair */
-[data-theme="light"] .theme-toggle button { background-color: rgba(93, 93, 255, 0.08); border-color: var(--border-color); color: var(--text-color); box-shadow: 0 2px 5px var(--shadow-color); } /* Ajustement couleurs/ombre */
-[data-theme="light"] .theme-toggle button:hover { background-color: rgba(93, 93, 255, 0.15); box-shadow: 0 4px 10px rgba(93, 93, 255, 0.2); }
+.theme-toggle button:hover {
+  color: #ff66c4; /* Couleur rose au survol */
+  transform: scale(1.6); /* Léger zoom */
+ 
+}
+.theme-toggle button:focus {
+  outline: none; /* Pas de contour au focus */
+}
+
+/* Bouton de thème en mode clair - Ces règles pourraient nécessiter un ajustement */
+[data-theme="light"] .theme-toggle button {
+  background: none; /* Pas de fond */
+  border: none; /* Pas de bordure */
+  color: #7b7bff; /* Couleur par défaut pour les icônes SVG */
+  outline: none; /* Pas de contour */
+  padding: 0;   /* Pas de padding */
+  cursor: pointer;  /* Curseur main */
+  box-shadow: 0 2px 5px var(--shadow-color);  /* Ombre légère */
+}
+[data-theme="light"] .theme-toggle button:hover {
+  color: #ff66c4; /* Couleur rose au survol */
+  transform: scale(1.1); /* Léger zoom */
+  background-color: rgba(93, 93, 255, 0.15); /* Fond léger au survol */
+  box-shadow: 0 4px 10px rgba(93, 93, 255, 0.2);  /* Ombre accentuée au survol */
+}
 
 /* Logo vidéo dans le menu déroulant */
 #logo-video-dropdown { 
   height: 75px; /* Taille souhaitée */
-  width: auto;
+  width: auto; /* Largeur automatique pour garder le ratio */
   object-fit: contain; /* Assure que la vidéo s'adapte sans déformation */
   border-radius: 50%; /* Forme circulaire */
   border: 1px solid var(--border-color); /* Bordure */
@@ -196,7 +222,6 @@ header h1 {
 /* Bouton pour ouvrir/fermer le menu (utilisant .menu-toggle) */
 .menu-toggle { /* Ou .hamburger si tu utilises cette classe */
   background: none; border: none; cursor: pointer; /* Reset et curseur */
-  /* --- MODIFICATION: Intégration des styles .hamburger --- */
   font-size: 1.8rem; /* Taille depuis .hamburger */
   color: var(--accent-color); /* Couleur depuis .hamburger (via variable) */
   z-index: 1002; /* Doit être au-dessus de tout pour être cliquable */
@@ -207,7 +232,6 @@ header h1 {
   position: relative; /* Pour positionner l'icône de fermeture */
 }
 .menu-toggle:hover { /* Ou .hamburger:hover */
-  /* --- MODIFICATION: Couleur hover depuis .hamburger --- */
   color: #ff66c4; /* Couleur rose au survol */
 }
 /* Icônes internes (barres et croix) */
@@ -225,25 +249,19 @@ header h1 {
 /* Conteneur principal du menu déroulant */
 .dropdown-menu {
   position: fixed; /* Position fixe par rapport à la fenêtre */
-  /* --- MODIFICATION: Démarrer en dessous du header normal --- */
-  top: 90px; /* Positionné sous le header normal */
+  top: 75px; /* Positionné sous le header normal */
   left: 0; width: 100%; /* Prend toute la largeur */
-  /* --- MODIFICATION: Hauteur restante de la vue --- */
   height: calc(100vh - 90px); /* Prend la hauteur restante de l'écran */
   background-color: rgba(35, 36, 54, 0.98); color: white; /* Fond et couleur texte */
-  /* --- MODIFICATION: Ajuster le padding top --- */
   padding: 30px 40px 40px; /* Padding intérieur */
-  /* --- MODIFICATION: Transition sur transform pour le masquage --- */
   transform: translateY(-110%); /* Caché au-dessus par défaut */
   transition: transform 0.4s ease; /* Animation de glissement */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Ombre */
-  /* --- MODIFICATION: z-index inférieur au header et au toggle --- */
   z-index: 1000; /* Sous le header et le toggle, mais au-dessus du contenu */
   text-align: left; /* Alignement du texte à gauche */
   overflow-y: auto; /* Permet le défilement si le contenu dépasse */
 }
 .dropdown-menu.active {
-  /* --- MODIFICATION: Afficher en ramenant à la position top: 90px --- */
   transform: translateY(0); /* Affiche le menu en le ramenant à sa position */
 }
 
@@ -253,7 +271,7 @@ header h1 {
   gap: 25px; margin-bottom: 40px; align-items: flex-start; /* Espacement et alignement */
 }
 .dropdown-nav a {
-  color: #ff66c4; text-decoration: none; font-size: 1.8rem; /* Style des liens */
+  color: #5d5dff; text-decoration: none; font-size: 1.2rem; font-weight: bolder; /* Style des liens */
   padding: 5px 10px; transition: color 0.3s, transform 0.2s; display: inline-block; /* Padding, transitions, affichage */
 }
 .dropdown-nav a:hover { color: var(--accent-color); transform: translateX(5px); } /* Effet au survol */
@@ -267,7 +285,7 @@ header h1 {
 .menu-controls button {
   background: none; /* Pas de fond */
   border: none; /* Pas de bordure */
-  color: #7b7bff; /* Couleur par défaut pour les icônes SVG (sera écrasée pour le thème) */
+  color: #5d5dff; /* Couleur par défaut pour les icônes SVG (sera écrasée pour le thème) */
   outline: none; /* Pas de contour */
   padding: 0; /* Pas de padding */
   cursor: pointer; /* Curseur main */
@@ -313,7 +331,6 @@ header h1 {
 .menu-overlay {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%; /* Couvre tout l'écran */
   background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
-  /* --- MODIFICATION: z-index inférieur au dropdown --- */
   z-index: 999; /* Positionné sous le menu déroulant mais au-dessus du contenu */
   display: none; /* Caché par défaut */
   opacity: 0; /* Invisible par défaut */
@@ -330,12 +347,10 @@ header h1 {
 [data-theme="light"] .dropdown-nav a:hover { color: #7b7bff; } /* Couleur liens au survol */
 [data-theme="light"] .menu-controls { border-top-color: var(--border-color); } /* Couleur ligne séparation */
 [data-theme="light"] .menu-controls .theme-toggle button {
-    /* --- MODIFICATION: Couleur du bouton/SVG en mode clair --- */
     color: var(--text-color); /* La couleur du bouton devient sombre (pour que le SVG hérite) */
     border-color: var(--border-color); /* Bordure adaptée */
     background-color: rgba(0,0,0,0.05); /* Léger fond */
 }
-/* --- AJOUT: Assurer que le SVG prend la couleur en mode clair --- */
 [data-theme="light"] .menu-controls .theme-toggle button svg {
     fill: currentColor; /* Assure que le SVG hérite de la couleur du bouton parent */
 }
@@ -483,16 +498,72 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 .project-detail .project-links a { padding: 12px 25px; font-size: 1rem; min-width: 150px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); } /* Style des liens */
 
 /* Navigation entre projets (Précédent/Suivant) */
-.project-navigation { display: flex; justify-content: space-between; margin: 60px 0 40px; }
-.project-nav-btn { /* Style des boutons de navigation */
-  display: flex; align-items: center; gap: 10px; padding: 15px 25px; background: #444875; color: #ffffff; text-decoration: none; /* Affichage, padding, couleurs */
-  border-radius: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); border: 2px solid var(--accent-color); font-weight: bold; /* Forme, ombre, bordure */
-  transition: all 0.3s ease; position: relative; z-index: 1; overflow: hidden; /* Transition, position pour effet */
+.project-navigation { display: flex; justify-content: space-between; margin: 60px 0 40px; flex-wrap: wrap; gap: 15px; /* Ajout wrap et gap pour responsive */ }
+
+/* MODIFIÉ: Cible les nouvelles classes .prev-project et .next-project */
+.prev-project,
+.next-project { 
+  display: inline-flex; /* Utiliser inline-flex pour que le bouton s'adapte au contenu */
+  align-items: center; 
+  gap: 10px; 
+  padding: 15px 25px; 
+  background: #444875; 
+  color: #ffffff; 
+  text-decoration: none; 
+  border-radius: 30px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+  border: 2px solid var(--accent-color); 
+  font-weight: bold; 
+  transition: all 0.3s ease; 
+  position: relative; 
+  z-index: 1; 
+  overflow: hidden; 
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
 }
-.project-nav-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, var(--accent-color), #6b8cff); opacity: 0; transition: opacity 0.3s ease; z-index: -1; } /* Effet de fond dégradé au survol */
-.project-nav-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(93, 93, 255, 0.5); color: #ffffff; } /* Effet survol */
-.project-nav-btn:hover::before { opacity: 1; } /* Affichage effet fond */
-.project-nav-btn svg { width: 20px; height: 20px; fill: currentColor; } /* Icônes flèches */
+
+/* MODIFIÉ: Cible les nouvelles classes */
+.prev-project::before,
+.next-project::before { 
+  content: ''; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background: linear-gradient(45deg, var(--accent-color), #6b8cff); 
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+  z-index: -1; 
+}
+
+/* MODIFIÉ: Cible les nouvelles classes */
+.prev-project:hover,
+.next-project:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 6px 20px rgba(93, 93, 255, 0.5); 
+  color: #ffffff; 
+}
+
+/* MODIFIÉ: Cible les nouvelles classes */
+.prev-project:hover::before,
+.next-project:hover::before { 
+  opacity: 1; 
+}
+
+/* MODIFIÉ: Cible les nouvelles classes */
+.prev-project svg,
+.next-project svg { 
+  width: 20px; 
+  height: 20px; 
+  fill: currentColor; 
+  flex-shrink: 0; /* Empêche le SVG de rétrécir */
+}
+
+/* Optionnel: Ajustement pour l'ordre SVG/Texte si nécessaire */
+.next-project {
+  /* Si vous voulez le SVG après le texte, vous pouvez utiliser flex-direction */
+  /* flex-direction: row-reverse; */ 
+}
 
 /* Galerie d'images du projet */
 .project-gallery { margin-top: 40px; background: var(--card-bg); border-radius: 12px; padding: 25px; box-shadow: 0 8px 25px var(--shadow-color); margin-bottom: 30px; } /* Conteneur galerie */
@@ -526,6 +597,22 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 [data-theme="light"] .gallery-item:hover { border-color: var(--accent-color); box-shadow: 0 10px 25px rgba(93, 93, 255, 0.2); }
 [data-theme="light"] .project-navigation a { background-color: var(--card-bg); color: var(--accent-color); border-color: rgba(93, 93, 255, 0.3); box-shadow: 0 4px 10px var(--shadow-color); }
 [data-theme="light"] .project-navigation a:hover { background-color: #f0f4ff; border-color: var(--accent-color); box-shadow: 0 6px 15px rgba(93, 93, 255, 0.2); }
+
+/* MODIFIÉ: Cible les nouvelles classes */
+[data-theme="light"] .project-navigation .prev-project, 
+[data-theme="light"] .project-navigation .next-project { 
+  background-color: var(--card-bg); 
+  color: var(--accent-color); 
+  border-color: rgba(93, 93, 255, 0.3); 
+  box-shadow: 0 4px 10px var(--shadow-color); 
+}
+/* MODIFIÉ: Cible les nouvelles classes */
+[data-theme="light"] .project-navigation .prev-project:hover, 
+[data-theme="light"] .project-navigation .next-project:hover { 
+  background-color: #f0f4ff; 
+  border-color: var(--accent-color); 
+  box-shadow: 0 6px 15px rgba(93, 93, 255, 0.2); 
+}
 
 /* =========================
    COMPÉTENCES (Skills)
@@ -671,7 +758,7 @@ footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 5
   .project-preview { height: 250px; } /* Aperçu moins haut */
   .project-preview-overlay h3 { color: white; font-size: 1rem; } /* Titre overlay plus petit */
   .project-hero { height: 250px; } /* Image détail projet moins haute */
-  .project-navigation { flex-direction: column; gap: 15px; } /* Navigation projet en colonne */
+  .project-navigation { flex-direction: column; gap: 15px; align-items: center; } /* Navigation projet en colonne */
   .project-detail .project-links { flex-direction: column; } /* Liens détail projet en colonne */
   .gallery-grid { grid-template-columns: 1fr; } /* Galerie 1 colonne */
   .skills-categories { flex-direction: column; gap: 30px; } /* Catégories compétences en colonne */

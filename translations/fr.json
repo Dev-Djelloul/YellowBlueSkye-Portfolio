@@ -1,14 +1,22 @@
 {
   "meta": {
-    "title": "YellowBlueSkye - Développeur Web",
+    "title": "YellowBlueSkye - Web Developer & Designer Portfolio",
     "projectsTitle": "YellowBlueSkye - Projets & Compétences"
   },
+
   "header": {
-    "title": "Intégrateur Web & Designer Web",
+    "title": "YellowBlueSkye Designer",
     "about": "À PROPOS",
     "projects": "MES PROJETS",
     "contact": "CONTACT"
   },
+
+  "nav": {
+    "about": "UN PEU DE MOI ...",
+    "projects": "MES PROJETS ET COMPÉTENCES",
+    "contact": "CONTACTEZ MOI"
+  },
+
   "about": {
     "title": "Bienvenue sur mon portfolio ! 🌈",
     "intro": "Hey ! Je m'appelle Djelloul, je suis un parisien passionné par l'art, les civilisations anciennes, les voyages autour du globe 🌎 et les longues randonnées à vélo 🚲!",
@@ -28,7 +36,9 @@
     "viewAllProjects": "Voir tous mes projets et compétences",
     "viewLive": "Voir le projet",
     "viewCode": "GitHub",
-    "headerTitle": "MES PROJETS"
+    "headerTitle": "MES PROJETS",
+    "prevProject": "Projet Précédent : {projectName}",
+    "nextProject": "Projet Suivant : {projectName}"
   },
   "skills": {
     "title": "Mes compétences techniques",
@@ -70,7 +80,8 @@
     "sophieBluel": "Sophie Bluel",
     "memoryGame": "Memory Game",
     "arcadiaZoo": "Arcadia Zoo",
-    "budgetBuddy": "Budget Buddy"
+    "budgetBuddy": "Budget Buddy",
+    "tetrisWindsurf": "Tetris Windsurf"
   },
   "projectDescriptions": {
     "ridingCities": {
@@ -186,11 +197,13 @@
       "challengesSolutions": "Le principal défi était d'adapter les mécaniques de jeu classiques du Tetris à une thématique de windsurf tout en gardant une jouabilité fluide et intuitive. J'ai résolu ce problème en concevant des pièces de Tetris personnalisées qui rappellent des éléments de planche à voile et en ajoutant des effets visuels comme des vagues et des éclaboussures d'eau pour renforcer l'ambiance nautique. Un autre défi était d'optimiser les performances pour les appareils mobiles, ce que j'ai résolu en implémentant des techniques de rendu efficaces et en adaptant la complexité graphique en fonction des capacités du dispositif."
     }
   },
-  "ui": {
-    "backToTop": "Retour en haut"
-  },
+
   "navigation": {
     "previousProject": "Projet précédent",
     "nextProject": "Projet suivant"
+  },
+
+  "ui": {
+    "backToTop": "Retour en haut"
   }
 }

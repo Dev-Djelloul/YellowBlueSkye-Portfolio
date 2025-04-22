@@ -37,6 +37,28 @@
         </video>
       </a>
       <h1>BOOKI</h1>
+      <div class="theme-toggle">
+        <button id="theme-switch" aria-label="Changer de thème">
+          <svg width="24" height="24" viewBox="0 0 24 24" class="moon-icon">
+            <path
+              d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="sun-icon"
+            style="display: none"
+          >
+            <path
+              d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v0a1 1 0 0 0 1 1zm0 20a1 1 0 0 0-1 1v0a1 1 0 0 0 2 0v0a1 1 0 0 0-1-1zm10-11h0a1 1 0 0 0 0-2h0a1 1 0 0 0 0 2zM2 11h0a1 1 0 0 0 0 2h0a1 1 0 0 0 0-2zm16.95-5.95a1 1 0 0 0 0-1.41l0 0a1 1 0 0 0-1.41 0l0 0a1 1 0 0 0 0 1.41l0 0a1 1 0 0 0 1.41 0zm-14.9 14.9a1 1 0 0 0 0-1.41l0 0a1 1 0 0 0-1.41 0l0 0a1 1 0 0 0 0 1.41l0 0a1 1 0 0 0 1.41 0zM18.95 18.95a1 1 0 0 0 0-1.41l0 0a1 1 0 0 0-1.41 0l0 0a1 1 0 0 0 0 1.41l0 0a1 1 0 0 0 1.41 0zm-14.9-14.9a1 1 0 0 0 0-1.41l0 0a1 1 0 0 0-1.41 0l0 0a1 1 0 0 0 0 1.41l0 0a1 1 0 0 0 1.41 0z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div> 
     </header>
 
   <!-- Section Projet Détaillé -->
@@ -118,24 +140,30 @@
       </div>
     </div>
 
-    <!-- Navigation entre projets -->
-    <div class="project-navigation">
-      <a href="riding-cities.html" class="project-nav-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="19" y1="12" x2="5" y2="12"></line>
-          <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        <span data-i18n="projectDetails.previousProjectRidingCities">Projet précédent : Riding Cities</span>
-      </a>
-      <a href="ohmyfood.html" class="project-nav-btn">
-        <span data-i18n="projectDetails.nextProjectOhmyfood">Projet suivant : Ohmyfood</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>
-    </div>
-  </section>
+      <!-- Navigation entre projets -->
+      <div class="project-navigation">
+        <a href="riding-cities.html" 
+           class="prev-project"
+           data-i18n="projects.prevProject"  
+           data-project-key="ridingCities">  
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Projet précédent : Riding Cities</span>
+        </a>
+        <a href="ohmyfood.html" 
+           class="next-project" 
+           data-i18n="projects.nextProject" 
+           data-project-key="ohmyfood">  
+          <span>Projet suivant : Ohmyfood</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </section>
 
   <footer id="footer">
     <p data-i18n="footer.copyright">&copy; 2024 YellowBlueSkye. Tous droits réservés.</p>

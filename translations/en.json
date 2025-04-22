@@ -4,12 +4,19 @@
     "projectsTitle": "YellowBlueSkye - Projects & Skills"
   },
   "header": {
-    "title": "YELLOWBLUESKYE WEB DESIGNER",
+    "title": "YellowBlueSkye Designer",
     "about": "ABOUT",
     "projects": "MY PROJECTS",
     "contact": "CONTACT",
     "languageSwitch": "<a href=\"projects-en.html\" id=\"switch-to-en\" title=\"Switch to English\">"
   },
+
+  "nav": {
+    "about": "A BIT ABOUT ME...",
+    "projects": "MY PROJECTS & SKILLS",
+    "contact": "CONTACT ME"
+  },
+
   "about": {
     "title": "Welcome to my portfolio",
     "intro": "Hey! My name is Djelloul, I'm a Parisian passionate about art, ancient civilizations, traveling around the globe 🌎 and long bike rides 🚲!",
@@ -20,6 +27,7 @@
     "future": "I hope to learn more and continue to improve in this field that I'm now so passionate about.",
     "invitation": "Explore my portfolio to discover my projects and don't hesitate to contact me to work together on new projects!"
   },
+  
   "projects": {
     "title": "Explore my projects in pictures",
     "pageTitle": "Projects - YellowBlueSkye Portfolio",
@@ -29,7 +37,9 @@
     "viewProject": "View project",
     "viewAllProjects": "View all my projects and skills",
     "viewLive": "View project",
-    "viewCode": "GitHub"
+    "viewCode": "GitHub",
+    "prevProject": "Previous Project: {projectName}",
+    "nextProject": "Next Project: {projectName}"
   },
   "skills": {
     "title": "My hard skills",
@@ -71,7 +81,8 @@
     "sophieBluel": "Sophie Bluel",
     "memoryGame": "Memory Game",
     "arcadiaZoo": "Arcadia Zoo",
-    "budgetBuddy": "Budget Buddy"
+    "budgetBuddy": "Budget Buddy",
+    "tetrisWindsurf": "Tetris Windsurf"
   },
   "projectDescriptions": {
     "ridingCities": {
@@ -188,11 +199,13 @@
       "challengesSolutions": "The main challenge was adapting Tetris' classic game mechanics to a windsurfing theme while maintaining fluid and intuitive gameplay. I solved this problem by designing custom Tetris pieces that resemble windsurfing elements and adding visual effects such as waves and water splashes to enhance the nautical atmosphere. Another challenge was optimizing performance for mobile devices, which I solved by implementing efficient rendering techniques and adapting graphical complexity based on device capabilities."
     }
   },
-  "ui": {
-    "backToTop": "Back to top"
-  },
-  "navigation": {
+
+    "navigation": {
     "previousProject": "Previous Project",
     "nextProject": "Next Project"
+  },
+
+    "ui": {
+    "backToTop": "Back to top"
   }
 }

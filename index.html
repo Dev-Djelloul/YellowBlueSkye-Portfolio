@@ -46,25 +46,32 @@
       </div>
     </header>
 
-    <!-- Menu dropdown qui apparaît sous le header -->
-    <div class="dropdown-menu" id="dropdown-menu">
-      <!-- Navigation -->
-      <nav class="dropdown-nav">
-        <ul>
-          <li>
-            <a href="#about"><h2>UN PEU DE MOI ...</h2></a>
-          </li>
-          <li>
-            <a href="/projects.html"><h2>MES PROJETS</h2></a>
-          </li>
-          <li>
-            <a href="/contact.html"><h2>CONTACTEZ MOI</h2></a>
-          </li>
-        </ul>
-      </nav>
+        <!-- Menu dropdown qui apparaît sous le header -->
+        <div class="dropdown-menu" id="dropdown-menu">
+         <!-- Navigation -->
+         <nav class="dropdown-nav">
+          <ul>
+            <li>
+              <a href="#about" data-i18n="nav.about"><h2>UN PEU DE MOI ...</h2></a>
+            </li>
+            <li>
+              <a href="/projects.html" data-i18n="nav.projects"><h2>MES PROJETS ET COMPÉTENCES</h2></a>
+            </li>
+            <li>
+              <a href="/contact.html" data-i18n="nav.contact"><h2>CONTACTEZ MOI</h2></a>
+            </li>
+          </ul>
+        </nav>
 
       <!-- Contrôles alignés -->
       <div class="menu-controls">
+        <video id="logo-video-dropdown" autoplay loop muted playsinline>
+          <source
+            src="/images/logoVideos/Logo-Globe-Video.mp4"
+            type="video/mp4"
+          />
+          <span>YELLOWBLUESKYE LOGO</span>
+        </video>
         <button id="lang-switch" aria-label="Changer de langue">
           <a
             href="javascript:void(0)"
@@ -112,13 +119,6 @@
             />
           </svg>
         </button>
-        <video id="logo-video-dropdown" autoplay loop muted playsinline>
-          <source
-            src="/images/logoVideos/Logo-Globe-Video.mp4"
-            type="video/mp4"
-          />
-          <span>YELLOWBLUESKYE LOGO</span>
-        </video>
       </div>
     </div>
 

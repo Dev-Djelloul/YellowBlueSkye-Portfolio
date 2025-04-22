@@ -35,25 +35,20 @@ document.addEventListener('DOMContentLoaded', function() {
   function translatePage() {
     console.log("Translating page to: " + currentLanguage);
     
+    // --- Traduction des éléments avec data-i18n ---
     const elements = document.querySelectorAll('[data-i18n]');
-    console.log("Found " + elements.length + " elements to translate");
+    console.log("Found " + elements.length + " elements with [data-i18n]");
 
-    // Ajouter ces lignes dans la fonction translatePage() juste après console.log("Found " + elements.length + " elements to translate");
-
-    // Traitement spécial pour les titres h1 et h2
+    // ... (Code existant pour les titres h1/h2) ...
     const headings = document.querySelectorAll('h1[data-i18n], h2[data-i18n]');
     console.log("Found " + headings.length + " headings to translate specifically");
-
-    // Log pour déboguer les clés des titres
     headings.forEach(heading => {
       const key = heading.getAttribute('data-i18n');
-      console.log("Heading key: " + key);
       const translation = getNestedTranslation(translations, key);
-      console.log("Translation found for heading: ", translation);
-      
-      // Forcer la traduction des titres
       if (translation) {
-        heading.innerHTML = translation; // Utiliser innerHTML au cas où le titre contient des balises HTML
+        heading.innerHTML = translation;
+      } else {
+        console.warn("No translation found for heading key: " + key);
       }
     });
     
@@ -62,77 +57,87 @@ document.addEventListener('DOMContentLoaded', function() {
       const translation = getNestedTranslation(translations, key);
       
       if (translation) {
-        // Si l'élément est un input avec placeholder
-        if (element.placeholder !== undefined) {
-          element.placeholder = translation;
+        // --- NOUVEAU : Gestion spécifique pour les boutons de navigation projet ---
+        if (element.matches('.prev-project, .next-project')) {
+          const projectKey = element.getAttribute('data-project-key');
+          const projectNameTranslation = getNestedTranslation(translations, 'projectNames.' + projectKey);
+
+          if (projectNameTranslation) {
+            // Remplace le marqueur {projectName} par le nom traduit
+            element.textContent = translation.replace('{projectName}', projectNameTranslation);
+          } else {
+            // Fallback si le nom du projet n'est pas trouvé (affiche juste le format)
+            element.textContent = translation.replace('{projectName}', projectKey); // Affiche la clé en fallback
+            console.warn(`Project name translation not found for key: projectNames.${projectKey}`);
+          }
         }
-        // Si l'élément est un input avec value
+        // --- FIN NOUVEAU ---
+
+        // Si l'élément est un input avec value (EXISTANT)
         else if (element.value !== undefined && element.tagName.toLowerCase() === 'input' && element.type !== 'password') {
           if (element.type === 'submit' || element.type === 'button') {
             element.value = translation;
           }
         }
-        // Si l'élément a des attributs title ou alt
+        // Si l'élément a des attributs title ou alt (EXISTANT)
         else if (element.title !== undefined && key.includes('title')) {
           element.title = translation;
         }
         else if (element.alt !== undefined && key.includes('alt')) {
           element.alt = translation;
         }
-        // Pour les méta tags
+        // Pour les méta tags (EXISTANT)
         else if (element.tagName.toLowerCase() === 'meta' && element.name === 'description') {
           element.content = translation;
         }
-        // Pour le titre de la page
+        // Pour le titre de la page (EXISTANT)
         else if (element.tagName.toLowerCase() === 'title') {
           document.title = translation;
         }
-        // Pour tous les autres éléments
-        else {
+        // Pour tous les autres éléments (sauf les titres déjà traités) (EXISTANT)
+        else if (!element.matches('h1, h2')) { // Évite de retraduire les titres
           element.textContent = translation;
         }
       } else {
-        console.warn("No translation found for key: " + key);
+        // Ne pas afficher d'avertissement pour les titres car ils sont traités séparément
+        if (!element.matches('h1, h2')) {
+          console.warn("No translation found for key: " + key);
+        }
       }
     });
 
-    // Ajoutez ce code à la fin de la fonction translatePage(), juste avant la mise à jour de l'attribut lang
+    // --- NOUVEAU : Traduction des placeholders avec data-i18n-placeholder ---
+    const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+    console.log("Found " + placeholderElements.length + " elements with [data-i18n-placeholder]");
 
-    // Traitement spécial pour le titre des compétences qui ne se traduit pas
+    placeholderElements.forEach(element => {
+      const key = element.getAttribute('data-i18n-placeholder');
+      const translation = getNestedTranslation(translations, key);
+
+      if (translation) {
+        // Appliquer la traduction à l'attribut placeholder
+        element.placeholder = translation;
+      } else {
+        console.warn("No placeholder translation found for key: " + key);
+      }
+    });
+    // --- FIN NOUVEAU ---
+
+
+    // ... (Code existant pour le traitement spécial de skills-title) ...
     const skillsTitle = document.getElementById('skills-title');
     if (skillsTitle) {
-      const key = skillsTitle.getAttribute('data-i18n');
-      const translation = getNestedTranslation(translations, key);
-      console.log("Forcing translation for skills title:", key, translation);
-      if (translation) {
-        // Forcer la traduction après un court délai
-        setTimeout(() => {
-          skillsTitle.textContent = translation;
-          console.log("Skills title translated to:", translation);
-        }, 10);
-      }
+      // ... (code existant) ...
     }
 
-    // Mettre à jour l'attribut lang de l'élément HTML
+    // ... (Reste du code de la fonction translatePage : mise à jour lang, boutons, localStorage, AOS, etc.) ...
     document.documentElement.lang = currentLanguage;
-
-    // Mettre à jour les boutons de langue
     updateLanguageButtons();
-
-    // Sauvegarder la préférence dans localStorage
     localStorage.setItem('language', currentLanguage);
-    
-    // Réinitialiser les animations AOS après traduction
     if (typeof AOS !== 'undefined') {
-      setTimeout(() => {
-        AOS.refresh();
-      }, 100);
+      setTimeout(() => { AOS.refresh(); }, 100);
     }
-
-    // Déclencher un événement personnalisé pour informer d'autres scripts de la traduction
-    document.dispatchEvent(new CustomEvent('translationCompleted', { 
-      detail: { language: currentLanguage }
-    }));
+    document.dispatchEvent(new CustomEvent('translationCompleted', { detail: { language: currentLanguage } }));
   }
 
   // Fonction pour charger les traductions
