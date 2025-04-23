@@ -491,7 +491,7 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 .view-all-projects { text-align: center; margin: 50px 0; }
 
 /* Page de détail d'un projet */
-.project-detail { max-width: 1200px; margin: 0 auto; padding: 20px; } /* Conteneur principal */
+.project-detail { max-width: 1000px; margin: 50px auto 0 auto; /* Centrage automatique avec auto */ padding: 50px 30px 0px 30px; /* Padding horizontal réduit pour les petits écrans */}
 .project-hero { position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 16px; box-shadow: 0 10px 30px var(--shadow-color); margin-bottom: 40px; } /* Grande image en haut */
 .project-hero img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; display: block; } /* Style image */
 .project-hero:hover img { transform: scale(1.05); } /* Effet zoom sur image */
@@ -506,29 +506,29 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 /* Navigation entre projets (Précédent/Suivant) */
 .project-navigation { display: flex; justify-content: space-between; margin: 60px 0 40px; flex-wrap: wrap; gap: 15px; /* Ajout wrap et gap pour responsive */ }
 
-/* MODIFIÉ: Cible les nouvelles classes .prev-project et .next-project */
 .prev-project,
 .next-project { 
-  display: inline-flex; /* Utiliser inline-flex pour que le bouton s'adapte au contenu */
+  display: inline-flex; 
   align-items: center; 
-  gap: 10px; 
-  padding: 15px 25px; 
+  gap: 12px; /* Légèrement augmenté l'espace */
+  padding: 10px 25px; /* Augmenté le padding vertical et horizontal */
   background: #444875; 
   color: #ffffff; 
   text-decoration: none; 
-  border-radius: 30px; 
+  border-radius: 35px; /* Légèrement augmenté le radius */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
   border: 2px solid var(--accent-color); 
   font-weight: bold; 
+  font-size: 0.8rem; /* Optionnel: Augmenter la taille de la police */
   transition: all 0.3s ease; 
   position: relative; 
   z-index: 1; 
   overflow: hidden; 
-  white-space: nowrap; /* Empêche le texte de passer à la ligne */
-}
+  cursor: pointer; /* Ajout d'un curseur main */
+  }
 
-/* MODIFIÉ: Cible les nouvelles classes */
-.prev-project::before,
+
+  .prev-project::before,
 .next-project::before { 
   content: ''; 
   position: absolute; 
@@ -559,8 +559,8 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 /* MODIFIÉ: Cible les nouvelles classes */
 .prev-project svg,
 .next-project svg { 
-  width: 20px; 
-  height: 20px; 
+  width: 22px; /* Optionnel: Augmenter la taille de l'icône */
+  height: 22px; /* Optionnel: Augmenter la taille de l'icône */
   fill: currentColor; 
   flex-shrink: 0; /* Empêche le SVG de rétrécir */
 }
@@ -572,11 +572,15 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 }
 
 /* Galerie d'images du projet */
-.project-gallery { margin-top: 40px; background: var(--card-bg); border-radius: 12px; padding: 25px; box-shadow: 0 8px 25px var(--shadow-color); margin-bottom: 30px; } /* Conteneur galerie */
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 25px; } /* Grille responsive */
-.gallery-item { border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); border: 3px solid var(--secondary-bg); transition: all 0.3s ease; height: 200px; } /* Image individuelle */
-.gallery-item:hover { transform: translateY(-5px) scale(1.02); border-color: var(--accent-color); box-shadow: 0 10px 25px rgba(93, 93, 255, 0.3); } /* Effet survol image */
-.gallery-item img { width: 100%; height: 100%; object-fit: contain; transition: all 0.5s ease; } /* Style image (contain pour voir toute l'image) */
+.project-gallery { margin-top: 40px; background: var(--card-bg); border-radius: 12px; padding: 25px; box-shadow: 0 8px 25px var(--shadow-color); margin-bottom: 15px; } /* Conteneur galerie */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 25px } /* Grille responsive */
+.gallery-item { border-radius: 5px; overflow: hidden; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); border: 3px solid var(--secondary-bg); transition: all 0.3s ease; height: 120px;/* Image individuelle */
+ display: flex; /* Ajout pour centrer l'image */
+ align-items: center; /* Centrage vertical */
+ justify-content: center; /* Centrage horizontal */
+ background-color: var(--secondary-bg); /* Fond pour les images transparentes */}
+.gallery-item:hover { transform: translateY(-50px) scale(2.2); border-color: var(--accent-color); box-shadow: 0 10px 25px rgba(93, 93, 255, 0.3); } /* Effet survol image */
+.gallery-item img { width: 100%; height: 100%; object-fit: contain; transition: all 0.5s ease;} /* Style image (contain pour voir toute l'image) */
 
 /* Carrousel */
 .carousel-container { position: relative; max-width: 100%; margin: 0 auto; overflow: hidden; }
@@ -746,20 +750,38 @@ footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 5
 /* =========================
    RESPONSIVE (Adaptation écrans)
    ========================= */
+
+@media (min-width: 1400px) { 
+  /* Grands écrans */
+  .project-detail { padding: 50px 80px 0px 80px;}
+  .gallery-item {
+    height: 180px; /* Hauteur plus grande sur grands écrans */
+  }
+}
+
 @media (max-width: 1200px) {
   /* Tablettes larges et petits ordinateurs */
   .project-preview-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } /* Grille aperçu passe à 2 colonnes */
+  .gallery-item:hover {
+    transform: translateY(-5px) scale(1.8); 
+    border-color: var(--accent-color); /* Garde la bordure colorée */
+    box-shadow: 0 10px 25px rgba(93, 93, 255, 0.3); /* Garde l'ombre */ 
 }
 
 @media (max-width: 992px) {
   /* Tablettes */
+  .project-detail { max-width: 625px; margin: 50px auto 0 auto; /* Centrage automatique avec auto */ padding: 50px 30px 0px 30px; /* Padding horizontal réduit pour les petits écrans */}
   .skills-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 12px; } /* Grille compétences plus dense */
+  .gallery-item:hover {
+    transform: translateY(-5px); /* Supprime le scale(2.2) et garde/réduit le translateY */
+    border-color: var(--accent-color); /* Garde la bordure colorée */
+    box-shadow: 0 10px 25px rgba(93, 93, 255, 0.3); /* Garde l'ombre */
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   /* Mobiles */
   body { padding-top: 60px; } /* Ajuster le padding du body pour le header compact */
-
 
   /* Ajuster le Header Compact pour Mobile */
   header { height: 60px; padding: 0 15px; } /* Header compact */
@@ -780,13 +802,13 @@ footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 5
   /* Ajustements généraux du contenu pour mobile */
   .about-text-box { padding: 15px; }
   .projects-grid { grid-template-columns: 1fr; padding: 15px; } /* Grille projets 1 colonne */
-  .project-card img { height: 280px; } /* Image carte projet plus haute */
+  .project-card img { height: 180px; } /* Image carte projet plus haute */
   .project-preview-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 10px; } /* Grille aperçu 1 colonne */
   .project-preview { height: 250px; } /* Aperçu moins haut */
   .project-preview .btn-view-project { padding: 8px 18px; /* Réduit le padding vertical et horizontal */font-size: 0.9rem; /* Réduit la taille de la police */min-width: auto; /* Permet au bouton de prendre une largeur plus naturelle si nécessaire */}
   .project-preview-overlay h3 { color: white; font-size: 1rem; } /* Titre overlay plus petit */
   .project-hero { height: 250px; } /* Image détail projet moins haute */
-  .project-navigation { flex-direction: column; gap: 15px; align-items: center; } /* Navigation projet en colonne */
+  .project-navigation { flex-wrap: nowrap; display: flex; justify-content: space-between; gap: 15px; align-items: center; } /* Navigation projet en colonne */
   .project-detail .project-links { flex-direction: column; } /* Liens détail projet en colonne */
   .gallery-grid { grid-template-columns: 1fr; } /* Galerie 1 colonne */
   .skills-categories { flex-direction: column; gap: 30px; } /* Catégories compétences en colonne */
@@ -804,4 +826,10 @@ footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 5
   }
   .dropdown-nav a { font-size: 1rem; } /* Liens plus petits */
   .menu-controls { width: 90%; gap: 20px; margin-left: 20px; } /* Contrôles dropdown */
+
+  .gallery-item:hover {
+    transform: translateY(-5px); /* Supprime le scale(2.2) et garde/réduit le translateY */
+    border-color: var(--accent-color);  /* Garde la bordure colorée */
+    box-shadow: 0 10px 25px rgba(93, 93, 255, 0.3);  /* Garde l'ombre */
+  }
 }

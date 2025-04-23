@@ -140,6 +140,48 @@ document.addEventListener('DOMContentLoaded', function() {
     document.dispatchEvent(new CustomEvent('translationCompleted', { detail: { language: currentLanguage } }));
   }
 
+  // Fonction pour mettre à jour la navigation des projets (simplifiée)
+  function updateProjectNavigation(translations) {
+    const prevLink = document.querySelector('.prev-project');
+    const nextLink = document.querySelector('.next-project');
+
+    // --- Mise à jour du TITLE UNIQUEMENT ---
+
+    if (prevLink && prevLink.dataset.projectKey) {
+      const projectKey = prevLink.dataset.projectKey;
+      const projectName = getNestedTranslation(translations, 'projectNames.' + projectKey); // On a toujours besoin du nom traduit pour le title
+      const titleKey = prevLink.dataset.i18nTitle;
+      
+      // Mettre à jour le title si data-i18n-title est utilisé
+      if (titleKey && projectName) {
+          let titleTemplate = getNestedTranslation(translations, titleKey);
+          if (titleTemplate) {
+              prevLink.setAttribute('title', titleTemplate.replace('{projectName}', projectName));
+          }
+      } 
+      // else { // Si pas de nom traduit, on peut mettre un title générique ou laisser celui du HTML
+      //    prevLink.setAttribute('title', 'Previous Project'); 
+      // }
+    }
+
+    if (nextLink && nextLink.dataset.projectKey) {
+      const projectKey = nextLink.dataset.projectKey;
+      const projectName = getNestedTranslation(translations, 'projectNames.' + projectKey); // On a toujours besoin du nom traduit pour le title
+      const titleKey = nextLink.dataset.i18nTitle;
+
+      // Mettre à jour le title si data-i18n-title est utilisé
+       if (titleKey && projectName) {
+           let titleTemplate = getNestedTranslation(translations, titleKey);
+           if (titleTemplate) {
+               nextLink.setAttribute('title', titleTemplate.replace('{projectName}', projectName));
+           }
+       }
+       // else { // Si pas de nom traduit, on peut mettre un title générique ou laisser celui du HTML
+       //    nextLink.setAttribute('title', 'Next Project'); 
+       // }
+    }
+  }
+
   // Fonction pour charger les traductions
   async function loadTranslations(lang) {
     try {
@@ -151,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
       translations = await response.json();
       console.log("Translations loaded successfully");
       translatePage();
+      updateProjectNavigation(translations);
     } catch (error) {
       console.error(`Error loading translations: ${error}`);
       // Fallback: if file not found, try relative path
@@ -161,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         translations = await fallbackResponse.json();
         translatePage();
+        updateProjectNavigation(translations);
       } catch (fallbackError) {
         console.error(`Fallback error loading translations: ${fallbackError}`);
       }
