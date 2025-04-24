@@ -89,6 +89,7 @@ header, .compact-header {
   background: rgba(35, 36, 54, 0.9); /* Fond semi-transparent sombre par défaut */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre portée */
   border-bottom: 3px solid var(--accent-color); /* Ligne d'accentuation en bas */
+  border-radius: 0 0 15px 15px; /* Arrondit les coins inférieurs */
 }
 /* Styles spécifiques au header normal (plus grand) */
 header {
@@ -113,12 +114,12 @@ header.nav-hidden, .compact-header.nav-hidden { transform: translateY(-100%); } 
 header.nav-scrolled, .compact-header.nav-scrolled { background-color: rgba(35, 36, 54, 0.95); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
 
 /* Styles du header en thème clair */
-[data-theme="light"] header, [data-theme="light"] .compact-header { background-color: rgba(240, 238, 255, 0.8); box-shadow: 0 4px 15px var(--shadow-color); border-bottom-color: var(--accent-color); }
+[data-theme="light"] header, [data-theme="light"] .compact-header { background-color: rgb(240, 238, 255); box-shadow: 0 4px 15px var(--shadow-color); border-bottom-color: var(--accent-color); }
 
 /* Alignement du contenu du Header */
 .header-container { width: 100%; display: flex; justify-content: space-between; align-items: center; } /* Utilisé dans le header compact pour structurer */
 .header-logo { display: flex; align-items: center; } /* Conteneur pour le logo vidéo */
-#logo-video { height: 48px; width: auto; object-fit: contain; border-radius: 50%; border: 1px solid var(--border-color); /* Bordure */
+#logo-video { height: 45px; width: auto; object-fit: contain; border-radius: 50%; border: 1px solid var(--border-color); /* Bordure */
   box-shadow: 0 3px 10px #5d5dff; /* Ombre (légèrement ajustée) */; } /* Style du logo vidéo */
 .compact-header #logo-video { height: 35px; } /* Logo légèrement plus petit dans le header compact */
 
@@ -132,9 +133,6 @@ header h1 {
   color: var(--accent-color); /* Couleur d'accentuation */
   text-shadow: 0 0 10px rgba(93, 93, 255, 0.5); /* Ombre de texte légère */
 }
-
-/* Navigation Header (Normale - Supprimée car le dropdown est utilisé) */
-/* header nav { margin: 15px 0; } ... etc ... */
 
 /* Contrôles Header (Langue & Thème) */
 .header-left { display: flex; align-items: center; gap: 15px; } /* Côté gauche du header compact */
@@ -178,8 +176,7 @@ header h1 {
 .theme-toggle button:focus {
   outline: none; /* Pas de contour au focus */
 }
-
-/* Bouton de thème en mode clair - Ces règles pourraient nécessiter un ajustement */
+/* Style pour le bouton de thème dans le header normal */
 [data-theme="light"] .theme-toggle button {
   background: none; /* Pas de fond */
   border: none; /* Pas de bordure */
@@ -213,8 +210,19 @@ header h1 {
   transition: color 0.3s; /* Transition pour la couleur */
   padding: 10px; /* Zone cliquable */
 }
+
+/* Icône hamburger dans le header */
 .hamburger:hover {
   color: #ff66c4; /* Couleur rose au survol */
+}
+
+/* Icône hamburger au hover dans le header */
+[data-theme="light"] .hamburger {
+  color: #ff66c4; /* Couleur rose par défaut */
+}
+
+[data-theme="light"] .hamburger:hover {
+  color: #5d5dff; /* Couleur d'accentuation au survol */
 }
 
 /* =========================
@@ -365,8 +373,8 @@ header h1 {
    TITRES DE SECTION
    ========================= */
 .title-banner {
-  color: var(--text-color); background-color: rgba(35, 36, 54, 0.7); position: relative; /* Style bannière */
-  padding: 15px; width: fit-content; margin: 30px auto; border-radius: 5px; /* Dimensions et espacement */
+  color: var(--text-color); background-color: var(--card-bg); position: relative; /* Style bannière */
+  padding: 20px; width: fit-content;  margin: 0 auto 30px;   border-radius: 5px 5px 15px 15px; /* Arrondit les coins inférieurs */  ; /* Dimensions et espacement */
 }
 .title-banner::after { /* Soulignement décoratif */
   content: ""; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); /* Positionnement */
@@ -382,10 +390,10 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
    SECTION "À PROPOS"
    ========================= */
 .about-text-box {
-  background: rgba(35, 36, 54, 0.7); padding: 25px; border-radius: 10px; /* Boîte de texte */
-  box-shadow: 0 8px 30px var(--shadow-color) !important; margin: 30px auto; max-width: 900px; /* Ombre, marges, largeur max */
+  background: rgba(35, 36, 54, 0.7); padding: 25px; border-radius: 0px; /* Boîte de texte */
+  box-shadow: 0 8px 30px var(--shadow-color) !important; margin: 0px auto; max-width: 900px; /* Ombre, marges, largeur max */
 }
-.about-text-box p { color: #b8c2cc; line-height: 1.7; font-size: 16px; margin-bottom: 15px; } /* Style des paragraphes */
+.about-text-box p { color: #b8c2cc; line-height: 1.7; font-size: 16px; margin-bottom: 0px; } /* Style des paragraphes */
 .link-schools-openclassrooms, .link-schools-studi { /* Liens vers les écoles */
   color: var(--accent-color); text-decoration: none; font-weight: bold; /* Style de base */
   border-bottom: 2px dotted var(--accent-color); padding-bottom: 2px; transition: all 0.3s ease; /* Soulignement pointillé et transition */
@@ -414,7 +422,7 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 .btn, .btn-back-home, .btn-view-project, .view-all-projects .btn, .project-links a:first-child, .contact-form button, .project-detail .project-links a:first-child {
   display: inline-block; padding: 12px 25px; background: linear-gradient(45deg, var(--accent-color), #6b8cff); color: white; /* Affichage, padding, fond dégradé, couleur texte */
   text-decoration: none; border-radius: 30px; font-weight: bold; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Style texte, forme, ombre */
-  transition: all 0.3s ease; border: none; cursor: pointer; text-align: center; /* Transition, reset bordure, curseur, alignement */
+  transition: all 0.3s ease; border: none; cursor: pointer; text-align: center; font-family: inherit;/* Transition, reset bordure, curseur, alignement */
 }
 /* Effet commun au survol des boutons principaux */
 .btn:hover, .btn-back-home:hover, .btn-view-project:hover, .view-all-projects .btn:hover, .project-links a:first-child:hover, .contact-form button:hover, .project-detail .project-links a:first-child:hover {
@@ -627,7 +635,7 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 /* =========================
    COMPÉTENCES (Skills)
    ========================= */
-.skills-section { padding: 40px 0; } /* Section compétences */
+.skills-section { padding: 0px 0; } /* Section compétences */
 .skills-categories { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1400px; margin: 0 auto; padding: 15px; } /* Conteneur des catégories */
 .skills-category { /* Catégorie individuelle */
   flex: 1; min-width: 280px; max-width: 450px; background-color: var(--card-bg); border-radius: 12px; padding: 20px; /* Dimensions, fond, forme */
@@ -678,7 +686,7 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 
 /* Carte Google Maps */
 .contact-map { margin-bottom: 60px; }
-.map { border-radius: 15px; box-shadow: 0 10px 30px var(--shadow-color); width: 100%; max-width: 900px; height: 350px; margin: 0 auto; border: none; display: block; } /* Style de la carte */
+.map { border-radius: 2px; box-shadow: 0 10px 30px var(--shadow-color); width: 100%; max-width: 900px; height: 350px; margin: 0 auto; border: none; display: block; } /* Style de la carte */
 
 /* Section email */
 .contact-email {
@@ -692,7 +700,7 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 /* Liens réseaux sociaux */
 .social-media { display: flex; justify-content: center; gap: 30px; margin: 50px 0; } /* Conteneur */
 .social-media a { /* Bouton rond pour chaque réseau */
-  display: flex; align-items: center; justify-content: center; width: 70px; height: 70px; background: var(--card-bg); border-radius: 50%; /* Dimensions, fond, forme */
+  display: flex; align-items: center; justify-content: center; width: 66px; height: 66px; background: var(--card-bg); border-radius: 50%; /* Dimensions, fond, forme */
   transition: all 0.4s ease; box-shadow: 0 8px 20px var(--shadow-color); position: relative; overflow: hidden; /* Transition, ombre, position pour effet */
 }
 .social-media a::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, var(--accent-color), #6b8cff); opacity: 0; transition: opacity 0.4s ease; z-index: 0; } /* Fond coloré au survol (caché) */
@@ -733,8 +741,8 @@ h3.title-banner::after { width: 60px; height: 3px; } /* Soulignement plus petit 
 /* =========================
    FOOTER (Pied de page)
    ========================= */
-footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 50px; border-top: 1px solid var(--secondary-bg); border-radius: 15px 15px 0 0; } /* Style pied de page */
-[data-theme="light"] footer { background-color: var(--secondary-bg); color: var(--skill-text-color); border-top-color: var(--border-color); } /* Pied de page en thème clair */
+footer { background-color: #1f2032; color: var(--accent-color); padding: 20px; margin-top: 50px; border-top: 3px solid var(--accent-color); border-radius: 15px 15px 0 0; } /* Style pied de page */
+[data-theme="light"] footer { background-color: var(--secondary-bg); color: var(--accent-color); border-top-color: 3px solid var(--accent-color); } /* Pied de page en thème clair */
 
 /* =========================
    UTILITAIRES & EFFETS
@@ -799,8 +807,25 @@ footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 5
   .theme-toggle button { width: 35px; height: 35px; } /* Bouton thème plus petit */
   .theme-toggle button svg { width: 18px; height: 18px; }
 
+  /* Ajustee le titre bannière pour mobile */
+  .title-banner {
+    font-size: 1rem; /* Réduire la taille de la police (ajustez si besoin) */
+    padding: 15px; /* Réduire le padding */
+  }
+  .title-banner::after {
+    width: 60px; /* Réduire la largeur du trait */
+    height: 3px; /* Réduire l'épaisseur du trait */
+    bottom: -8px; /* Ajuster la position du trait */
+  }
+  /* Si vous utilisez h3.title-banner, ajustez aussi son trait */
+  h3.title-banner::after {
+    width: 40px;
+    height: 2px;
+  }
+
+
   /* Ajustements généraux du contenu pour mobile */
-  .about-text-box { padding: 15px; }
+  .about-text-box { margin: 0px; padding: 10px; }
   .projects-grid { grid-template-columns: 1fr; padding: 15px; } /* Grille projets 1 colonne */
   .project-card img { height: 180px; } /* Image carte projet plus haute */
   .project-preview-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 10px; } /* Grille aperçu 1 colonne */
@@ -811,8 +836,8 @@ footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 5
   .project-navigation { flex-wrap: nowrap; display: flex; justify-content: space-between; gap: 15px; align-items: center; } /* Navigation projet en colonne */
   .project-detail .project-links { flex-direction: column; } /* Liens détail projet en colonne */
   .gallery-grid { grid-template-columns: 1fr; } /* Galerie 1 colonne */
-  .skills-categories { flex-direction: column; gap: 30px; } /* Catégories compétences en colonne */
-  .skills-category { min-width: auto; padding: 15px 10px; }
+  .skills-categories { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 30px; padding: 10px; } /* Catégories compétences en colonne */
+  .skills-category { padding: 15px 10px; margin-bottom: 0; }
   .skills-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 10px; } /* Grille compétences plus dense */
   .skill-icon { width: 45px; height: 45px; padding: 8px; }
   .skill img { width: 25px; height: 25px; }
@@ -833,3 +858,4 @@ footer { background-color: #1f2032; color: #b8c2cc; padding: 20px; margin-top: 5
     box-shadow: 0 10px 25px rgba(93, 93, 255, 0.3);  /* Garde l'ombre */
   }
 }
+ƒ
